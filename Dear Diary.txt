@@ -6,5 +6,18 @@
 1/9/25
 - Regex is going to be very complicated by the time I account for one- or two-digit days and months, the use of "/" or "-" or space or no divider between day/month/year, and then figuring out which part of the input is the day vs the month if either or both are a single digit -> back to using input type=date.
 - Got date input. Can print the user's input to the screen, and can retrieve the day, month, and year separately.
-- Got the full date, as well as each component (day, month, and year) as both an array of digits and as the sum of those digits.
-- Got a working function that recursively adds all the digits until it gets to a number from 1 to 9 or a multiple of 11. This is the big one!
+- Got the full date, as well as each component (day, month, and year), as both an array of digits and as the sum of those digits.
+- Got a working function that recursively adds all the digits until it gets to a number from 1 to 9 or a multiple of 11. This is the main goal!
+- Problem: the day digits are getting added up before they see the addThese() recursive function, so 11s are getting missed. 
+- Turns out, I can run addThese() directly on the date and year pulled from $input, without converting to arrays and sums first! Also, successfully detecting multiples of 11 now.
+- Discovered something weird using my own DOB, of all dates: if the whole string of digits happens to be a multiple of 11, it gets returned as-is. I've added a "<=33" condition to the "if" statement to fix this. 
+- I can run the alternative calculation method by running addThese on each of the components from the date input, then adding those together, then running addThese on the result. 
+- Added a pair of radio buttons. Set the default to be checked. Useful reference: https://www.phptutorial.net/php-tutorial/php-radio-button/
+- The page output now depends on which radio button is selected.
+- Used some in-line php to make the form remember which radio button had been selected by the user. Reference: https://www.nextgeducation.com/how-to-keep-radio-button-checked-after-form-submit-in-php
+
+Next: add lookup tables to determine both zodiac signs. This will be good practice at using lookup tables, which I'll need to use for name-based numerology.
+
+https://dev.to/joemoses33/write-good-php-lookup-arrays-493a
+
+- Installed mySql
