@@ -1,0 +1,10 @@
+31/8/25
+- Got PHP installed and working on VS Code, thanks to this wonderful person's video: https://www.youtube.com/watch?v=3iUQWz3pTvA
+- Made a basic index.php file with a simple form containing a few different versions of date input.
+- Researched regex. I want to use something like a number input rather than type=date which has a bad reputation.
+
+1/9/25
+- Regex is going to be very complicated by the time I account for one- or two-digit days and months, the use of "/" or "-" or space or no divider between day/month/year, and then figuring out which part of the input is the day vs the month if either or both are a single digit -> back to using input type=date.
+- Got date input. Can print the user's input to the screen, and can retrieve the day, month, and year separately.
+- Got the full date, as well as each component (day, month, and year) as both an array of digits and as the sum of those digits.
+- Got a working function that recursively adds all the digits until it gets to a number from 1 to 9 or a multiple of 11. This is the big one!
