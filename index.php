@@ -10,18 +10,6 @@
 <form name="dob-entry-form" method="POST" action="">
     <fieldset>
         <legend>Enter your date of birth:</legend>
-
-            <!-- <label for="dob">Date of birth
-                <input type="text" id="dob" name="dob" maxlength="10" size="10" pattern="[0-9]{1,2}[/-]?[0-9]{1,2}"/>
-            </label> -->
-
-        <!-- <label for="dob-day">Day (DD)</label>
-            <input type="number" id="dob-day" name="dob-day" min="1" max="31" size="4" maxlength="2" required />
-        <label for="dob-month">Month (MM)</label>
-            <input type="number" id="dob-month" name="dob-month" min="1" max="12" size="4" maxlength="2" required />
-        <label for="dob-year">Year (YYYY)</label>
-            <input type="number" id="dob-year" name="dob-year" min="1" max="2999" size="6" maxlength="4" required /> -->
-
         <label for="dob">Date of birth
             <input type="date" id="dob" name="dob" />
         </label>
@@ -54,18 +42,18 @@
     $daySum = array_sum($dayDigits);
 
     function addThese($inputNumber) {
-        if($inputNumber <=9 || $inputNumber % 11 == 0) {
-            echo 'Result: ' . $inputNumber . '<br>';
+        if($inputNumber % 11 == 0 || $inputNumber <=9) {
+            echo 'Returning input number as: ' . $inputNumber . '<br>';
             return $inputNumber;
         } else {
-            echo 'Going to keep adding ' . $inputNumber . '<br>';
+            echo 'Continuing to iterate with: ' .$inputNumber . '<br>';
             return addThese(array_sum(str_split((string)$inputNumber)));
         }
     }
 
-    echo "Your ruling number is " . addThese($allSum) . '<br>';
-    echo "Your day number is " . addThese($daySum);
-
+    // $rulingNumber = addThese()
+    echo 'Running addThese directly on the set of digits, $dob: ' . addThese($dob) . '<br>';
+    echo 'Running addThese on just the day directly from the date: ' . addThese($myDay);
 ?>
 
     
