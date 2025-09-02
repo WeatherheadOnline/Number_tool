@@ -16,17 +16,37 @@
         </label>
         
         <label>
-            <input type="radio" id="all-together" name="addition-method" value="all-together" checked <?php if (isset($_POST['addition-method'])) {if($_POST['addition-method']=='all-together'){echo 'checked';}} ?>>
+            <input type="radio" id="addition-all-together" name="addition-method" value="all-together" checked <?php if (isset($_POST['addition-method'])) {if($_POST['addition-method']=='all-together'){echo 'checked';}} ?>>
             Add all digits together at once (default)
         </label>
         <label>
-            <input type="radio" id="individually" name="addition-method" value="individually" <?php if (isset($_POST['addition-method'])) {if($_POST['addition-method']=='individually'){echo 'checked';}} ?>>
+            <input type="radio" id="addition-individually" name="addition-method" value="individually" <?php if (isset($_POST['addition-method'])) {if($_POST['addition-method']=='individually'){echo 'checked';}} ?>>
             Add the day, month and year separately first 
         </label>
 
         <legend>Enter a name:</legend>
         <label>Text:
-            <input type="text" name="user-name">
+            <input type="text" name="user-name" value="<?php echo isset($_POST['user-name']) ? $_POST['user-name'] : ''; ?>">
+        </label>
+        <label>
+            <input type="radio" id="vowels-strict" name="which-vowels" value="strict" checked <?php if (isset($_POST['which-vowels'])) {if($_POST['which-vowels']=='strict'){echo 'checked';}} ?>>
+            Only include A-E-I-O-U
+        </label>
+        <label>
+            <input type="radio" id="vowels-w-y" name="which-vowels" value="w-y" <?php if (isset($_POST['which-vowels'])) {if($_POST['which-vowels']=='w-y'){echo 'checked';}} ?>>
+            Include some Ws and Ys
+        </label>
+        <label>
+            <input type="radio" id="vowels-custom" name="which-vowels" value="custom" <?php if (isset($_POST['which-vowels'])) {if($_POST['which-vowels']=='custom'){echo 'checked';}} ?>>
+            Custom:
+        </label>
+        <label>Add this many Ws:
+            <!-- <input type="number" min="0" max="10" name="numberOfWs"> -->
+            <input type="number" min="0" max="10" name="numberOfWs" value="<?php echo isset($_POST['numberOfWs']) ? $_POST['numberOfWs'] : ''; ?>">
+        </label>
+        <label>Add this many Ys:
+            <!-- <input type="number" min="0" max="10" name="numberOfYs"> -->
+            <input type="number" min="0" max="10" name="numberOfYs" value="<?php echo isset($_POST['numberOfYs']) ? $_POST['numberOfYs'] : ''; ?>">
         </label>
         
         <input type="reset" value="Reset" />
@@ -45,89 +65,72 @@
 // ~~~~ Setting up to get the numbers from the person's name ~~~ //
 
     $userName = dataFilter($_POST['user-name']);
-
-    # Set up the alphabet lookup array:    
-    function addOne($value) {return $value + 1;}
+   
+    function addOne($value) {return $value + 1;}    # Setting up the alphabet lookup array
     $alphaSetup = range("a","z");
     $alphaSetup = array_flip($alphaSetup);
-    $alphaLookup = array_map("addOne", $alphaSetup); # This works
-    $alphaLookup = array_flip($alphaLookup); # get it back to the original format of number:letter so I can use array_search
+    $alphaLookup = array_map("addOne", $alphaSetup); 
+    $alphaLookup = array_flip($alphaLookup);   # revert to the original format of number:letter, to facilitate using array_search
 
-// ~~~~ Get the numbers from the person's name ("The Expression Number") ~~~ //
+    function getNumberArray($inputArray, $alphaLookup) {   # Takes an array of characters and returns an array of the corresponding numbers
+        $numberArray = array();
+        foreach ($inputArray as $letter) {
+            $nextNumber = array_search($letter, $alphaLookup);
+            array_push($numberArray, $nextNumber);
+        }
+        return $numberArray;
+    }
 
-    # Turn the name input into an array of characters: 
-    // $strippedString = preg_replace("/[^A-Za-z]/", '', $userName);
-    $lowercaseString = strtolower($userName);
+// ~~~~ Get the numbers from the person's whole name ("The Expression Number") ~~~ //
+ 
+    $lowercaseString = strtolower($userName);   # Turn the name input into an array of characters
     $strippedString = preg_replace("/[^a-z]/", '', $lowercaseString);
     $nameArray = str_split($strippedString);
-
-    # Turn the array of characters into an array of corresponding numbers, then add them:
-    $nameNumberArray = array();
-    foreach ($nameArray as $letter) {
-        $nextNumber = array_search($letter, $alphaLookup);
-        array_push($nameNumberArray, $nextNumber);
-    }
-    $fullNameNumber = (addThese(array_sum($nameNumberArray)));
-    // print_r($fullNameNumber);
-
-// ~~~~ Get the number from just the natural vowels in the person's name ~~~ //
-
-    $vowelString = preg_replace("/[^aeiou]/", '', $strippedString);
-    $vowelArray = str_split($vowelString);
-    $vowelNumberArray = array();
-    foreach ($vowelArray as $letter) {
-        $nextNumber = array_search($letter, $alphaLookup);
-        array_push($vowelNumberArray, $nextNumber);
-    }
-    $vowelNumber = addThese(array_sum($vowelNumberArray));
-    // print_r($vowelNumber);
-
-// ~~~~ Get the number from just the EXTRA vowels in the person's name ~~~ //
-
-        # Eliminate Y if it's followed by a vowel, and its either the first letter, or preceded by a consonant (but not R)
-    $vowelString = preg_replace("/(?<![aeiour])[y](?=[aeiou])/", '', $strippedString);
-        # Save Y if it's preceded by AI,
-    $vowelString = preg_replace("/(?<=ai)[y]/", "#", $vowelString);
-        # then get rid of any other Y that's preceded by I.
-    $vowelString = preg_replace("/(?<=i)[y]/", '', $vowelString);
-        # Revert the Ys preceded by AI that were saved:
-    $vowelString = preg_replace("/#/", 'y', $vowelString);
-    
-        # Now any remaining Ys can be counted as vowels.
-    // print_r($vowelString);
-
-        # Eliminate W if it's preceded by I, or a consonant, or if it's the first letter:
-    $vowelString = preg_replace("/(?<![aeou])w/", '', $strippedString);
-        # or if it appears in the pattern "A - W - vowel" (but not if ending in E)
-    $vowelString = preg_replace("/(?<=a)w(?=[aiou])/", '', $vowelString);
-
-        # Now any remaining Ws can be counted as vowels. 
-    // print_r($vowelString);
-
+    $nameNumberArray = getNumberArray($nameArray, $alphaLookup);
+    $fullNameNumber = (addThese(array_sum($nameNumberArray)));  // *** This is the Expression Number ***
 
 // ~~~~ Get the number from all the vowels in the person's name ("The Soul Number") ~~~ //
 
-        #Eliminate everything except the vowels plus W and Y:
-    $vowelString = preg_replace("/[^aeiouwy]/", '', $strippedString);
-        # Test for Ys that should be counted as vowels, and discard the rest:
-    $vowelString = preg_replace("/(?<![aeiour])[y](?=[aeiou])/", '', $vowelString);
-    $vowelString = preg_replace("/(?<=ai)[y]/", "#", $vowelString);
-    $vowelString = preg_replace("/(?<=i)[y]/", '', $vowelString);
-    $vowelString = preg_replace("/#/", 'y', $vowelString);
-        # Test for Ws that should be counted as vowels, and discard the rest:
-    $vowelString = preg_replace("/(?<![aeou])w/", '', $vowelString);
-    $vowelString = preg_replace("/(?<=a)w(?=[aiou])/", '', $vowelString);
-        # Calculate based on the remaining letters:
-    $vowelArray = str_split($vowelString);
-    $vowelNumberArray = array();
-    foreach ($vowelArray as $letter) {
-        $nextNumber = array_search($letter, $alphaLookup);
-        array_push($vowelNumberArray, $nextNumber);
+    function vowelNumberDescision($strippedString) {
+        if ($_POST['which-vowels'] == 'strict') {  # call getVowelStringStrict, which delivers a string
+            return getVowelStringStrict($strippedString); 
+        } elseif ($_POST['which-vowels'] == 'w-y') {  # call getVowelStringWY, which delivers a string
+            return getVowelStringWY($strippedString);
+        } else {
+            return getVowelStringCustom($strippedString);
+        };
     }
-    $vowelNumber = addThese(array_sum($vowelNumberArray));
-    print_r($vowelNumber);
 
+    function getVowelStringStrict($strippedString) {    # Option 1: generate a string containing only A,E,I,O,U
+        return preg_replace("/[^aeiou]/", '', $strippedString);
+    }
 
+    function getVowelStringWY($strippedString) {   # Option 2: include Ws and Ys under specific conditions 
+        $vowelString = preg_replace("/[^aeiouwy]/", '', $strippedString);   #Eliminate everything except the vowels plus W and Y
+        $vowelString = preg_replace("/(?<![aeiour])[y](?=[aeiou])/", '', $vowelString);    # Test for Ys that should be counted as vowels, and discard the rest
+        $vowelString = preg_replace("/(?<=ai)[y]/", "#", $vowelString);                    # For decision rules, see "Vowel rules for W and Y.txt"
+        $vowelString = preg_replace("/(?<=i)[y]/", '', $vowelString);
+        $vowelString = preg_replace("/#/", 'y', $vowelString);
+        $vowelString = preg_replace("/(?<![aeou])w/", '', $vowelString);    # Test for Ws that should be counted as vowels, and discard the rest
+        $vowelString = preg_replace("/(?<=a)w(?=[aiou])/", '', $vowelString);  # For decision rules, see "Vowel rules for W and Y.txt"
+        return $vowelString;
+    }
+
+    function getVowelStringCustom($strippedString) {  # Option 3: allow the user to dictate how any Ws and Ys are included in the string
+        $baseString = preg_replace("/[^aeiou]/", '', $strippedString);
+        $numberOfWs = isset($_POST['numberOfWs']) ? dataFilter($_POST['numberOfWs']) : 0;
+        $numberOfYs = isset($_POST['numberOfYs']) ? dataFilter($_POST['numberOfYs']) : 0;
+        $addTheseWs = str_repeat('w', $numberOfWs);
+        $addTheseYs = str_repeat('y', $numberOfYs);
+        $vowelString = $baseString . $addTheseWs . $addTheseYs;
+        return $vowelString;
+    }
+
+    $vowelString = vowelNumberDescision($strippedString);
+    $vowelArray = str_split($vowelString);    
+    $vowelNumberArray = getNumberArray($vowelArray, $alphaLookup);
+    $vowelNumber = addThese(array_sum($vowelNumberArray));  // *** This is the Soul Number ***
+ 
 // ~~~ Get the person's ruling and day numbers ("Life Path numbers") from their date of birth ~~~ //
 
     $input = new DateTime(dataFilter($_POST['dob']));
@@ -144,14 +147,14 @@
         }
     }
 
-    # Print the person's ruling number (calculated depending on their selection) and day number
-    // $radioSelection = $_POST['addition-method'];
-    // if($radioSelection == 'all-together') {
-    //     echo 'Your ruling number is ' . addThese($dob) . ',<br>';
-    // } else {
-    //     echo 'Via the alt method, your ruling number is ' . addThese(addThese($myDay) + addThese($myMonth) + addThese($myYear)) . ',<br>';
-    // };
-    //     echo 'and your day number is ' . addThese($myDay);  
+    # Find the person's ruling number (calculated depending on their selection) and day number
+    $dobSelection = $_POST['addition-method'];
+    if($dobSelection == 'all-together') {
+         $rulingNumber = addThese($dob);
+    } else {
+         $rulingNmuber = addThese(addThese($myDay) + addThese($myMonth) + addThese($myYear));
+    };
+    $dayNumber = addThese($myDay);
 ?>
 </body>
 </html>
