@@ -1,0 +1,67 @@
+Figuring out the logic for the "extra" vowels, Y and W
+Note: more names were assessed than shown here, these lists are representative.
+
+
+# Y is a vowel when there is no other vowel in a syllable.
+# Y is a vowel when it is preceded by a natural vowel and pronounced together as one sound
+
+# Y is going to almost always be a vowel.
+# Exceptions: 
+// Sawyer
+// Aliya(h)
+// Maliya(h)
+// Youssef
+// Ilya
+
+# NOT exceptions, these Ys would be vowels:
+// Ryan
+// Aryan
+// Maya (?)
+// Freya (?)
+// Maryam (?)
+// Arya (?)
+// Ayan (?)
+// Alaiya
+
+#Maybe the exceptions are: 
+// If the first letter is Y and it's followed by a vowel (eg Youssef but not Yvonne)
+// if the Y is preceded by a consonant (but not an R) and followed by a vowel
+// if the Y is preceded by I (but not AI) and followed by a vowel (eg Aliya but not Iyla or Alaiya)
+
+
+# W is a vowel when it is preceded by a natural vowel and pronounced together as one sound
+
+# These Ws are counted as vowels:
+// Matthew 
+// Owen
+// Sawyer 
+// Aws
+// Hawk
+// Shawn
+// Lewis    E - W - I
+// Rowan    O - W - A
+// Calloway O - W - A
+
+# These Ws are NOT counted as vowels:
+// Wyatt
+// Maxwell
+// Wren
+// Edward
+// Gwen
+// Jawad    A - W - A
+// Hawa     A - W - A
+// Zorawa   A - W - A
+// Callaway A - W - A
+// Hawi     A - W - I
+// Dawud    A - W - U
+// Dawoud   A - W - O
+
+# Rules:
+// Yes if it appears as [E|O|U] - W.
+// Yes if it appears as A - W - consontant or A - W at end of name.
+
+// Not if it's the first letter.
+// Not if it appears as I - W.
+// Not if it's preceded by a consonant (consonant - W).
+// Not if it appears as A - W - vowel.
+

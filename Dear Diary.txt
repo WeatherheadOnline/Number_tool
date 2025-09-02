@@ -21,3 +21,22 @@ Next: add lookup tables to determine both zodiac signs. This will be good practi
 https://dev.to/joemoses33/write-good-php-lookup-arrays-493a
 
 - Installed mySql
+
+2/9/25
+	** Commit
+- To make the full-alphabet lookup array without having to type it all out: so far, I've:
+    - used range("a","z") to get an array where the values are the letters a-z;
+    - used array_flip() to set the keys to a-z and the values to 0-25;
+    - used array_map() to add one to each value, to get the keys a-z matched to the values 1-26.
+    - added later: used array_flip() again so I can use array_search() to look up the number based on the letter.
+- Got input from the user's name input field, and turned it into an array using str_split(). Need to remove any spaces first, though.
+- Used preg_replace() to remove anything that isn't an uppercase or lowercase letter. Then sent *that* into str_split() to get the array of characters to add up. Reference: https://www.w3resource.com/php-exercises/php-regular-expression-exercise-7.php
+- Got their number by making a new array of the corresponding numbers and then running addThese() on the number array.
+- Next: for the complicated rules around W, Y and R as vowels, I might be able to use regex's look-ahead / look-around rules?
+* Useful reference: https://www.regular-expressions.info/lookaround.html
+- So far: got the vowel-only number, by first running preg_replace() on the stripped username string. 
+- Looked through lists of names to deduce rules for when to include W or Y as vowels.
+- Built up a series of preg_replace() calls to eliminate consonants including any W or Y that shouldn't be counted as a vowel. After combining them all, I initially didn't get the expected result, but that turned out to be because I hadn't updated all the variable names when combining -> easy fix. Working now.
+
+
+
