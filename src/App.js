@@ -1,6 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+import './css/App.css';
+import AddARecordBtn from './components/AddARecordBtn';
 import Cards from './components/Cards';
+import Form from './components/Form';
+import Footer from './components/Footer';
+
 
 const records = [
     {
@@ -13,7 +18,7 @@ const records = [
         nDay: undefined,
         nExpression: 9,
         nSoul: 8,
-        key: 1,
+        key: 0,
     },
     {
         name: "Eddie W",
@@ -25,7 +30,7 @@ const records = [
         nDay: 5,
         nExpression: undefined,
         nSoul: undefined,
-        key: 2,
+        key: 1,
     },
     {
         name: "That one guy at the office you know the one",
@@ -105,12 +110,20 @@ const App = () => {
 
   return (
     <div className="App">
+
       <header className="App-header">
         <h1>Header</h1>
+          <AddARecordBtn mobileOrDesktop="desktop" />
       </header>
+      
       <main>
         <Cards records={records} />
+        <Form />
       </main>
+      
+      <Footer />
+      
+      <AddARecordBtn mobileOrDesktop="mobile" />
     </div>
   );
 }
