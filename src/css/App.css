@@ -1,3 +1,12 @@
+:root {
+    --card-padding: 1rem;
+    /* --bkgd: rgb(24, 15, 0); */
+    --bkgd: #000000;
+    --card-bkgd: black;
+    --card-border: goldenrod;
+    --font-main: rgb(255, 246, 196);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,4 +14,21 @@
 
 main {
     position: relative;
+}
+
+.desktop-add-record {
+    display: none;
+    @media screen and (hover) {
+        display: block;
+    }
+}
+
+.mobile-add-record {
+    position: fixed;
+    width: 60vw;
+    bottom: 0;
+    left: 20vw;
+    @media screen and (hover) {
+        display: none;
+    }
 }
