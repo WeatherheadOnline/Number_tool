@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../css/Form.css';
-// import {} from '../calculations/calculations';
+import {getDayNumber, getRulingNumber, nameToArray, letterToNumberArray, getExpressionNumber} from '../calculations/calculations';
 
 //   To do:
 //////////////////////////////////////////
@@ -20,7 +20,10 @@ const Form = ({addRecord}) => {
         document.getElementById("enter-record-form").style.display="none";
         const nDay = getDayNumber(dobDay);
         const nRuling = getRulingNumber(dobDay, dobMonth, dobYear);
-        addRecord(uName, dobDay, dobMonth, dobYear, nDay, nRuling);
+        const nExpression = getExpressionNumber(uName);
+        const nameArray = nameToArray(uName);
+        const testLetterLookup = letterToNumberArray(uName);
+        addRecord(uName, dobDay, dobMonth, dobYear, nDay, nRuling, nExpression);
         clearForm();
     }
 
@@ -30,35 +33,6 @@ const Form = ({addRecord}) => {
         setDobMonth("");
         setDobYear("");
     }
-
-    const getDayNumber = (dobDay) => {
-        return addThese(dobDay);
-    };
-
-    const getRulingNumber = (dobDay, dobMonth, dobYear) => {
-        const allDobDigits = "" + dobDay + dobMonth + dobYear;
-            console.log(allDobDigits);
-        return addThese(allDobDigits);
-    };
-
-    // const getExpressionNumber = () {
-
-    // };
-
-    // const getSoulNumber = () {
-
-    // };
-
-    const addThese = (inputNumber) =>  {
-        if(inputNumber % 11 == 0 && inputNumber <= 33 || inputNumber <=9) {
-            return inputNumber;
-        } else {
-            const digitArray = Array.from(inputNumber.toString(), Number);
-            let runningTotal = 0;
-            digitArray.forEach(digit => runningTotal+= digit);
-            return addThese(runningTotal);
-        }
-    };
 
     return (    
         <div id="enter-record-form">

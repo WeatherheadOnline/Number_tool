@@ -29,3 +29,25 @@ form {
     white-space: nowrap; */
     display: none;
 }
+
+label, .p-label {
+    padding-bottom: 1rem;
+}
+
+input {
+    padding: 0.2rem 0.4rem;
+    margin-bottom: 2rem;
+    font-size: 1.5em;
+    @media screen and (hover) {
+        font-size: 1em;
+    }
+}
+
+.input-2ch {
+    width: calc(2ch + 1.5rem);
+}
+
+.input-4ch {
+    width: calc(4ch + 1rem);
+}
+
