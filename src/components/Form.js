@@ -1,5 +1,13 @@
 import { useState } from 'react';
 import '../css/Form.css';
+// import {} from '../calculations/calculations';
+
+//   To do:
+//////////////////////////////////////////
+////   Add a "close/cancel button"   /////
+//////////////////////////////////////////
+
+
 
 const Form = ({addRecord}) => {    
     const [uName, setUName] = useState("");
@@ -10,9 +18,10 @@ const Form = ({addRecord}) => {
     const submitHandler = (e) => {
         e.preventDefault();
         document.getElementById("enter-record-form").style.display="none";
-        addRecord(uName, dobDay, dobMonth, dobYear);
+        const nDay = getDayNumber(dobDay);
+        const nRuling = getRulingNumber(dobDay, dobMonth, dobYear);
+        addRecord(uName, dobDay, dobMonth, dobYear, nDay, nRuling);
         clearForm();
-        console.log(uName + " " + dobDay + "/" + dobMonth + "/" + dobYear);
     }
 
     const clearForm = () => {
@@ -22,22 +31,51 @@ const Form = ({addRecord}) => {
         setDobYear("");
     }
 
+    const getDayNumber = (dobDay) => {
+        return addThese(dobDay);
+    };
+
+    const getRulingNumber = (dobDay, dobMonth, dobYear) => {
+        const allDobDigits = "" + dobDay + dobMonth + dobYear;
+            console.log(allDobDigits);
+        return addThese(allDobDigits);
+    };
+
+    // const getExpressionNumber = () {
+
+    // };
+
+    // const getSoulNumber = () {
+
+    // };
+
+    const addThese = (inputNumber) =>  {
+        if(inputNumber % 11 == 0 && inputNumber <= 33 || inputNumber <=9) {
+            return inputNumber;
+        } else {
+            const digitArray = Array.from(inputNumber.toString(), Number);
+            let runningTotal = 0;
+            digitArray.forEach(digit => runningTotal+= digit);
+            return addThese(runningTotal);
+        }
+    };
+
     return (    
         <div id="enter-record-form">
             <p>Hello World</p>
             <form onSubmit={submitHandler}>
 
-                <label className="block-element">Your name goes here:
-                    <input className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} />
-                </label>
+                <label htmlFor="uName" className="block-element">Your name goes here:</label>
+                <input id="uName" className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} />
+                
 
-                <p>Enter your date of birth (day / month / year):</p>
+                <p className="p-label">Enter your date of birth (day / month / year):</p>
                 <label htmlFor="dobDay"  className="screen-reader-only">Day from date of birth:</label>
-                    <input id="dobDay" type="number" value={dobDay} onChange={(e) => {setDobDay(e.target.value);}} placeholder="DD" max={31} maxLength={2} />
+                    <input id="dobDay" type="number" value={dobDay} onChange={(e) => {setDobDay(e.target.value);}} placeholder="DD" max={31} className="input-2ch" />
                 <label htmlFor="dobMonth"  className="screen-reader-only">Month from date of birth:</label>
-                    <input id="dobDay" type="number" value={dobMonth} onChange={(e) => {setDobMonth(e.target.value);}} placeholder="MM" max={12} maxLength={2} />
+                    <input id="dobDay" type="number" value={dobMonth} onChange={(e) => {setDobMonth(e.target.value);}} placeholder="MM" max={12} className="input-2ch" />
                 <label htmlFor="dobYear"  className="screen-reader-only">Year from date of birth:</label>
-                    <input id="dobDay" type="number" value={dobYear} onChange={(e) => {setDobYear(e.target.value);}} placeholder="YY" max={3000} maxLength={4} />
+                    <input id="dobDay" type="number" value={dobYear} onChange={(e) => {setDobYear(e.target.value);}} placeholder="YY" max={3000} className="input-4ch" />
 
                 <button type="submit">Submit</button>
             </form>
