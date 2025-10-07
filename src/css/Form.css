@@ -14,3 +14,7 @@ form {
     outline: 1px solid red;
     width: max-content;
 }
+
+label {
+    display: block;
+}

@@ -7,7 +7,108 @@ import Form from './components/Form';
 import Footer from './components/Footer';
 
 
-const records = [
+// const records = [
+//     {
+//         name: "Eddie Weatherhead Long Name Higgingbotham",
+//         date: undefined,
+//         year: undefined,
+//         month: undefined,
+//         day: undefined,
+//         nRuling: undefined,
+//         nDay: undefined,
+//         nExpression: 9,
+//         nSoul: 8,
+//         key: 0,
+//     },
+//     {
+//         name: "Eddie W",
+//         date: "14-03-1879",
+//         year: 1879,
+//         month: 3,
+//         day: 14,
+//         nRuling: 33,
+//         nDay: 5,
+//         nExpression: undefined,
+//         nSoul: undefined,
+//         key: 1,
+//     },
+//     {
+//         name: "That one guy at the office you know the one",
+//         date: "14-03-1879",
+//         year: 1879,
+//         month: 3,
+//         day: 14,
+//         nRuling: 33,
+//         nDay: 5,
+//         nExpression: undefined,
+//         nSoul: undefined,
+//         key: 2,
+//     },
+//     {
+//         name: "Albert Einstein",
+//         date: "14-03-1879",
+//         year: 1879,
+//         month: 3,
+//         day: 14,
+//         nRuling: 33,
+//         nDay: 5,
+//         nExpression: 9,
+//         nSoul: 7,
+//         key: 3,
+//     },
+//     {
+//         name: "Maya Angelou",
+//         date: "04-04-1928",
+//         year: 1928,
+//         month: 4,
+//         day: 4,
+//         nRuling: 1,
+//         nDay: 4,
+//         nExpression: 7,
+//         nSoul: 8,
+//         key: 4,
+//     },
+//     {
+//         name: "Lin-Manuel Miranda",
+//         date: "16-01-1980",
+//         year: 1980,
+//         month: 1,
+//         day: 16,
+//         nRuling: 8,
+//         nDay: 7,
+//         nExpression: 8,
+//         nSoul: 11,
+//         key: 5,
+//     },
+//     {
+//         name: 'Alfred Matthew "Weird Al" Yankovic',
+//         date: "23-10-1959",
+//         year: 1959,
+//         month: 10,
+//         day: 23,
+//         nRuling: 3,
+//         nDay: 5,
+//         nExpression: 11,
+//         nSoul: 1,
+//         key: 6,
+//     },
+//     {
+//         name: "Rosalind Franklin",
+//         date: "25-07-1920",
+//         year: 1920,
+//         month: 7,
+//         day: 25,
+//         nRuling: 8,
+//         nDay: 7,
+//         nExpression: 6,
+//         nSoul: 8,
+//         key: 7,
+//     },
+// ]
+
+const App = () => {
+
+  const [records, setRecords] = useState([
     {
         name: "Eddie Weatherhead Long Name Higgingbotham",
         date: undefined,
@@ -104,9 +205,27 @@ const records = [
         nSoul: 8,
         key: 7,
     },
-]
+  ]);
 
-const App = () => {
+
+
+
+  const addRecord = (uName, uDate) => {
+    setRecords([...records, 
+      {
+        name: uName,
+        date: uDate,
+        year: "uYear",
+        month: "uMonth",
+        day: "uDay",
+        nRuling: "uNRuling",
+        nDay: "uNDay",
+        nExpression: "uNExpression",
+        nSoul: "uNSoul",
+        key: "uKey",
+      },
+    ])
+  }
 
   return (
     <div className="App">
@@ -116,10 +235,10 @@ const App = () => {
           <AddARecordBtn mobileOrDesktop="desktop" />
       </header>
       
-      <main>
-        <Cards records={records} />
-        <Form />
-      </main>
+        <main>
+          <Cards records={records} />
+          <Form addRecord={addRecord} />
+        </main>
       
       <Footer />
       

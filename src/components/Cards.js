@@ -1,6 +1,8 @@
+// import { useContext } from 'react';
 import '../css/Cards.css'
 
 const Cards = (props) => {
+    
     const cardsToDisplay = props.records.map(card => {
 
         return (
