@@ -210,14 +210,14 @@ const App = () => {
 
 
 
-  const addRecord = (uName, uDate) => {
+  const addRecord = (uName, dobDay, dobMonth, dobYear) => {
     setRecords([...records, 
       {
         name: uName,
-        date: uDate,
-        year: "uYear",
-        month: "uMonth",
-        day: "uDay",
+        date: `${dobDay}/${dobMonth}/${dobYear}`,
+        year: dobYear,
+        month: dobMonth,
+        day: dobDay,
         nRuling: "uNRuling",
         nDay: "uNDay",
         nExpression: "uNExpression",
@@ -225,7 +225,7 @@ const App = () => {
         key: "uKey",
       },
     ])
-  }
+  };
 
   return (
     <div className="App">
