@@ -1,23 +1,9 @@
-export const getDayNumber = (dobDay) => {
-    return addThese(dobDay);
-};
+    // Set up an alphabet-to-number lookup table:
+const emptylettersObject = {length:26};
+const alphaSetup = Array.from(emptylettersObject, (element, index) => String.fromCharCode(97 + index));
+console.log(alphaSetup);
 
-export const getRulingNumber = (dobDay, dobMonth, dobYear) => {
-    const allDobDigits = "" + dobDay + dobMonth + dobYear;
-    return addThese(allDobDigits);
-};
-
-export const getExpressionNumber = (uName) => {
-    const letterArray = letterToNumberArray(uName);
-    let lettersSum = 0;
-    letterArray.forEach(number => lettersSum+= number);
-    return addThese(lettersSum);
-};
-
-// const getSoulNumber = () {
-
-// };
-
+    // Where the magic happens: adding the individual digits of a number
 const addThese = (inputNumber) =>  {
     if(inputNumber % 11 == 0 && inputNumber <= 33 || inputNumber <=9) {
         return inputNumber;
@@ -29,20 +15,35 @@ const addThese = (inputNumber) =>  {
     }
 };
 
-const emptylettersObject = {length:26};
-const alphaSetup = Array.from(emptylettersObject, (element, index) => String.fromCharCode(97 + index));
-console.log(alphaSetup);
+export const getDayNumber = (dobDay) => {
+    return addThese(dobDay);
+};
 
-export const nameToArray = uName => {
-    const lowercaseNoWhitespace = uName.replaceAll(" ", "").toLowerCase(); 
-    return Array.from(lowercaseNoWhitespace);
-}
+export const getRulingNumber = (dobDay, dobMonth, dobYear) => {
+    const allDobDigits = "" + dobDay + dobMonth + dobYear;
+    return addThese(allDobDigits);
+};
 
-export const letterToNumberArray = letters => {
+export const getExpressionNumber = (uName) => {
+    const nameAsNumber = lettersToNumber(uName);
+    return addThese(nameAsNumber);
+};
+
+export const getSoulNumber = (uName) => {
+    const nameVowelsOnly = uName.replaceAll(/[^aeiouAEIOU]/g, "");
+    const vowelsAsNumber = lettersToNumber(nameVowelsOnly);
+    return addThese(vowelsAsNumber);    
+};
+
+    // Support function: turns string into digits
+const lettersToNumber = (string) => {
+    const lowercaseNoWhitespace = string.replaceAll(" ", "").toLowerCase();
+    const letterArray = Array.from(lowercaseNoWhitespace);
     const numberArray = [];
-    const letterArray = nameToArray(letters);
-    letterArray.forEach((letter) => {
+    letterArray.forEach(letter => {
         numberArray.push(alphaSetup.indexOf(letter) + 1);
-    });   
-    return numberArray;
+    });
+    let digits = "";
+    numberArray.forEach(number => digits += number);
+    return digits;
 }

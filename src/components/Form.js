@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../css/Form.css';
-import {getDayNumber, getRulingNumber, nameToArray, letterToNumberArray, getExpressionNumber} from '../calculations/calculations';
+import {getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
 
 //   To do:
 //////////////////////////////////////////
@@ -21,9 +21,8 @@ const Form = ({addRecord}) => {
         const nDay = getDayNumber(dobDay);
         const nRuling = getRulingNumber(dobDay, dobMonth, dobYear);
         const nExpression = getExpressionNumber(uName);
-        const nameArray = nameToArray(uName);
-        const testLetterLookup = letterToNumberArray(uName);
-        addRecord(uName, dobDay, dobMonth, dobYear, nDay, nRuling, nExpression);
+        const nSoul = getSoulNumber(uName);
+        addRecord(uName, dobDay, dobMonth, dobYear, nDay, nRuling, nExpression, nSoul);
         clearForm();
     }
 

@@ -210,7 +210,7 @@ const App = () => {
 
   let keyCounter = records.length;
 
-  const addRecord = (uName, dobDay, dobMonth, dobYear, nDay, nRuling, nExpression) => {
+  const addRecord = (uName, dobDay, dobMonth, dobYear, nDay, nRuling, nExpression, nSoul) => {
     setRecords([...records, 
       {
         name: uName,
@@ -221,7 +221,7 @@ const App = () => {
         nRuling: nRuling,
         nDay: nDay,
         nExpression: nExpression,
-        nSoul: "uNSoul",
+        nSoul: nSoul,
         key: keyCounter,
       },
     ]);

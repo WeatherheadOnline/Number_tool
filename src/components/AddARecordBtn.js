@@ -2,7 +2,6 @@ import '../css/AddARecordBtn.css';
 
 const AddARecordBtn = (props) => {
     const clickHandler = () => {
-        console.log("You clicked");
         document.getElementById("enter-record-form").style.display="block";
     }
     const btnClassName = props.mobileOrDesktop + "-add-record add-record-btn"
