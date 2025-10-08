@@ -20,6 +20,7 @@ const App = () => {
         nDay: 5,
         nExpression: 9,
         nSoul: 7,
+        notes: "Physicist",
         key: 0,
     },
     {
@@ -29,20 +30,22 @@ const App = () => {
         nDay: 4,
         nExpression: 7,
         nSoul: 8,
+        notes: "Poet & author",
         key: 1,
     },
     {
-        name: 'Alfred Matthew "Weird Al" Yankovic',
-        date: "23-10-1959",
-        nRuling: 3,
-        nDay: 5,
-        nExpression: 11,
-        nSoul: 1,
-        key: 2,
+        name: "Rosalind Franklin",
+        date: "25-07-1920",
+        nRuling: 8,
+        nDay: 7,
+        nExpression: 6,
+        nSoul: 8,
+        notes: "X-ray crystallographer who co-discovered DNA",
+        key: 7,
     },
   ]);  
 
-  const addRecord = (returnName, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul) => {
+  const addRecord = (returnName, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes) => {
     setRecords([...records, 
       {
         name: returnName,
@@ -51,6 +54,7 @@ const App = () => {
         nDay: nDay,
         nExpression: nExpression,
         nSoul: nSoul,
+        notes: notes,
         key: keyCounter,
       },
     ]);
@@ -58,7 +62,7 @@ const App = () => {
   };
 
   const deleteRecord = (id) => {
-    setRecords(records.filter(record => record.key != id));
+    setRecords(records.filter(record => record.key !== id));
   };
 
   return (

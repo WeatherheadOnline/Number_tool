@@ -1,5 +1,5 @@
     // Set up an alphabet-to-number lookup table:
-    
+
 const emptylettersObject = {length:26};
 const alphaSetup = Array.from(emptylettersObject, (element, index) => String.fromCharCode(97 + index));
 
@@ -67,7 +67,7 @@ const lettersToNumber = (string) => {
     return digits;
 };
 
-const optionSomeWYs = (string) => {  // *** For decision rules, see this file: 'scratch/Vowel rules for W and Y.txt' ***
+const optionSomeWYs = (string) => {  // *** For decision rules, see README.md ***
     const removeYAtStart = string.replaceAll(/^[y](?=[aeiou])/g, "");  // Remove Ys at the start of the name, if they're followed by a vowel
     const removeMoreYs = removeYAtStart.replaceAll(/(?<=![aeiour])[y](?=[aeiou])/g, ""); // Replace Ys preceded by a consonant (but not R) and followed by a vowel
     const saveTheseYs = removeMoreYs.replaceAll(/(?<=ai)[y](?=[aeiou])/g, "#");  // Save Ys for later if followed by a vowel but preceded by AI
