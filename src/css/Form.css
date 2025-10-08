@@ -2,7 +2,7 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    /* overflow: hidden; */
     top: 0;
     left: 0;
     background-color: #000000EE;
@@ -20,7 +20,8 @@
 
 form {
     position: relative;
-    margin: 2rem auto;
+    /* margin: 2rem auto; */
+    margin: 0 auto;
     width: max-content;
     outline: 1px solid red;
     padding: 1rem 2rem;
@@ -47,7 +48,7 @@ fieldset {
 }
 
 label, .p-label {
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     max-width: 28ch;
 }
 

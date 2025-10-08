@@ -22,7 +22,7 @@ const Form = ({addRecord}) => {
         const returnMonth = dateChecked ? addThese(dobMonth) : undefined;
         const returnYear = dateChecked ? dobYear : undefined;
         const nDay = dateChecked ? getDayNumber(dobDay) : undefined;
-        const nRuling = dateChecked ? getRulingNumber(dobDay, dobMonth, dobYear) : undefined;
+        const nRuling = dateChecked ? getRulingNumber(dobDay, dobMonth, dobYear, dateOptions) : undefined;
         addRecord(returnName, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul);
         clearForm();
     }

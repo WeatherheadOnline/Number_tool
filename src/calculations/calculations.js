@@ -2,6 +2,7 @@
 const emptylettersObject = {length:26};
 const alphaSetup = Array.from(emptylettersObject, (element, index) => String.fromCharCode(97 + index));
 
+
     // Where the magic happens: adding the individual digits of a number
 export const addThese = (inputNumber) =>  {
     if(inputNumber % 11 == 0 && inputNumber <= 33 || inputNumber.toString().length <= 1) {
@@ -14,13 +15,19 @@ export const addThese = (inputNumber) =>  {
     }
 };
 
+
     // The four calculations to be returned:
 export const getDayNumber = (dobDay) => {
     return addThese(dobDay);
 };
-export const getRulingNumber = (dobDay, dobMonth, dobYear) => {
-    const allDobDigits = "" + dobDay + dobMonth + dobYear;
-    return addThese(allDobDigits);
+export const getRulingNumber = (dobDay, dobMonth, dobYear, dateOptions) => {
+    if(dateOptions === "date-all-together") {
+        const allDobDigits = "" + dobDay + dobMonth + dobYear;
+        return addThese(allDobDigits);
+    } else if (dateOptions === "date-individually") {
+        const allDobDigits = addThese( addThese(dobDay) + addThese(dobMonth) + addThese(dobYear) );
+        return addThese(allDobDigits);
+    }
 };
 export const getExpressionNumber = (uName) => {
     const nameAsNumber = lettersToNumber(uName);
@@ -31,6 +38,7 @@ export const getSoulNumber = (uName) => {
     const vowelsAsNumber = lettersToNumber(nameVowelsOnly);
     return addThese(vowelsAsNumber);    
 };
+
 
     // Support function: turns string into digits
 const lettersToNumber = (string) => {
