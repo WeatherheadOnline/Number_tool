@@ -42,11 +42,11 @@ const App = () => {
     },
   ]);  
 
-  const addRecord = (uName, month, dobYear, nDay, nRuling, nExpression, nSoul) => {
+  const addRecord = (returnName, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul) => {
     setRecords([...records, 
       {
-        name: uName,
-        date: `${nDay}/${month}/${dobYear}`,
+        name: returnName,
+        date: `${nDay}/${returnMonth}/${returnYear}`,
         nRuling: nRuling,
         nDay: nDay,
         nExpression: nExpression,

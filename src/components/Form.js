@@ -9,16 +9,19 @@ const Form = ({addRecord}) => {
     const [dobYear, setDobYear] = useState("");
     const [nameChecked, setNameChecked] = useState(true);
     const [dateChecked, setDateChecked] = useState(true);
+    const [nickname, setNickname] = useState("");
 
     const submitHandler = (e) => {
         e.preventDefault();
         document.getElementById("enter-record-form").style.display="none";
-        const month = addThese(dobMonth);
-        const nDay = getDayNumber(dobDay);
-        const nRuling = getRulingNumber(dobDay, dobMonth, dobYear);
-        const nExpression = getExpressionNumber(uName);
-        const nSoul = getSoulNumber(uName);
-        addRecord(uName, month, dobYear, nDay, nRuling, nExpression, nSoul);
+        const returnName = nameChecked ? uName : nickname;
+        const nExpression = nameChecked ? getExpressionNumber(uName) : undefined;
+        const nSoul = nameChecked ? getSoulNumber(uName) : undefined;
+        const returnMonth = dateChecked ? addThese(dobMonth) : undefined;
+        const returnYear = dateChecked ? dobYear : undefined;
+        const nDay = dateChecked ? getDayNumber(dobDay) : undefined;
+        const nRuling = dateChecked ? getRulingNumber(dobDay, dobMonth, dobYear) : undefined;
+        addRecord(returnName, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul);
         clearForm();
     }
     
@@ -56,15 +59,18 @@ const Form = ({addRecord}) => {
         date3.disabled = dateChecked;
     }
 
+    const nicknameSetter = (e) => {
+        setNickname(e.target.value);
+    }
+
     return (    
         <div id="enter-record-form">
-            <p>Hello World</p>
             <form onSubmit={submitHandler}>
                 <span className="close-btn" onClick={closeForm}>&times;</span>
 
                 <fieldset>
                     <div>
-                        <input id="whether-name" type="checkbox" checked={nameChecked} onClick={toggleName} />
+                        <input id="whether-name" type="checkbox" checked={nameChecked} onChange={toggleName} />
                         <label htmlFor="whether-name" >Enter a name to calculate: <ul><li>expression number</li><li>soul number</li></ul></label>
                     </div>
 
@@ -75,7 +81,7 @@ const Form = ({addRecord}) => {
 
                 <fieldset>
                     <div>
-                        <input id="whether-date" type="checkbox" checked={dateChecked} onClick={toggleDate} />
+                        <input id="whether-date" type="checkbox" checked={dateChecked} onChange={toggleDate} />
                         <label htmlFor="whether-date">Enter a date to calculate: <ul><li>ruling number</li><li>day number</li></ul> (day / month / year)</label>
                     </div>
                     
@@ -87,8 +93,8 @@ const Form = ({addRecord}) => {
                         <input id="dobYear" type="number" value={dobYear} onChange={(e) => {setDobYear(e.target.value);}} placeholder="YY" max={3000} className="input-4ch" />
                     
 
-                    <label className="block-element" id="nickname-label">Enter a nickname to go with this date:
-                        <input type="text" id="nickname" className="block-element" />
+                    <label className="block-element" id="nickname-label" >Enter a nickname to go with this date:
+                        <input type="text" id="nickname" className="block-element" value={nickname} onChange={nicknameSetter} />
                     </label>
 
                 </fieldset>

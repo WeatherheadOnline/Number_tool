@@ -1,4 +1,3 @@
-// import { useContext } from 'react';
 import '../css/Cards.css'
 
 const Cards = (props) => {
