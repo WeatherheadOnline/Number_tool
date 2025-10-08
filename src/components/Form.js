@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/Form.css';
 import {addThese, getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
 
@@ -12,26 +12,31 @@ const Form = ({addRecord}) => {
     const [nickname, setNickname] = useState("");
     const [dateOptions, setDateOptions] = useState("date-all-together");
     const [nameOptions, setNameOptions] = useState("vowels-only");
+    const [customWs, setCustomWs] = useState("0");
+    const [customYs, setCustomYs] = useState("0");
 
     const submitHandler = (e) => {
         e.preventDefault();
         document.getElementById("enter-record-form").style.display="none";
         const returnName = nameChecked ? uName : nickname;
         const nExpression = nameChecked ? getExpressionNumber(uName) : undefined;
-        const nSoul = nameChecked ? getSoulNumber(uName, nameOptions) : undefined;
+        const nSoul = nameChecked ? getSoulNumber(uName, nameOptions, customWs, customYs) : undefined;
         const returnMonth = dateChecked ? addThese(dobMonth) : undefined;
         const returnYear = dateChecked ? dobYear : undefined;
         const nDay = dateChecked ? getDayNumber(dobDay) : undefined;
         const nRuling = dateChecked ? getRulingNumber(dobDay, dobMonth, dobYear, dateOptions) : undefined;
         addRecord(returnName, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul);
-        clearForm();
+        clearForm(e);
     }
     
-    const clearForm = () => {
+    const clearForm = (e) => {
+        e.preventDefault();
         setUName("");
         setDobDay("");
         setDobMonth("");
         setDobYear("");
+        setCustomWs("0");
+        setCustomYs("0");
     }
 
     const closeForm = () => {
@@ -40,16 +45,19 @@ const Form = ({addRecord}) => {
     }
     
     const toggleName = () => {
+        setNameChecked(!nameChecked);
+    }
+
+    useEffect(() => {  // Toggle visibility of the nickname field and the enabled-disabled state of the name field
         const nicknameField = document.getElementById("nickname-label");
         const nameField = document.getElementById("uName");
-        setNameChecked(!nameChecked);
-        nameField.disabled = nameChecked;
-        if (!nameChecked) {
+        nameField.disabled = !nameChecked;
+        if (nameChecked) {
             nicknameField.style.opacity = 0;
         } else {
             nicknameField.style.opacity = 1;
         }
-    }
+    }, [nameChecked])
 
     const toggleDate = () => {
         const date1 = document.getElementById("dobDay");
@@ -61,17 +69,21 @@ const Form = ({addRecord}) => {
         date3.disabled = dateChecked;
     }
 
-    const nicknameSetter = (e) => {
-        setNickname(e.target.value);
-    }
+    const nicknameSetter = e => {setNickname(e.target.value);}
+    const dateOptionsHandler = e => {setDateOptions(e.target.value);}
+    const customWHandler = e => {setCustomWs(e.target.value);}
+    const customYHandler = e => {setCustomYs(e.target.value);}
+    const nameOptionsHandler = e => {setNameOptions(e.target.value);}
 
-    const nameOptionsHandler = e => {
-        setNameOptions(e.target.value);
-    }
+    useEffect(() => {   // Toggle visibility of the additional input fields for the custom option
+        let customWYinput = document.getElementById("customWYinput");
+        if(nameOptions==="custom-Ws-Ys") {
+            customWYinput.style.opacity = 1;
+        } else {
+            customWYinput.style.opacity = 0;
+        }
+    }, [nameOptions])
 
-    const dateOptionsHandler = e => {
-        setDateOptions(e.target.value);
-    }
 
     return (    
         <div id="enter-record-form">
@@ -102,9 +114,12 @@ const Form = ({addRecord}) => {
                                 <input type="radio" id="custom-Ws-Ys" name="name-options" value="custom-Ws-Ys" checked={nameOptions==="custom-Ws-Ys"} onChange={nameOptionsHandler} />
                                 Custom:
                             </label>
-
-                            <label htmlFor="">Include this many Ys</label>
-                            <label htmlFor="">Include this many Ws</label>
+                            <div id="customWYinput">
+                                <label htmlFor="customWs">Include this many Ws</label>
+                                <input type="number" id="customWs" value={customWs} onChange={customWHandler} maxLength={2} min={0} max={20} className="input-2ch" />
+                                <label htmlFor="customYs">Include this many Ys</label>
+                                <input type="number" id="customYs" value={customYs} onChange={customYHandler} maxLength={2} min={0} max={20} className="input-2ch" />
+                            </div>
                         </div>
                     </div>
 
@@ -144,7 +159,7 @@ const Form = ({addRecord}) => {
                     </label>
 
                 </fieldset>
-
+                <button onClick={clearForm}>Clear</button>
                 <button type="submit">Submit</button>
             </form>
         </div>

@@ -89,3 +89,6 @@ input:disabled {
     opacity: 0;
 }
 
+#customWYinput {
+    opacity: 0;
+}
