@@ -5,6 +5,7 @@
     --card-bkgd: black;
     --card-border: goldenrod;
     --font-main: rgb(255, 246, 196);
+    --standard-gap: 1rem;
 }
 
 * {

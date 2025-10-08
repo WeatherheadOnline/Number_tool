@@ -25,7 +25,7 @@ const Form = ({addRecord}) => {
         addRecord(uName, dobDay, dobMonth, dobYear, nDay, nRuling, nExpression, nSoul);
         clearForm();
     }
-
+    
     const clearForm = () => {
         setUName("");
         setDobDay("");
@@ -33,14 +33,19 @@ const Form = ({addRecord}) => {
         setDobYear("");
     }
 
+    const closeForm = () => {
+        clearForm();
+        document.getElementById("enter-record-form").style.display="none";
+    }
+
     return (    
         <div id="enter-record-form">
             <p>Hello World</p>
             <form onSubmit={submitHandler}>
+                <span className="close-btn" onClick={closeForm}>&times;</span>
 
                 <label htmlFor="uName" className="block-element">Your name goes here:</label>
                 <input id="uName" className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} />
-                
 
                 <p className="p-label">Enter your date of birth (day / month / year):</p>
                 <label htmlFor="dobDay"  className="screen-reader-only">Day from date of birth:</label>
@@ -57,4 +62,3 @@ const Form = ({addRecord}) => {
 };
 
 export default Form;
-

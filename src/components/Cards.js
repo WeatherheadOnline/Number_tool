@@ -2,12 +2,18 @@
 import '../css/Cards.css'
 
 const Cards = (props) => {
+
+    const deleteThisRecord = e => {
+        const cardID = e.target.parentElement.parentElement.id;
+        const keyToDelete = cardID.replaceAll("card-", "");
+        props.deleteRecord(keyToDelete);
+    }
     
     const cardsToDisplay = props.records.map(card => {
-
+        const cardID = "card-" + card.key;
         return (
-        <article key={card.key} className="card">
-            <TopRowOfCard />
+        <article key={card.key} id={cardID} className="card">
+            <TopRowOfCard deleteThisRecord={deleteThisRecord} />
             <div className="card-name-date-wrapper">
                 {card.nExpression 
                     ? <NameSideOfCard name={card.name} expr={card.nExpression} soul={card.nSoul} />
@@ -29,11 +35,11 @@ const Cards = (props) => {
     );
 };
 
-const TopRowOfCard = () => {
+const TopRowOfCard = ({deleteThisRecord}) => {
     return (
         <div className="top-row-of-card">
             <span>Tags go here</span>
-            <span>Delete</span>
+            <span onClick={deleteThisRecord}>Delete</span>
         </div>
     );
 };

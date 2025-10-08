@@ -15,20 +15,18 @@ const addThese = (inputNumber) =>  {
     }
 };
 
+    // The four calculations to be returned:
 export const getDayNumber = (dobDay) => {
     return addThese(dobDay);
 };
-
 export const getRulingNumber = (dobDay, dobMonth, dobYear) => {
     const allDobDigits = "" + dobDay + dobMonth + dobYear;
     return addThese(allDobDigits);
 };
-
 export const getExpressionNumber = (uName) => {
     const nameAsNumber = lettersToNumber(uName);
     return addThese(nameAsNumber);
 };
-
 export const getSoulNumber = (uName) => {
     const nameVowelsOnly = uName.replaceAll(/[^aeiouAEIOU]/g, "");
     const vowelsAsNumber = lettersToNumber(nameVowelsOnly);
@@ -46,4 +44,4 @@ const lettersToNumber = (string) => {
     let digits = "";
     numberArray.forEach(number => digits += number);
     return digits;
-}
+};
