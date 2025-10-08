@@ -20,7 +20,8 @@ const Cards = (props) => {
                 }
                 {card.nRuling
                     ? <DateSideOfCard date={card.date} ruling={card.nRuling} day={card.nDay} />
-                    : <span className="add-a-date-btn add-btn">Add a date</span>
+                    // : <span className="add-a-date-btn add-btn">Add a date</span>
+                    : null
                 }
             </div>
         </article>
@@ -58,7 +59,7 @@ const NamelessSideOfCard = (props) => {
         <div className="card-name-or-date card-name">
             <p>Nickname:</p>
             <h2 className="nickname">"{props.nickname}"</h2>
-            <p className="add-btn">Add a name</p>
+            {/* <p className="add-btn">Add a name</p> */}
         </div>
     )
 }

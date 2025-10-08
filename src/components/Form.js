@@ -10,6 +10,8 @@ const Form = ({addRecord}) => {
     const [nameChecked, setNameChecked] = useState(true);
     const [dateChecked, setDateChecked] = useState(true);
     const [nickname, setNickname] = useState("");
+    const [dateOptions, setDateOptions] = useState("date-all-together");
+    const [nameOptions, setNameOptions] = useState("vowels-only");
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -63,6 +65,14 @@ const Form = ({addRecord}) => {
         setNickname(e.target.value);
     }
 
+    const nameOptionsHandler = e => {
+        setNameOptions(e.target.value);
+    }
+
+    const dateOptionsHandler = e => {
+        setDateOptions(e.target.value);
+    }
+
     return (    
         <div id="enter-record-form">
             <form onSubmit={submitHandler}>
@@ -76,7 +86,30 @@ const Form = ({addRecord}) => {
 
                     <label htmlFor="uName" className="screen-reader-only">Enter a name here:</label>
                     <input id="uName" className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} />
+
+                    <div>
+                        <button className="collapse-btn">More options:</button>
+                        <div className="more-options">
+                            <label htmlFor="vowels-only" className="block-element">
+                                <input type="radio" id="vowels-only" name="name-options" value="vowels-only" checked={nameOptions==="vowels-only"} onChange={nameOptionsHandler} />
+                                Only include A-E-I-O-U
+                            </label>
+                            <label htmlFor="some-Ws-Ys" className="block-element">
+                                <input type="radio" id="some-Ws-Ys" name="name-options" value="some-Ws-Ys" checked={nameOptions==="some-Ws-Ys"} onChange={nameOptionsHandler} />
+                                Include some Ws and Ys (the ones that fit the rules)
+                            </label>
+                            <label htmlFor="custom-Ws-Ys" className="block-element">
+                                <input type="radio" id="custom-Ws-Ys" name="name-options" value="custom-Ws-Ys" checked={nameOptions==="custom-Ws-Ys"} onChange={nameOptionsHandler} />
+                                Custom:
+                            </label>
+
+                            <label htmlFor="">Include this many Ys</label>
+                            <label htmlFor="">Include this many Ws</label>
+                        </div>
+                    </div>
+
                 </fieldset>
+
                 <hr />
 
                 <fieldset>
@@ -92,7 +125,20 @@ const Form = ({addRecord}) => {
                     <label htmlFor="dobYear" className="screen-reader-only">Year from date of birth:</label>
                         <input id="dobYear" type="number" value={dobYear} onChange={(e) => {setDobYear(e.target.value);}} placeholder="YY" max={3000} className="input-4ch" />
                     
-
+                    <div>
+                        <button className="collapse-btn">More options:</button>
+                        <div className="more-options">
+                            <label htmlFor="date-all-together" className="block-element">
+                                <input type="radio" id="date-all-together" name="date-options" value="date-all-together" checked={dateOptions==="date-all-together"} onChange={dateOptionsHandler} />
+                                Add all digits together at once (default)
+                            </label>
+                            <label htmlFor="date-individually" className="block-element">
+                                <input type="radio" id="date-individually" name="date-options" value="date-individually" checked={dateOptions==="date-individually"} onChange={dateOptionsHandler} />
+                                Add the day, month and year separately first
+                            </label>
+                        </div>           
+                    </div>
+                     
                     <label className="block-element" id="nickname-label" >Enter a nickname to go with this date:
                         <input type="text" id="nickname" className="block-element" value={nickname} onChange={nicknameSetter} />
                     </label>
