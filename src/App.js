@@ -6,15 +6,16 @@ import Cards from './components/Cards';
 import Form from './components/Form';
 import Footer from './components/Footer';
 
-const App = () => {
 
+// set to records.length
+let keyCounter = 3;
+
+
+const App = () => {
   const [records, setRecords] = useState([
     {
         name: "Albert Einstein",
         date: "14-03-1879",
-        year: 1879,
-        month: 3,
-        day: 14,
         nRuling: 33,
         nDay: 5,
         nExpression: 9,
@@ -24,9 +25,6 @@ const App = () => {
     {
         name: "Maya Angelou",
         date: "04-04-1928",
-        year: 1928,
-        month: 4,
-        day: 4,
         nRuling: 1,
         nDay: 4,
         nExpression: 7,
@@ -36,27 +34,19 @@ const App = () => {
     {
         name: 'Alfred Matthew "Weird Al" Yankovic',
         date: "23-10-1959",
-        year: 1959,
-        month: 10,
-        day: 23,
         nRuling: 3,
         nDay: 5,
         nExpression: 11,
         nSoul: 1,
         key: 2,
     },
-  ]);
+  ]);  
 
-  let keyCounter = records.length;
-
-  const addRecord = (uName, dobDay, dobMonth, dobYear, nDay, nRuling, nExpression, nSoul) => {
+  const addRecord = (uName, dobDay, month, dobYear, nDay, nRuling, nExpression, nSoul) => {
     setRecords([...records, 
       {
         name: uName,
-        date: `${dobDay}/${dobMonth}/${dobYear}`,
-        year: dobYear,
-        month: dobMonth,
-        day: dobDay,
+        date: `${nDay}/${month}/${dobYear}`,
         nRuling: nRuling,
         nDay: nDay,
         nExpression: nExpression,

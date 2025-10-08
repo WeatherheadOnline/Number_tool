@@ -1,11 +1,10 @@
     // Set up an alphabet-to-number lookup table:
 const emptylettersObject = {length:26};
 const alphaSetup = Array.from(emptylettersObject, (element, index) => String.fromCharCode(97 + index));
-console.log(alphaSetup);
 
     // Where the magic happens: adding the individual digits of a number
-const addThese = (inputNumber) =>  {
-    if(inputNumber % 11 == 0 && inputNumber <= 33 || inputNumber <=9) {
+export const addThese = (inputNumber) =>  {
+    if(inputNumber % 11 == 0 && inputNumber <= 33 || inputNumber.toString().length <= 1) {
         return inputNumber;
     } else {
         const digitArray = Array.from(inputNumber.toString(), Number);

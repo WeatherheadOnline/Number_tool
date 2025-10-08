@@ -19,7 +19,7 @@ const Cards = (props) => {
                     ? <NameSideOfCard name={card.name} expr={card.nExpression} soul={card.nSoul} />
                     : <NamelessSideOfCard nickname={card.name} />            
                 }
-                {card.date 
+                {card.nRuling
                     ? <DateSideOfCard date={card.date} ruling={card.nRuling} day={card.nDay} />
                     : <span className="add-a-date-btn add-btn">Add a date</span>
                 }

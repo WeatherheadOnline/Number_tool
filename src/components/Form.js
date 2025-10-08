@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../css/Form.css';
-import {getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
+import {addThese, getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
 
 //   To do:
 //////////////////////////////////////////
@@ -18,11 +18,12 @@ const Form = ({addRecord}) => {
     const submitHandler = (e) => {
         e.preventDefault();
         document.getElementById("enter-record-form").style.display="none";
+        const month = addThese(dobMonth);
         const nDay = getDayNumber(dobDay);
         const nRuling = getRulingNumber(dobDay, dobMonth, dobYear);
         const nExpression = getExpressionNumber(uName);
         const nSoul = getSoulNumber(uName);
-        addRecord(uName, dobDay, dobMonth, dobYear, nDay, nRuling, nExpression, nSoul);
+        addRecord(uName, dobDay, month, dobYear, nDay, nRuling, nExpression, nSoul);
         clearForm();
     }
     
