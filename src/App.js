@@ -42,7 +42,7 @@ const App = () => {
     },
   ]);  
 
-  const addRecord = (uName, dobDay, month, dobYear, nDay, nRuling, nExpression, nSoul) => {
+  const addRecord = (uName, month, dobYear, nDay, nRuling, nExpression, nSoul) => {
     setRecords([...records, 
       {
         name: uName,

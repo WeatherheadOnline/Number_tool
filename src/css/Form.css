@@ -5,15 +5,30 @@
     overflow: hidden;
     top: 0;
     left: 0;
-    background-color: #000000CC;
+    background-color: #000000EE;
     display: none;
+}
+
+.close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    border: 1px solid var(--card-border);
 }
 
 form {
     position: relative;
     margin: 2rem auto;
-    outline: 1px solid red;
     width: max-content;
+    outline: 1px solid red;
+    padding: 1rem 2rem;
+}
+
+fieldset {
+    margin: 2rem 0;
+    border: none;
 }
 
 .block-element {
@@ -32,16 +47,33 @@ form {
 }
 
 label, .p-label {
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    max-width: 28ch;
+}
+
+form li {
+    margin-left: 2.5rem;
 }
 
 input {
     padding: 0.2rem 0.4rem;
-    margin-bottom: 2rem;
     font-size: 1.5em;
     @media screen and (hover) {
         font-size: 1em;
     }
+}
+
+input[type="checkbox"] {
+    position: relative;
+    right: 1.5rem;
+    top: 0.5rem;
+    height: 1.3rem;
+    width: 1.3rem;
+
+}
+
+input:disabled {
+    background-color: grey;
 }
 
 .input-2ch {
@@ -52,11 +84,7 @@ input {
     width: calc(4ch + 1rem);
 }
 
-.close-btn {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.5rem;
-    border: 1px solid var(--card-border);
+#nickname-label {
+    opacity: 0;
 }
+
