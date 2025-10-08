@@ -20,6 +20,7 @@ export const addThese = (inputNumber) =>  {
 export const getDayNumber = (dobDay) => {
     return addThese(dobDay);
 };
+
 export const getRulingNumber = (dobDay, dobMonth, dobYear, dateOptions) => {
     if(dateOptions === "date-all-together") {
         const allDobDigits = "" + dobDay + dobMonth + dobYear;
@@ -29,12 +30,29 @@ export const getRulingNumber = (dobDay, dobMonth, dobYear, dateOptions) => {
         return addThese(allDobDigits);
     }
 };
+
 export const getExpressionNumber = (uName) => {
     const nameAsNumber = lettersToNumber(uName);
     return addThese(nameAsNumber);
 };
-export const getSoulNumber = (uName) => {
-    const nameVowelsOnly = uName.replaceAll(/[^aeiouAEIOU]/g, "");
+
+export const getSoulNumber = (uName, nameOptions) => {
+    let nameVowelsOnly;
+    if(nameOptions==="vowels-only") {
+        nameVowelsOnly = uName.replaceAll(/[^aeiouAEIOU]/g, "");
+    } else if(nameOptions==="some-Ws-Ys") { // *** For decision rules, see this file: 'scratch/Vowel rules for W and Y.txt' ***
+        const removeYAtStart = uName.replaceAll(/^[y](?=[aeiou])/g, "");  // Remove Ys at the start of the name, if they're followed by a vowel
+        const removeMoreYs = removeYAtStart.replaceAll(/(?<=![aeiour])[y](?=[aeiou])/g, ""); // Replace Ys preceded by a consonant (but not R) and followed by a vowel
+        const saveTheseYs = removeMoreYs.replaceAll(/(?<=ai)[y](?=[aeiou])/g, "#");  // Save Ys for later if followed by a vowel but preceded by AI
+        const removeYsAfterI = saveTheseYs.replaceAll(/(?<=i)[y](?=[aeiou])/g, "");  // Remove Ys precede by I and followed by a vowel
+        const restoreYs = removeYsAfterI.replaceAll(/#/g, "y");  // Restore the Ys that were saved two steps ago
+        nameVowelsOnly = restoreYs;
+    } else {
+
+        // Change this once the custom W and Y input fields are in place
+
+        nameVowelsOnly = uName.replaceAll(/[^aeiouAEIOU]/g, "");
+    }
     const vowelsAsNumber = lettersToNumber(nameVowelsOnly);
     return addThese(vowelsAsNumber);    
 };

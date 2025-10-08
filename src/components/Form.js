@@ -18,7 +18,7 @@ const Form = ({addRecord}) => {
         document.getElementById("enter-record-form").style.display="none";
         const returnName = nameChecked ? uName : nickname;
         const nExpression = nameChecked ? getExpressionNumber(uName) : undefined;
-        const nSoul = nameChecked ? getSoulNumber(uName) : undefined;
+        const nSoul = nameChecked ? getSoulNumber(uName, nameOptions) : undefined;
         const returnMonth = dateChecked ? addThese(dobMonth) : undefined;
         const returnYear = dateChecked ? dobYear : undefined;
         const nDay = dateChecked ? getDayNumber(dobDay) : undefined;
