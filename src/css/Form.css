@@ -23,7 +23,6 @@ form {
     /* margin: 2rem auto; */
     margin: 0 auto;
     width: max-content;
-    outline: 1px solid red;
     padding: 1rem 2rem;
 }
 
@@ -37,13 +36,6 @@ fieldset {
 }
 
 .screen-reader-only {
-    /* clip: rect(0,0,0,0);
-    border: 0;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    white-space: nowrap; */
     display: none;
 }
 
@@ -92,3 +84,10 @@ input:disabled {
 #customWYinput {
     opacity: 0;
 }
+.tooltip-icon {
+    margin: 0 1rem;
+    padding: 0 0.4em;
+    color: var(--card-border);
+    outline: 1px solid var(--card-border);
+    border-radius: 1rem;
+} 

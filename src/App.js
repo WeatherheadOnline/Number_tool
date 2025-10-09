@@ -76,10 +76,10 @@ const App = () => {
           {
             "name": returnName,
             "date": `${nDay}/${returnMonth}/${returnYear}`,
-            "nRuling": nRuling.toString(),
-            "nDay": nDay.toString(),
+            "nRuling": nRuling,
+            "nDay": nDay,
             "nExpression": nExpression,
-            "nSoul": nSoul.toString(),
+            "nSoul": nSoul,
             "notes": notes,
             "key": keyCounter.toString(),
           },

@@ -4,7 +4,7 @@ const Cards = (props) => {
 
     const deleteThisRecord = e => {
         const cardID = e.target.parentElement.parentElement.parentElement.id;
-        const keyToDelete = Number(cardID.replaceAll("card-", ""));
+        const keyToDelete = cardID.replaceAll("card-", "");
         props.deleteRecord(keyToDelete);
     }
     

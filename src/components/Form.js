@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import '../css/Form.css';
 import {addThese, getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
 
@@ -18,14 +19,18 @@ const Form = ({addRecord}) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        if(!nameChecked && !dateChecked) {  // If neither name or a date checkboxes are selected, close the form without clearing it (keeping any data they may have entered before de-selecting the checkboxes)
+            document.getElementById("enter-record-form").style.display="none"; 
+            return;
+        }
         document.getElementById("enter-record-form").style.display="none";
-        const returnName = nameChecked ? uName : nickname;
-        const nExpression = nameChecked ? getExpressionNumber(uName) : undefined;
-        const nSoul = nameChecked ? getSoulNumber(uName, nameOptions, customWs, customYs) : undefined;
-        const returnMonth = dateChecked ? addThese(dobMonth) : undefined;
-        const returnYear = dateChecked ? dobYear : undefined;
-        const nDay = dateChecked ? getDayNumber(dobDay) : undefined;
-        const nRuling = dateChecked ? getRulingNumber(dobDay, dobMonth, dobYear, dateOptions) : undefined;
+        const returnName = uName !== "" ? uName : nickname;
+        const nExpression = uName !== "" ? getExpressionNumber(uName).toString() : undefined;
+        const nSoul = uName !== "" ? getSoulNumber(uName, nameOptions, customWs, customYs).toString() : undefined;
+        const returnMonth = dobMonth !== "" ? addThese(dobMonth) : undefined;
+        const returnYear = dobYear !== "" ? dobYear : undefined;
+        const nDay = dobDay !== "" ? getDayNumber(dobDay).toString() : undefined;
+        const nRuling = dobYear !=="" ? getRulingNumber(dobDay, dobMonth, dobYear, dateOptions).toString() : undefined;
         const notes = notesField !== "" ? notesField : undefined ;
         addRecord(returnName, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes);
         clearForm(e);
@@ -82,6 +87,11 @@ const Form = ({addRecord}) => {
         date1.disabled = !dateChecked;
         date2.disabled = !dateChecked;
         date3.disabled = !dateChecked;
+        if(!dateChecked) {  // Without this: if the user enters a date, and then unchecks the date checkbox, they will be prompted to enter text into the now-invisible "nickname" field, and the date will be processed as though the checkbox was selected.
+            setDobDay("");
+            setDobMonth("");
+            setDobYear("");
+        }
     }, [dateChecked]);
 
     return (    
@@ -92,11 +102,11 @@ const Form = ({addRecord}) => {
                 <fieldset>
                     <div>
                         <input id="whether-name" type="checkbox" checked={nameChecked} onChange={toggleName} />
-                        <label htmlFor="whether-name" >Enter a name to calculate: <ul><li>expression number</li><li>soul number</li></ul></label>
+                        <label>Enter a name to calculate: <ul><li>expression number</li><li>soul number</li></ul></label>
                     </div>
 
                     <label htmlFor="uName" className="screen-reader-only">Enter a name here:</label>
-                    <input id="uName" className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} />
+                    <input id="uName" className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} required={nameChecked} />
 
                     <div>
                         <button className="collapse-btn">More options:</button>
@@ -105,10 +115,20 @@ const Form = ({addRecord}) => {
                                 <input type="radio" id="vowels-only" name="name-options" value="vowels-only" checked={nameOptions==="vowels-only"} onChange={nameOptionsHandler} />
                                 Only include A-E-I-O-U
                             </label>
+
+
+
                             <label htmlFor="some-Ws-Ys" className="block-element">
                                 <input type="radio" id="some-Ws-Ys" name="name-options" value="some-Ws-Ys" checked={nameOptions==="some-Ws-Ys"} onChange={nameOptionsHandler} />
-                                Include some Ws and Ys (the ones that fit the rules)
+                                 Include some Ws and Ys
+                                <Tooltip className="tooltip"
+                                    title = 'According to the guidelines by Matthew Oliver Goodwin in "Numerology the Complete Guide, Volume I: The Personality Reading". W is a vowel when it is preceded by a natural vowel and pronounced together as one sound. Y is a vowel when there is no other vowel in a syllable, or when it is preceded by a natural vowel and pronounced together as one sound.' 
+                                > <span className="tooltip-icon">?</span>
+                                </Tooltip>
                             </label>
+                            
+                            
+                            
                             <label htmlFor="custom-Ws-Ys" className="block-element">
                                 <input type="radio" id="custom-Ws-Ys" name="name-options" value="custom-Ws-Ys" checked={nameOptions==="custom-Ws-Ys"} onChange={nameOptionsHandler} />
                                 Custom
@@ -133,11 +153,11 @@ const Form = ({addRecord}) => {
                     </div>
                     
                     <label htmlFor="dobDay" className="screen-reader-only">Day from date of birth:</label>
-                        <input id="dobDay" type="number" value={dobDay} onChange={(e) => {setDobDay(e.target.value);}} placeholder="DD" max={31} className="input-2ch" />
+                        <input id="dobDay" type="number" value={dobDay} onChange={(e) => {setDobDay(e.target.value);}} placeholder="DD" max={31} className="input-2ch" required={dateChecked} />
                     <label htmlFor="dobMonth" className="screen-reader-only">Month from date of birth:</label>
-                        <input id="dobMonth" type="number" value={dobMonth} onChange={(e) => {setDobMonth(e.target.value);}} placeholder="MM" max={12} className="input-2ch" />
+                        <input id="dobMonth" type="number" value={dobMonth} onChange={(e) => {setDobMonth(e.target.value);}} placeholder="MM" max={12} className="input-2ch" required={dateChecked} />
                     <label htmlFor="dobYear" className="screen-reader-only">Year from date of birth:</label>
-                        <input id="dobYear" type="number" value={dobYear} onChange={(e) => {setDobYear(e.target.value);}} placeholder="YY" max={3000} className="input-4ch" />
+                        <input id="dobYear" type="number" value={dobYear} onChange={(e) => {setDobYear(e.target.value);}} placeholder="YY" max={3000} className="input-4ch" required={dateChecked} />
                     
                     <div>
                         <button className="collapse-btn">More options:</button>
@@ -154,7 +174,7 @@ const Form = ({addRecord}) => {
                     </div>
                      
                     <label className="block-element" id="nickname-label" >Enter a nickname to go with this date:
-                        <input type="text" id="nickname" className="block-element" value={nickname} onChange={nicknameSetter} />
+                        <input type="text" id="nickname" className="block-element" value={nickname} onChange={nicknameSetter} required={dateChecked} />
                     </label>
 
                     <label>Notes (optional)
