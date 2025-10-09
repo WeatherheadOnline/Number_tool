@@ -51,14 +51,14 @@ const Form = ({addRecord}) => {
         document.getElementById("enter-record-form").style.display="none";
     }
 
-    const toggleName = () => {setNameChecked(!nameChecked);}
-    const toggleDate = () => {setDateChecked(!dateChecked);}
-    const nameOptionsHandler = e => {setNameOptions(e.target.value);}
-    const customWHandler = e => {setCustomWs(e.target.value);}
-    const customYHandler = e => {setCustomYs(e.target.value);}
-    const dateOptionsHandler = e => {setDateOptions(e.target.value);}
-    const nicknameSetter = e => {setNickname(e.target.value);}
-    const notesFieldHandler = e => {setNotesField(e.target.value);}
+    const toggleName = () => setNameChecked(!nameChecked);
+    const toggleDate = () => setDateChecked(!dateChecked);
+    const nameOptionsHandler = e => setNameOptions(e.target.value);
+    const customWHandler = e => setCustomWs(e.target.value);
+    const customYHandler = e => setCustomYs(e.target.value);
+    const dateOptionsHandler = e => setDateOptions(e.target.value);
+    const nicknameSetter = e => setNickname(e.target.value);
+    const notesFieldHandler = e => setNotesField(e.target.value);
 
     useEffect(() => {  // Toggle visibility of the nickname field and the enabled-disabled state of the name field
         const nicknameField = document.getElementById("nickname-label");
@@ -94,6 +94,15 @@ const Form = ({addRecord}) => {
         }
     }, [dateChecked]);
 
+    const toggleCollapsed = e => {
+        const moreOptions = e.target.nextSibling;
+        if (moreOptions.style.display === "block") {
+            moreOptions.style.display = "none";
+        } else {
+            moreOptions.style.display = "block";
+        }
+    };
+
     return (    
         <div id="enter-record-form">
             <form onSubmit={submitHandler}>
@@ -109,8 +118,8 @@ const Form = ({addRecord}) => {
                     <input id="uName" className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} required={nameChecked} />
 
                     <div>
-                        <div className="collapse-btn">More options:</div>
-                        <div className="more-options">
+                        <div className="collapse-btn" onClick={toggleCollapsed}>More options:</div>
+                        <div className="more-options" >
                             <label htmlFor="vowels-only" className="block-element">
                                 <input type="radio" id="vowels-only" name="name-options" value="vowels-only" checked={nameOptions==="vowels-only"} onChange={nameOptionsHandler} />
                                 Only include A-E-I-O-U
@@ -120,7 +129,7 @@ const Form = ({addRecord}) => {
                                 <input type="radio" id="some-Ws-Ys" name="name-options" value="some-Ws-Ys" checked={nameOptions==="some-Ws-Ys"} onChange={nameOptionsHandler} />
                                  Include some Ws and Ys
                                 <Tooltip className="tooltip"
-                                    title = 'According to the guidelines by Matthew Oliver Goodwin in "Numerology the Complete Guide, Volume I: The Personality Reading". W is a vowel when it is preceded by a natural vowel and pronounced together as one sound. Y is a vowel when there is no other vowel in a syllable, or when it is preceded by a natural vowel and pronounced together as one sound.' 
+                                    title = 'Following the guidelines by Matthew Oliver Goodwin in "Numerology the Complete Guide, Volume I: The Personality Reading". W is a vowel when it is preceded by a natural vowel and pronounced together as one sound. Y is a vowel when there is no other vowel in a syllable, or when it is preceded by a natural vowel and pronounced together as one sound.' 
                                 > <span className="tooltip-icon">?</span>
                                 </Tooltip>
                             </label>
@@ -156,7 +165,7 @@ const Form = ({addRecord}) => {
                         <input id="dobYear" type="number" value={dobYear} onChange={(e) => {setDobYear(e.target.value);}} placeholder="YY" max={3000} className="input-4ch" required={dateChecked} />
                     
                     <div>
-                        <div className="collapse-btn" id="collapse-btn-date">More options:</div>
+                        <div className="collapse-btn" id="collapse-btn-date" onClick={toggleCollapsed}>More options:</div>
                         <div className="more-options">
                             <label htmlFor="date-all-together" className="block-element">
                                 <input type="radio" id="date-all-together" name="date-options" value="date-all-together" checked={dateOptions==="date-all-together"} onChange={dateOptionsHandler} />
