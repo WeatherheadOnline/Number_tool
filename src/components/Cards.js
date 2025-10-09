@@ -3,8 +3,8 @@ import '../css/Cards.css'
 const Cards = (props) => {
 
     const deleteThisRecord = e => {
-        const cardID = e.target.parentElement.parentElement.id;
-        const keyToDelete = cardID.replaceAll("card-", "");
+        const cardID = e.target.parentElement.parentElement.parentElement.id;
+        const keyToDelete = Number(cardID.replaceAll("card-", ""));
         props.deleteRecord(keyToDelete);
     }
     
@@ -41,7 +41,6 @@ const BottomRowOfCard = (props) => {
             <span onClick={props.deleteThisRecord}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" fill="none" viewBox="0 0 24 24"><path d="M4 6h16l-1.58 14.22A2 2 0 0 1 16.43 22H7.57a2 2 0 0 1-1.99-1.78L4 6ZM7.34 3.15A2 2 0 0 1 9.15 2h5.7a2 2 0 0 1 1.8 1.15L18 6H6l1.34-2.85ZM2 6h20M10 11v5M14 11v5"/></svg>
             </span>
-            {/* <FontAwesomeIcon icon={byPrefixAndName.far['trash']} onClick={props.deleteThisRecord} /> */}
         </div>
     );
 };
