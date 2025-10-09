@@ -109,14 +109,12 @@ const Form = ({addRecord}) => {
                     <input id="uName" className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} required={nameChecked} />
 
                     <div>
-                        <button className="collapse-btn">More options:</button>
+                        <div className="collapse-btn">More options:</div>
                         <div className="more-options">
                             <label htmlFor="vowels-only" className="block-element">
                                 <input type="radio" id="vowels-only" name="name-options" value="vowels-only" checked={nameOptions==="vowels-only"} onChange={nameOptionsHandler} />
                                 Only include A-E-I-O-U
                             </label>
-
-
 
                             <label htmlFor="some-Ws-Ys" className="block-element">
                                 <input type="radio" id="some-Ws-Ys" name="name-options" value="some-Ws-Ys" checked={nameOptions==="some-Ws-Ys"} onChange={nameOptionsHandler} />
@@ -126,8 +124,6 @@ const Form = ({addRecord}) => {
                                 > <span className="tooltip-icon">?</span>
                                 </Tooltip>
                             </label>
-                            
-                            
                             
                             <label htmlFor="custom-Ws-Ys" className="block-element">
                                 <input type="radio" id="custom-Ws-Ys" name="name-options" value="custom-Ws-Ys" checked={nameOptions==="custom-Ws-Ys"} onChange={nameOptionsHandler} />
@@ -160,7 +156,7 @@ const Form = ({addRecord}) => {
                         <input id="dobYear" type="number" value={dobYear} onChange={(e) => {setDobYear(e.target.value);}} placeholder="YY" max={3000} className="input-4ch" required={dateChecked} />
                     
                     <div>
-                        <button className="collapse-btn">More options:</button>
+                        <div className="collapse-btn" id="collapse-btn-date">More options:</div>
                         <div className="more-options">
                             <label htmlFor="date-all-together" className="block-element">
                                 <input type="radio" id="date-all-together" name="date-options" value="date-all-together" checked={dateOptions==="date-all-together"} onChange={dateOptionsHandler} />
