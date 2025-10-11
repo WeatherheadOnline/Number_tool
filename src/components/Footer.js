@@ -4,14 +4,15 @@ import '../css/Footer.css';
 const Footer = () => {
     return (
         <footer>
+            <div className="greengeeks">
+                <ExternalLink url="https://www.greengeeks.com">
+                <img src='https://greengeeks.com/includes/images/green-tags/Green_3.png' border='0' alt='GreenGeeks eco-friendly web hosting' />
+                </ExternalLink>
+            </div>
             <ExternalLink url="https://www.weatherheadonline.com">
                 <p>&copy; Weatherhead Online 2024</p>
             </ExternalLink>
-            <div className="greengeeks">
-                <ExternalLink url="https://www.greengeeks.com">
-                <img src='https://greengeeks.com/includes/images/green-tags/Green_5.png' border='0' alt='GreenGeeks eco-friendly web hosting' />
-                </ExternalLink>
-            </div>
+            <div className="logo-110"></div>
         </footer>
     );
 };

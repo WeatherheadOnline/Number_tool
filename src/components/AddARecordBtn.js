@@ -7,7 +7,7 @@ const AddARecordBtn = (props) => {
     const btnClassName = props.mobileOrDesktop + "-add-record add-record-btn"
     return (
         <button className={btnClassName} onClick={clickHandler}>
-            <h2>+ Add a record</h2>
+            <h3>+ Add a person</h3>
         </button>
     );
 };
