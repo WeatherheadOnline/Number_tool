@@ -1,8 +1,9 @@
 const Tooltip = (props) => {
     return (
-        <p className="tooltip">{props.visible}
-            <span className="tooltip-hidden">{props.hidden}</span>
-        </p>
+        <div className="tooltip">
+            <p>{props.visible}</p>
+            <p className="tooltip-hidden">{props.hidden}</p>
+        </div>
     );
 };
 

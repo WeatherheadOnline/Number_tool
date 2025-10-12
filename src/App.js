@@ -51,18 +51,17 @@ const App = () => {
     // Setting state
 
   const recordsSetter = (returnName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes) => {
-    setRecords([...records, 
+    setRecords([ 
           {
             "name": returnName,
-            "date": `${returnDay}/${returnMonth}/${returnYear}`, // Note: This is wrong! should be using returnDay (not currently being gathered)
+            "date": `${returnDay}/${returnMonth}/${returnYear}`,
             "nRuling": nRuling,
             "nDay": nDay,
             "nExpression": nExpression,
             "nSoul": nSoul,
             "notes": notes,
             "key": keyCounter.toString(),
-          },
-        ]);
+          }, ...records]);
   }
   const keySetter = (prevKey) => {
       setKeyCounter(prevKey + 1);

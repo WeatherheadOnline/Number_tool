@@ -66,7 +66,7 @@ main {
 }
 
 h1, h2 {
-    font-family: "Paprika", sans-serif;
+    /* font-family: "Paprika", sans-serif;
     font-family: "Young Serif", sans-serif;
     font-family: "Sansita One", sans-serif;
     font-family: "Caprasimo", sans-serif;
@@ -75,9 +75,9 @@ h1, h2 {
     font-family: "Unlock", sans-serif;
     font-family: "Agbalumo", sans-serif;
     font-family: "DM Serif Display", sans-serif;
-    font-family: "Gabriela", serif;
+    font-family: "Gabriela", serif; */
     font-family: "Faculty Glyphic", serif;
-    /* letter-spacing: 0.05rem; */
+
 }
 
 a {color: var(--cyan);}
