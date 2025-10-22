@@ -1,0 +1,88 @@
+.dark {
+    --cyan: #6DCBF9;
+    --cyan-light: #94D6F6;
+    --lavender: #5C66E7;
+    --light-lavender: #8088F0;
+    --mid-purple: #3624ae;
+    --dark-purple: #2e1d99;
+    --darkest-purple: #0d082a;
+    --darkest-purple-sheer: #0d082aF5;
+    --light-magenta: #C450E0;
+    --lightest-magenta: hsl(270, 60%, 84%);
+    --white-text: #fcedff;
+    
+    --bkgd: var(--darkest-purple);
+    --bkgd-transparent: var(--darkest-purple-sheer);
+    --border-header-footer: var(--light-magenta);
+    color: var(--white-text);
+    --text-h2: var(--cyan);
+    --card-bkgd: var(--darkest-purple);
+    --card-border: var(--lavender);
+    --card-border-shadow: var(--dark-purple);
+    --card-hover-shadow: var(--darkest-purple);
+    --trashcan: var(--lavender);
+
+    --button-text: var(--darkest-purple);
+    --button: var(--cyan-light);
+    --button-border: var(--lavender);
+    --button-hover: var(--cyan);
+    --button-border-hover: var(--dark-purple);
+    --button-active: var(--cyan-light);
+    --button-border-active: var(--dark-purple);
+
+    --input: var(--lightest-magenta);
+    --input-focused: var(--white-text);
+    --input-disabled: #686b8b;
+
+    .color-bkgd {
+        background-color: var(--bkgd);
+    }
+    h1 {
+        color: transparent;
+        background: linear-gradient(
+            -5deg,
+            var(--lavender),
+            var(--lightest-magenta) 50%,
+            var(--light-magenta) 80%
+        );
+        background-clip: text;
+        filter: drop-shadow(3px 3px 0 var(--mid-purple));
+    }
+
+    .bkgd.blurred-stars {
+        filter: blur(2px);
+        @media screen and (hover) {
+            filter: blur(2px);
+        }
+    }
+
+    .bkgd.blurred-stars-1 {
+        background-image: url(../assets/stars-bkgd-magenta.svg);
+        background-position: -3.5rem -3.5rem;
+        background-size: 34vmin;
+        opacity: 0.3;
+        @media screen and (hover) {
+            background-size: 17rem;
+            opacity: 0.15;
+        }
+    }
+    .bkgd.blurred-stars-2 {
+        background-image: url(../assets/stars-bkgd-lavender.svg);
+        background-size: 20vmin;
+        opacity: 0.2;    
+        @media screen and (hover) {
+            background-size: 10rem;
+            opacity: 0.1;
+        }
+    }
+    .bkgd.blurred-stars-3 {
+        background-image: url(../assets/stars-bkgd-cyan.svg);
+        background-size: 14vmin;
+        opacity: 0.1;    
+        @media screen and (hover) {
+            background-size: 7rem;
+            opacity: 0.05;
+        }
+    }
+
+}

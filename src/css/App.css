@@ -3,49 +3,6 @@
     --card-padding-desktop: 1.5rem;
     --card-gap-mobile: 8vmin;
     --card-gap-desktop: 3rem;
-
-    --cyan: #6DCBF9;
-    --cyan-light: #94D6F6;
-    --lavender: #5C66E7;
-    --light-lavender: #8088F0;
-    --dark-purple: #2e1d99;
-    --darkest-purple: #0d082a;
-    --darkest-purple-sheer: #0d082aF5;
-    --light-magenta: #C450E0;
-    --lightest-magenta: hsl(270, 60%, 84%);
-    --white-text: #fcedff;
-    
-    --bkgd: var(--darkest-purple);
-    --bkgd-transparent: var(--darkest-purple-sheer);
-    --border-header-footer: var(--light-magenta);
-    --text-h1: var(--light-magenta);
-    --text-h1-shadow: var(--dark-purple);
-    --text-h2: var(--cyan);
-    --text-p: var(--white-text);
-    --text-ruling-number: ;
-    --card-border: var(--lavender);
-    --card-border-shadow: var(--dark-purple);
-    --card-hover-shadow: var(--darkest-purple);
-    --card-hover-shadow: #0a0429;
-    --trashcan: var(--lavender);
-
-    --button-text: var(--darkest-purple);
-
-    
-    --button: var(--cyan-light);
-    --button-border: var(--lavender);
-
-    --button-hover: var(--cyan);
-    --button-border-hover: var(--dark-purple);
-    
-    --button-active: var(--white-text);
-    --button-border-active: var(--lavender);
-
-
-
-    --input: var(--lightest-magenta);
-    --input-focused: var(--white-text);
-    --input-disabled: #686b8b;
 }
 
 * {
@@ -56,9 +13,7 @@
 body {
     position: relative;
     overflow-x: hidden;
-    background-color: var(--bkgd);
     font-family: "Verdana", sans-serif;
-    color: var(--text-p);
 }
 
 main {
@@ -66,23 +21,13 @@ main {
 }
 
 h1, h2 {
-    /* font-family: "Paprika", sans-serif;
-    font-family: "Young Serif", sans-serif;
-    font-family: "Sansita One", sans-serif;
-    font-family: "Caprasimo", sans-serif;
-    font-family: "Racing Sans One", sans-serif;
-    
-    font-family: "Unlock", sans-serif;
-    font-family: "Agbalumo", sans-serif;
-    font-family: "DM Serif Display", sans-serif;
-    font-family: "Gabriela", serif; */
     font-family: "Faculty Glyphic", serif;
 
 }
 
 a {color: var(--cyan);}
 a:hover {color: var(--light-magenta);}
-a:active {color: var(--lightest-magenta);}
+a:active {color: var(--lightest-magenta); background-color: var(--green-dark);}
 button, .collapse-btn {
     margin: 1rem auto;    /* Might not need this line after setting up Header css */
     padding: 0.5rem 0;
@@ -119,12 +64,19 @@ header {
     }
 }
 
+#sortOptions option:first-child {
+    color: grey;
+}
+
 h1 {
     text-align: center;
-    color: var(--text-h1);
-    text-shadow: 3px 3px 0 var(--text-h1-shadow);
     font-size: 15vmin;
     line-height: 14vmin;
+    @media screen and (hover: none) {
+        span:last-child {
+            line-height: 20vmin;
+        }    
+    }
     @media screen and (hover) {
         font-size: 4rem;
         line-height: 4rem;
@@ -185,7 +137,7 @@ article.card {
     overflow: hidden;
     position: relative;
     width: 80vmin;
-    background-color: var(--bkgd);
+    background-color: var(--card-bkgd);
     border-radius: 10vmin;
     border: 0.5rem solid var(--card-border);
     padding: var(--card-padding-mobile);
@@ -201,7 +153,7 @@ article.card {
 }
 
 article.card:hover {
-    filter: drop-shadow(0.75rem 0.75rem 0.5rem var(--card-hover-shadow)); 
+    box-shadow: 0.5rem 0.5rem 0 var(--card-hover-shadow);
 }
 
 
@@ -497,6 +449,7 @@ input::placeholder {
 input, textarea {
     margin-top: 0.5rem;
     background-color: var(--input);
+    border: 1px solid var(--input-border);
     font-size: 1.4rem;
     @media screen and (hover) {
         font-size: 1em;
@@ -513,7 +466,6 @@ input[type="text"], textarea {
 }    
 
 input[type="text"] {
-    border: none;
     outline: none;
 }
 
@@ -613,47 +565,12 @@ input:disabled {background-color: var(--input-disabled);}
 /*  Background  */
 
 .bkgd {
-    overflow: hidden;
     position: absolute;
+    min-height: 100%;
+    min-width: 100vw;
+    overflow: hidden;
     z-index: -3;
     top: 0;
     left: 0;
 }
 
-.bkgd.blurred-stars {
-    height: 100%;
-    width: 100vw;
-    filter: blur(2px);
-}
-
-.bkgd.blurred-stars-1 {
-    background-image: url(../assets/stars-bkgd-magenta.svg);
-    background-position: -3.5rem -3.5rem;
-    background-size: 34vmin;
-    opacity: 0.3;
-    @media screen and (hover) {
-    background-size: 17rem;
-    filter: blur(4px);
-        opacity: 0.15;
-    }
-}
-.bkgd.blurred-stars-2 {
-    background-image: url(../assets/stars-bkgd-magenta.svg);
-    background-size: 20vmin;
-    opacity: 0.2;    
-    @media screen and (hover) {
-    background-size: 10rem;
-    filter: blur(3px);
-        opacity: 0.1;
-    }
-}
-.bkgd.blurred-stars-3 {
-    background-image: url(../assets/stars-bkgd-lavender.svg);
-    background-size: 14vmin;
-    opacity: 0.1;    
-    @media screen and (hover) {
-    background-size: 7rem;
-    filter: blur(2px);
-        opacity: 0.05;
-    }
-}

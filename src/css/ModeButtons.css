@@ -1,0 +1,46 @@
+.modes-wrapper {
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: 0 0 3px 1px #000000 inset;
+    background-color: #444444DD;
+    outline: 2px solid #888888DD;
+}
+.mode-button {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    outline: 1px solid #DDDDDD;
+}
+.mode-button.active {
+    outline: 6px solid #888888;
+    box-shadow: 0 0 3px 7px black;
+}
+
+    
+/* Buttons for each theme */
+
+.modes-wrapper #dark {
+    background: linear-gradient(
+        70deg,
+        #0d082a 60%,
+        #C450E0 60%,
+        #C450E0 70%,
+        #6DCBF9 70%
+    );
+}
+
+.modes-wrapper #light {
+    background-color: #EBD292;
+}
+
+.modes-wrapper #nightsky {
+    background-color: blue;
+}

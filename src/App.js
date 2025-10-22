@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './css/App.css';
+import './css/themes-dark.css';
+import './css/themes-light.css';
+import './css/themes-nightsky.css';
 import Header from './components/Header';
 import AddARecordBtn from './components/AddARecordBtn';
 import Cards from './components/Cards';
 import Form from './components/Form';
 import Footer from './components/Footer';
+import ModeButtons from './components/ModeButtons';
 import Background from './components/Background';
 
 
@@ -14,6 +18,16 @@ const App = () => {
     // Set initial state
 
   const [records, setRecords] = useState([
+    {
+        "name": "EddieC",
+        "date": "14-03-1879",
+        "nRuling": "4",
+        "nDay": "5",
+        "nExpression": "1",
+        "nSoul": "2",
+        "notes": undefined,
+        "key": "5"
+    },
     {
         "name": "Albert Einstein",
         "date": "14-03-1879",
@@ -43,6 +57,46 @@ const App = () => {
         "nSoul": "8",
         "notes": "X-ray crystallographer who co-discovered DNA",
         "key": "2"
+    },
+    {
+        "name": "EddieA",
+        "date": "14-03-1879",
+        "nRuling": "2",
+        "nDay": "3",
+        "nExpression": "4",
+        "nSoul": "5",
+        "notes": undefined,
+        "key": "3"
+    },
+    {
+        "name": "EddieB",
+        "date": "14-03-1879",
+        "nRuling": "3",
+        "nDay": "4",
+        "nExpression": "5",
+        "nSoul": "1",
+        "notes": undefined,
+        "key": "4"
+    },
+    {
+        "name": "EddieD",
+        "date": "14-03-1879",
+        "nRuling": "5",
+        "nDay": "1",
+        "nExpression": "2",
+        "nSoul": "3",
+        "notes": undefined,
+        "key": "6"
+    },
+    {
+        "name": "EddieE",
+        "date": "14-03-1879",
+        "nRuling": "1",
+        "nDay": "2",
+        "nExpression": "3",
+        "nSoul": "4",
+        "notes": undefined,
+        "key": "7"
     }
   ]);  
 
@@ -104,14 +158,80 @@ const App = () => {
     setRecords(records.filter(record => record.key !== id));
   };
 
-    // The return method
+
+    // Themes/styles
+
+  const themeOptions = [
+    {themeName: "dark", key: 0},
+    {themeName: "light", key: 1},
+    // {themeName: "nightsky", key: 2},
+  ];
+
+  const [theme, setTheme] = useState("dark");
+
+  function getTheme(newTheme) {
+    setTheme(newTheme);
+  };
+
+  const appClassName = "App " + theme;
+
+
+  // Sort function
+
+  const sorter = (parameter, direction) => {
+    const newRecords = [...records];
+    switch(parameter) {
+      case "name":
+        newRecords.sort((a, b) => {
+          const x = a.name.toLowerCase();
+          const y = b.name.toLowerCase();
+          if (direction === "ascending") {
+            if (x < y) {return -1;}
+            if (x > y) {return 1;}
+          } else if (direction === "descending") {
+            if (x < y) {return 1;}
+            if (x > y) {return -1;}
+          }
+          return 0;
+        });
+        break;
+      case "ruling":
+        direction === "ascending" 
+          ? newRecords.sort((a, b) => a.nRuling - b.nRuling) 
+          : newRecords.sort((a, b) => b.nRuling - a.nRuling);
+        break;
+      case "day": 
+        direction === "ascending" 
+          ? newRecords.sort((a, b) => a.nDay - b.nDay) 
+          : newRecords.sort((a, b) => b.nDay - a.nDay);
+        break;
+      case "soul": 
+        direction === "ascending" 
+          ? newRecords.sort((a, b) => a.nSoul - b.nSoul) 
+          : newRecords.sort((a, b) => b.nSoul - a.nSoul);
+        break;
+      case "expression": 
+        direction === "ascending" 
+          ? newRecords.sort((a, b) => a.nExpression - b.nExpression) 
+          : newRecords.sort((a, b) => b.nExpression - a.nExpression);
+        break;
+      default: 
+        return;
+    }
+    console.log(newRecords);
+    setRecords(newRecords);
+  }
+
+  // The return method
+
 
   return (
-    <div className="App">
+    <div className={appClassName}>
+      <Background type="color-bkgd" />
       <Background type="blurred-stars-1 blurred-stars" />
       <Background type="blurred-stars-2 blurred-stars" />
       <Background type="blurred-stars-3 blurred-stars" />
-      <Header />
+      <Header sorter={sorter} /> {/* contains the desktop version of the "add a record" button*/}
 
       <main>
         <Cards records={records} deleteRecord={deleteRecord} />
@@ -120,7 +240,9 @@ const App = () => {
       </main>
       
       <Footer />
-      
+
+      <ModeButtons getTheme={getTheme} themeOptions={themeOptions} initialState={theme} />
+
     </div>
   );
 }

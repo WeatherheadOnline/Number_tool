@@ -2,6 +2,7 @@
 
 const emptylettersObject = {length:26};
 const alphaSetup = Array.from(emptylettersObject, (element, index) => String.fromCharCode(97 + index));
+alphaSetup.unshift("0");  // so that index of "a" = 1, etc.
 
 
     // Where the magic happens: adding the individual digits of a number
@@ -35,7 +36,8 @@ export const getRulingNumber = (dobDay, dobMonth, dobYear, dateOptions) => {
 };
 
 export const getExpressionNumber = (uName) => {
-    const nameAsNumber = lettersToNumber(uName);
+    const lowercaseNoWhitespace = uName.replaceAll(" ", "").toLowerCase();
+    const nameAsNumber = lettersToNumber(lowercaseNoWhitespace);
     return addThese(nameAsNumber);
 };
 
@@ -60,10 +62,12 @@ const lettersToNumber = (string) => {
     const letterArray = Array.from(string);
     const numberArray = [];
     letterArray.forEach(letter => {
-        numberArray.push(alphaSetup.indexOf(letter) + 1);
+        numberArray.push(alphaSetup.indexOf(letter));
     });
     let digits = "";
-    numberArray.forEach(number => digits += number);
+    numberArray.forEach(number => {
+        digits += number;
+    });
     return digits;
 };
 

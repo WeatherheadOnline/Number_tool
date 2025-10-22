@@ -1,0 +1,85 @@
+.light {
+    --taupe-dark: #3F332B;
+    --taupe-light: #B5A79C;
+    --cream-main: #F3EBD8;
+    --cream-sheer: #F3EBD8CC;
+    --cream-light: #FAF7EE;
+    --orange-main: #D8853F;
+    --orange-dark: #8C4D18;
+    --orange-light: #E7B68D;
+    --yellow-light: #EBD292;
+    --yellow-main: #E0B44B;
+    --yellow-dark: #9C7A29;
+    --green-light: #A9B48A;
+    --green-main: #71823E;
+    --green-dark: #39451D;
+
+    --bkgd: var(--cream-light);
+    --bkgd-transparent: var(--cream-sheer);
+    --border-header-footer: var(--green-main);
+    color: var(--taupe-dark);
+    --text-h2: var(--orange-dark);
+    --card-bkgd: var(--cream-light);
+    --card-border: var(--orange-main);
+    --card-border-shadow: var(--orange-light);
+    --card-hover-shadow: var(--orange-dark);
+    --trashcan: var(--green-main);
+    --button-text: var(--taupe-dark);
+    --button: var(--yellow-main);
+    --button-border: var(--yellow-dark);
+    --button-hover: var(--yellow-light);
+    --button-border-hover: var(--yellow-dark);
+    --button-active: var(--green-light);
+    --button-border-active: var(--green-main);
+    --input-disabled: var(--taupe-light);
+    --input-border: var(--taupe-dark);
+    --input: var(--yellow-light);
+    --input-focused: var(--cream-light);
+
+    .color-bkgd {
+        background-color: var(--cream-main);
+    }
+
+    h1 {
+        color: transparent;
+        background: linear-gradient(
+            -5deg,
+            var(--green-dark),
+            var(--green-main) 70%,
+            var(--green-light) 80%
+        );
+        background-clip: text;
+        filter: drop-shadow(3px 3px 0 var(--green-light));
+
+    }
+
+    .bkgd.blurred-stars-1 {
+        background-image: url(../assets/stars-bkgd-yellow.svg);
+        background-position: -3.5rem -3.5rem;
+        background-size: 34vmin;
+        opacity: 0.5;
+        @media screen and (hover) {
+            background-size: 17rem;
+            opacity: 0.25;
+        }
+    }
+    .bkgd.blurred-stars-2 {
+        background-image: url(../assets/stars-bkgd-yellow.svg);
+        background-size: 20vmin;
+        opacity: 0.4;    
+        @media screen and (hover) {
+            background-size: 10rem;
+            opacity: 0.2;
+        }
+    }
+    .bkgd.blurred-stars-3 {
+        background-image: url(../assets/stars-bkgd-orange.svg);
+        background-size: 14vmin;
+        opacity: 0.3;    
+        @media screen and (hover) {
+            background-size: 7rem;
+            opacity: 0.15;
+        }
+    }
+
+}
