@@ -1,6 +1,7 @@
 .dark {
     --cyan: #6DCBF9;
     --cyan-light: #94D6F6;
+    --cyan-lightest: #cfefff;
     --lavender: #5C66E7;
     --light-lavender: #8088F0;
     --mid-purple: #3624ae;
@@ -27,10 +28,11 @@
     --button-border: var(--lavender);
     --button-hover: var(--cyan);
     --button-border-hover: var(--dark-purple);
-    --button-active: var(--cyan-light);
-    --button-border-active: var(--dark-purple);
 
-    --input: var(--lightest-magenta);
+    --button-active: var(--lightest-magenta);
+    --button-border-active: var(--lavender);
+
+    --input: var(--cyan-lightest);
     --input-focused: var(--white-text);
     --input-disabled: #686b8b;
 

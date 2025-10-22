@@ -30,7 +30,7 @@ a:hover {color: var(--light-magenta);}
 a:active {color: var(--lightest-magenta); background-color: var(--green-dark);}
 button, .collapse-btn {
     margin: 1rem auto;    /* Might not need this line after setting up Header css */
-    padding: 0.5rem 0;
+    padding: 0.5rem 2rem;
     text-align: center;
     font-size: 1rem;
     background-color: var(--button);
@@ -84,6 +84,31 @@ h1 {
     }
 }
 
+.sort-wrapper label, .sort-wrapper button {
+    width: max-content;
+    margin: 0;
+}
+
+.sort-wrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin: var(--card-gap-mobile) auto 0 auto;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--text-h2);
+    border-radius: 2rem;
+    width: max-content;
+    @media screen and (hover) {
+        margin-top: var(--card-gap-desktop);
+    }
+}
+
+select {
+    padding: 0.5rem;
+    background-color: var(--input);
+}
+
 /* Footer.css */
 
 footer {
@@ -123,11 +148,15 @@ footer p {
 
 .cards-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--card-gap-mobile);
     padding-top: var(--card-gap-mobile);
     @media screen and (hover) {
+        flex-direction: row;
+        align-items: flex-start;
         gap: var(--card-gap-desktop);
         padding-top: var(--card-gap-desktop);
     }
