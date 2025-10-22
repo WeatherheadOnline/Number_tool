@@ -19,17 +19,8 @@ const App = () => {
 
   const [records, setRecords] = useState([
     {
-        "name": "EddieC",
-        "date": "14-03-1879",
-        "nRuling": "4",
-        "nDay": "5",
-        "nExpression": "1",
-        "nSoul": "2",
-        "notes": undefined,
-        "key": "5"
-    },
-    {
-        "name": "Albert Einstein",
+        "firstName": "Albert",
+        "lastName": "Einstein",
         "date": "14-03-1879",
         "nRuling": "33",
         "nDay": "5",
@@ -39,17 +30,19 @@ const App = () => {
         "key": "0"
     },
     {
-        "name": "Maya Angelou",
+        "firstName": "Maya",
+        "lastName": "Angelou",
         "date": "04-04-1928",
         "nRuling": "1",
         "nDay": "4",
-        "nExpression": undefined,
-        "nSoul": undefined,
+        "nExpression": "4",
+        "nSoul": "11",
         "notes": "Poet, author & activist",
         "key": "1"
     },
     {
-        "name": "Rosalind Elsie Franklin",
+        "firstName": "Rosalind Elsie",
+        "lastName": "Franklin",
         "date": undefined,
         "nRuling": undefined,
         "nDay": undefined,
@@ -59,17 +52,19 @@ const App = () => {
         "key": "2"
     },
     {
-        "name": "EddieA",
-        "date": "14-03-1879",
-        "nRuling": "2",
-        "nDay": "3",
-        "nExpression": "4",
-        "nSoul": "5",
+        "firstName": "Weird Al Yankovic",
+        "lastName": undefined,
+        "date": "23-10-1959",
+        "nRuling": "3",
+        "nDay": "5",
+        "nExpression": undefined,
+        "nSoul": undefined,
         "notes": undefined,
         "key": "3"
     },
     {
-        "name": "EddieB",
+        "firstName": "EddieB",
+        "lastName": "D",
         "date": "14-03-1879",
         "nRuling": "3",
         "nDay": "4",
@@ -79,7 +74,19 @@ const App = () => {
         "key": "4"
     },
     {
-        "name": "EddieD",
+        "firstName": "EddieC",
+        "lastName": "A",
+        "date": "14-03-1879",
+        "nRuling": "4",
+        "nDay": "5",
+        "nExpression": "1",
+        "nSoul": "2",
+        "notes": undefined,
+        "key": "5"
+    },
+    {
+        "firstName": "EddieD",
+        "lastName": "C",
         "date": "14-03-1879",
         "nRuling": "5",
         "nDay": "1",
@@ -89,7 +96,8 @@ const App = () => {
         "key": "6"
     },
     {
-        "name": "EddieE",
+        "firstName": "EddieE",
+        "lastName": "Z",
         "date": "14-03-1879",
         "nRuling": "1",
         "nDay": "2",
@@ -97,6 +105,17 @@ const App = () => {
         "nSoul": "4",
         "notes": undefined,
         "key": "7"
+    },
+    {
+        "firstName": "My neighbour EddieA",
+        "lastName": undefined,
+        "date": "14-03-1879",
+        "nRuling": "2",
+        "nDay": "3",
+        "nExpression": "4",
+        "nSoul": "5",
+        "notes": undefined,
+        "key": "8"
     }
   ]);  
 
@@ -104,10 +123,11 @@ const App = () => {
 
     // Setting state
 
-  const recordsSetter = (returnName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes) => {
+  const recordsSetter = (returnFirstName, returnLastName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes) => {
     setRecords([ 
           {
-            "name": returnName,
+            "firstName": returnFirstName,
+            "lastName": returnLastName,
             "date": `${returnDay}/${returnMonth}/${returnYear}`,
             "nRuling": nRuling,
             "nDay": nDay,
@@ -149,8 +169,8 @@ const App = () => {
 
     // Adding and deleting records
 
-  const addRecord = (returnName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes) => {
-    recordsSetter(returnName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes);
+  const addRecord = (returnFirstName, returnLastName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes) => {
+    recordsSetter(returnFirstName, returnLastName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes);
     keySetter(keyCounter);
   };
 
@@ -181,10 +201,24 @@ const App = () => {
   const sorter = (parameter, direction) => {
     const newRecords = [...records];
     switch(parameter) {
-      case "name":
+      case "firstName":
         newRecords.sort((a, b) => {
-          const x = a.name.toLowerCase();
-          const y = b.name.toLowerCase();
+          const x = a.firstName;
+          const y = b.firstName;
+          if (direction === "ascending") {
+            if (x < y) {return -1;}
+            if (x > y) {return 1;}
+          } else if (direction === "descending") {
+            if (x < y) {return 1;}
+            if (x > y) {return -1;}
+          }
+          return 0;
+        });
+        break;
+      case "lastName":
+        newRecords.sort((a, b) => {
+          const x = a.lastName;
+          const y = b.lastName;
           if (direction === "ascending") {
             if (x < y) {return -1;}
             if (x > y) {return 1;}

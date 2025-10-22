@@ -19,17 +19,13 @@ const Header = ({sorter}) => {
                     <label htmlFor="sortOptions">Sort by:</label>
                     <select name="sortOptions" id="sortOptions">
                         <option value="">Please select...</option>
-                        <option value="name">Name (A-Z)</option>
-                        {/* <option value="name-down">Name (Z-A)</option> */}
+                        <option value="firstName">First name</option>
+                        <option value="lastName">Last name</option>
                         <option value="ruling">Ruling number</option>
-                        {/* <option value="ruling-down">Ruling number &#8681; descending </option> */}
                         <option value="day">Day number</option>
-                        {/* <option value="day-down">Day number &#8681; descending </option> */}
                         <option value="expression">Expression number</option>
-                        {/* <option value="expr-down">Expression number &#8681; descending </option> */}
                         <option value="soul">Soul number</option>
-                        {/* <option value="soul-down">Soul number &#8681; descending </option> */}
-                    </select>
+\                    </select>
                     <select name="sortDirection" id="sortDirection">
                         <option value="ascending">Ascending</option>
                         <option value="descending">Descending</option>

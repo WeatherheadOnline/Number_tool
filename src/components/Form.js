@@ -9,7 +9,8 @@ const Form = ({addRecord}) => {
         // Setting initial state
 
     const [nameChecked, setNameChecked] = useState(true);
-    const [uName, setUName] = useState("");   
+    const [firstName, setFirstName] = useState("");   
+    const [lastName, setLastName] = useState("");   
     const [nameOptions, setNameOptions] = useState("vowels-only");
     const [customWs, setCustomWs] = useState("0");
     const [customYs, setCustomYs] = useState("0");
@@ -37,7 +38,7 @@ const Form = ({addRecord}) => {
 
     useEffect(() => {     // Toggle visibility of the nickname field and the enabled-disabled state of the name field
         const nicknameField = document.getElementById("nickname-label");
-        const nameField = document.getElementById("uName");
+        const nameField = document.getElementById("firstName");
         nameField.disabled = !nameChecked;
         if (nameChecked) {
             nicknameField.style.opacity = 0;
@@ -47,9 +48,6 @@ const Form = ({addRecord}) => {
         nicknameReqSetter();
     }, [nameChecked])
     
-    // useEffect(() => {
-    // }, [nameChecked]);
-
     useEffect(() => {      // Toggle visibility of the additional input fields for the "custom" option under the "name" field
         let customWYinput = document.getElementById("customWYinput");
         if(nameOptions==="custom-Ws-Ys") {
@@ -82,22 +80,23 @@ const Form = ({addRecord}) => {
             return;
         }
         document.getElementById("enter-record-form").style.display="none";
-        const returnName = nameChecked ? uName : nickname;
-        const nExpression = nameChecked ? getExpressionNumber(uName).toString() : undefined;
-        const nSoul = nameChecked ? getSoulNumber(uName, nameOptions, customWs, customYs).toString() : undefined;
+        const returnFirstName = nameChecked ? firstName : nickname;
+        const returnLastName = nameChecked ? lastName : undefined;
+        const nExpression = nameChecked ? getExpressionNumber(firstName).toString() : undefined;
+        const nSoul = nameChecked ? getSoulNumber(firstName, nameOptions, customWs, customYs).toString() : undefined;
         const returnDay = dobDay !== "" ? dobDay : undefined;
         const returnMonth = dobMonth !== "" ? dobMonth : undefined;
         const returnYear = dobYear !== "" ? dobYear : undefined;
         const nDay = dobDay !== "" ? getDayNumber(dobDay).toString() : undefined;
         const nRuling = dobYear !=="" ? getRulingNumber(dobDay, dobMonth, dobYear, dateOptions).toString() : undefined;
         const notes = notesField !== "" ? notesField : undefined ;
-        addRecord(returnName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes);
+        addRecord(returnFirstName, returnLastName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes);
         clearForm(e);
     }
     
     const clearForm = (e) => {
         e.preventDefault();
-        setUName("");
+        setFirstName("");
         setDobDay("");
         setDobMonth("");
         setDobYear("");
@@ -137,8 +136,10 @@ const Form = ({addRecord}) => {
                         <label>Enter a name to calculate: <ul><li>expression number</li><li>soul number</li></ul></label>
                     </div>
 
-                    <label htmlFor="uName" className="screen-reader-only">Enter a name here:</label>
-                    <input id="uName" className="block-element" type="text" value={uName} onChange={(e) => {setUName(e.target.value);}} required={nameChecked} />
+                    <label htmlFor="firstName">Given name(s)</label>
+                    <input id="firstName" className="block-element" type="text" value={firstName} onChange={(e) => {setFirstName(e.target.value);}} required={nameChecked} />
+                    <label htmlFor="lastName">Family name</label>
+                    <input id="lastName" className="block-element" type="text" value={lastName} onChange={(e) => {setLastName(e.target.value);}} required={nameChecked} />
 
                     <div>
                         <div className="collapse-btn" onClick={toggleCollapsed}>More options</div>

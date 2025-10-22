@@ -17,8 +17,8 @@ const Cards = (props) => {
             }
             <div className="card-name-date-wrapper">
                 {card.nExpression 
-                    ? <NameSideOfCard name={card.name} expr={card.nExpression} soul={card.nSoul} />
-                    : <NamelessSideOfCard nickname={card.name} />            
+                    ? <NameSideOfCard firstName={card.firstName} lastName={card.lastName} expr={card.nExpression} soul={card.nSoul} />
+                    : <NamelessSideOfCard nickname={card.firstName} />            
                 }
                 {card.nRuling
                     ? <DateSideOfCard date={card.date} ruling={card.nRuling} day={card.nDay} />
@@ -51,7 +51,7 @@ const BottomRowOfCard = (props) => {
 const NameSideOfCard = (props) => {
     return (
         <div className="card-name-or-date card-name">
-            <h2>{props.name}</h2>
+            <h2>{props.firstName} {props.lastName}</h2>
             <p>
                 <span>Expression<span className="hide-on-phones"> number</span>: </span>
                 <span className="outcome-number">{props.expr}</span>
