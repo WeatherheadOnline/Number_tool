@@ -61,61 +61,6 @@ const App = () => {
         "nSoul": undefined,
         "notes": undefined,
         "key": "3"
-    },
-    {
-        "firstName": "EddieB",
-        "lastName": "D",
-        "date": "14-03-1879",
-        "nRuling": "3",
-        "nDay": "4",
-        "nExpression": "5",
-        "nSoul": "1",
-        "notes": undefined,
-        "key": "4"
-    },
-    {
-        "firstName": "EddieC",
-        "lastName": "A",
-        "date": "14-03-1879",
-        "nRuling": "4",
-        "nDay": "5",
-        "nExpression": "1",
-        "nSoul": "2",
-        "notes": undefined,
-        "key": "5"
-    },
-    {
-        "firstName": "EddieD",
-        "lastName": "C",
-        "date": "14-03-1879",
-        "nRuling": "5",
-        "nDay": "1",
-        "nExpression": "2",
-        "nSoul": "3",
-        "notes": undefined,
-        "key": "6"
-    },
-    {
-        "firstName": "EddieE",
-        "lastName": "Z",
-        "date": "14-03-1879",
-        "nRuling": "1",
-        "nDay": "2",
-        "nExpression": "3",
-        "nSoul": "4",
-        "notes": undefined,
-        "key": "7"
-    },
-    {
-        "firstName": "My neighbour EddieA",
-        "lastName": undefined,
-        "date": "14-03-1879",
-        "nRuling": "2",
-        "nDay": "3",
-        "nExpression": "4",
-        "nSoul": "5",
-        "notes": undefined,
-        "key": "8"
     }
   ]);  
 

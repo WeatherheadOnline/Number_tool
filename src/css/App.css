@@ -284,26 +284,49 @@ span.outcome-number {
     font-style: italic;
 }
 
-.dateless-bkgd {
+.number-bkgd {
     font-family: "Times New Roman", serif;
     font-weight: bold;
     position: absolute;
-    top: -14vmin;
-    right: 14vmin;
     font-size: 46vmin;
     letter-spacing: -6vmin;
     opacity: 0.05;
     @media screen and (hover) {
-        top: -3.5rem;
-        right: 5rem;
         font-size: 12rem;
         letter-spacing: -1.5rem;
         opacity: 0.03;        
     }
 }
+.number-bkgd span:last-child {
+    position: relative;
+}
+
+.nameless-bkgd {
+    bottom: -12vmin;
+    right: 42vmin;
+    @media screen and (hover) {
+        bottom: -3rem;
+        right: 13rem;
+    }
+}
+.nameless-bkgd span:last-child {
+    bottom: 10vmin;
+    right: -4vmin;
+    @media screen and (hover) {
+        bottom: 2.5rem;
+        right: -1rem;
+    }
+}
+.dateless-bkgd {
+    top: -14vmin;
+    right: 14vmin;
+    @media screen and (hover) {
+        top: -3.5rem;
+        right: 5rem;
+    }
+}
 
 .dateless-bkgd span:last-child {
-    position: relative;
     top: 10vmin;
     right: -4vmin;
     @media screen and (hover) {
@@ -311,6 +334,7 @@ span.outcome-number {
         right: -1rem;
     }
 }
+
 
 
 /* AddARecordBtn.css */
@@ -440,6 +464,10 @@ label, .collapse-btn, .hidden-options {
 input[type="number"] {
     margin-left: 0.5rem;
     padding: 0.2rem;
+}
+
+button[type="submit"] {
+    font-weight: bold;
 }
 
 input::placeholder {

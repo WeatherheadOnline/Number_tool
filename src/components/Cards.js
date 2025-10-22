@@ -13,7 +13,10 @@ const Cards = (props) => {
         return (
         <article key={card.key} id={cardID} className="card">
             {
-                !card.nRuling && <div className="dateless-bkgd"><span>{card.nExpression}</span><span>{card.nSoul}</span></div>
+                !card.nRuling && <div className="dateless-bkgd number-bkgd"><span>{card.nExpression}</span><span>{card.nSoul}</span></div>
+            }
+            {
+                !card.nExpression && <div className="nameless-bkgd number-bkgd"><span>{card.nRuling}</span><span>{card.nDay}</span></div>
             }
             <div className="card-name-date-wrapper">
                 {card.nExpression 
