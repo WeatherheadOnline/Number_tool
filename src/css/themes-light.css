@@ -2,7 +2,7 @@
     --taupe-dark: #3F332B;
     --taupe-light: #B5A79C;
     --cream-main: #F3EBD8;
-    --cream-sheer: #F3EBD8CC;
+    --cream-sheer: #F3EBD8EE;
     --cream-light: #FAF7EE;
     --orange-main: #D8853F;
     --orange-dark: #8C4D18;
@@ -17,13 +17,15 @@
     --bkgd: var(--cream-light);
     --bkgd-transparent: var(--cream-sheer);
     --border-header-footer: var(--green-main);
-    color: var(--taupe-dark);
+    --color: var(--taupe-dark);
     --text-h2: var(--orange-dark);
     --card-bkgd: var(--cream-light);
     --card-border: var(--orange-main);
     --card-border-shadow: var(--orange-light);
     --card-hover-shadow: var(--orange-dark);
+    --underline: var(--green-main);
     --trashcan: var(--green-main);
+
     --button-text: var(--taupe-dark);
     --button: var(--yellow-main);
     --button-border: var(--yellow-dark);
@@ -35,11 +37,22 @@
     --input-border: var(--taupe-dark);
     --input: var(--yellow-light);
     --input-focused: var(--cream-light);
+    --tooltip: var(--orange-dark);
 
-    .color-bkgd {
-        background-color: var(--cream-main);
-    }
+    --link: var(--green-dark);
+    /* --link-bkgd:; */
 
+    --link-visited: var(--green-light);
+    /* --link-visited-bkgd:; */
+
+    --link-hover: var(--cream-main);
+    --link-hover-bkgd: var(--orange-main);
+
+    --link-active: var(--cream-main);
+    --link-active-bkgd: var(--green-light);
+
+
+    color: var(--color);
     h1 {
         color: transparent;
         background: linear-gradient(

@@ -11,53 +11,79 @@
     --lightest-magenta: hsl(270, 60%, 84%);
     --white-text: #fcedff;
     
-    --bkgd: blue;
-    --bkgd-transparent: var(--darkest-purple-sheer);
-    --border-header-footer: var(--light-magenta);
-    color: var(--white-text);
-    --text-h2: var(--cyan);
-    --card-bkgd: var(--darkest-purple);
-    --card-border: var(--lavender);
-    --card-border-shadow: var(--dark-purple);
-    --card-hover-shadow: var(--darkest-purple);
-    --trashcan: var(--lavender);
+    --gold-lightest: #E9DBBA;
+    --gold-light: #E8CA84;
+    --gold-dark: #D2973B;
+    --navy-light: #2F586E;
+    --navy-dark: #0D1F2D;
+    --navy-darkest: #051016;
+    --navy-darkest-sheer: #051016F5;
+    
+    --bkgd: var(--navy-darkest);
+    --card-bkgd: var(--navy-dark);
 
-    --button-text: var(--darkest-purple);
-    --button: var(--cyan-light);
-    --button-border: var(--lavender);
-    --button-hover: var(--cyan);
-    --button-border-hover: var(--dark-purple);
-    --button-active: var(--white-text);
-    --button-border-active: var(--lavender);
+    --bkgd-transparent: var(--navy-darkest-sheer);
+    --border-header-footer: var(--gold-light);
+    --color: var(--gold-lightest);
+    --text-h2: var(--gold-dark);
+    --card-border: var(--gold-dark); 
+    --underline: var(--gold-dark);
+    --trashcan: var(--gold-light);
 
-    --input: var(--lightest-magenta);
-    --input-focused: var(--white-text);
-    --input-disabled: #686b8b;
+    --button-text: var(--gold-lightest);
+    --button: var(--navy-light);
+    --button-hover: var(--navy-light);
+    --button-hover-text: var(--gold-dark);
+    --button-active: var(--gold-dark);
 
-    .color-bkgd {
-        background-color: var(--bkgd);
+    --input: var(--gold-light);
+    --input-focused: white;
+    --input-disabled: #444444;
+    --tooltip: var(--navy-light);
+
+    --link: var(--gold-dark);
+    --link-bkgd:;
+
+    --link-visited: var(--gold-light);
+    --link-visited-bkgd:;
+
+    --link-hover: var(--gold-lightest);
+    --link-hover-bkgd: var(--navy-light);
+
+    --link-active: var(--gold-lightest);
+    --link-active-bkgd: var(--gold-dark);
+
+    color: var(--color);
+
+    button, .collapse-btn {
+        outline: 2px solid var(--gold-light);
     }
-    h1 {
-        color: transparent;
-        background: linear-gradient(
-            -5deg,
-            var(--lavender),
-            var(--lightest-magenta) 50%,
-            var(--light-magenta) 80%
-        );
-        background-clip: text;
-        filter: drop-shadow(3px 3px 0 var(--mid-purple));
-    }
 
-    .bkgd.blurred-stars {
-        filter: blur(2px);
-        @media screen and (hover) {
-            filter: blur(2px);
+    @media screen and (hover) {
+        button:hover, .collapse-btn:hover {
+            outline: 2px solid var(--gold-dark);
+        }
+        button:active, .collapse-btn:active {
+            outline: 2px solid var(--gold-lightest);
         }
     }
 
+    h1 {
+        color: var(--navy-dark);
+        text-shadow: 
+            1px 1px 0 var(--gold-dark),
+            -1px 1px 0 var(--gold-dark),
+            1px -1px 0 var(--gold-dark),
+            -1px -1px 0 var(--gold-dark)
+        ;
+    }
+
+    .bkgd.blurred-stars {
+        /* filter: blur(2px); */
+    }
+
     .bkgd.blurred-stars-1 {
-        background-image: url(../assets/stars-bkgd-magenta.svg);
+        background-image: url(../assets/stars-bkgd-orange.svg);
         background-position: -3.5rem -3.5rem;
         background-size: 34vmin;
         opacity: 0.3;
@@ -67,7 +93,7 @@
         }
     }
     .bkgd.blurred-stars-2 {
-        background-image: url(../assets/stars-bkgd-lavender.svg);
+        background-image: url(../assets/stars-bkgd-yellow.svg);
         background-size: 20vmin;
         opacity: 0.2;    
         @media screen and (hover) {
@@ -76,7 +102,7 @@
         }
     }
     .bkgd.blurred-stars-3 {
-        background-image: url(../assets/stars-bkgd-cyan.svg);
+        background-image: url(../assets/stars-bkgd-orange.svg);
         background-size: 14vmin;
         opacity: 0.1;    
         @media screen and (hover) {

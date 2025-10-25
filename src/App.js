@@ -48,7 +48,7 @@ const App = () => {
         "nDay": undefined,
         "nExpression": "9",
         "nSoul": "8",
-        "notes": "X-ray crystallographer who co-discovered DNA",
+        "notes": "Co-discoverer of DNA",
         "key": "2"
     },
     {
@@ -129,7 +129,7 @@ const App = () => {
   const themeOptions = [
     {themeName: "dark", key: 0},
     {themeName: "light", key: 1},
-    // {themeName: "nightsky", key: 2},
+    {themeName: "nightsky", key: 2},
   ];
 
   const [theme, setTheme] = useState("dark");

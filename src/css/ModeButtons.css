@@ -38,9 +38,28 @@
 }
 
 .modes-wrapper #light {
-    background-color: #EBD292;
+    background: linear-gradient(
+        70deg,
+        #EBD292 50%,
+        #8C4D18,
+        #3F332B 85%
+    );
 }
 
 .modes-wrapper #nightsky {
-    background-color: blue;
+    background: 
+    /* linear-gradient(
+        45deg,
+        #0D1F2D 35%,
+        transparent 35%,
+        transparent 65%,
+        #0D1F2D 65%
+    ), */
+    linear-gradient(
+        70deg,
+        #0D1F2D 65%,
+        #D2973B 65%,
+        #D2973B 75%,
+        #0D1F2D 75%
+    );
 }

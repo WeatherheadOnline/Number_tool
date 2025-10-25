@@ -11,7 +11,7 @@ const Cards = (props) => {
     const cardsToDisplay = props.records.map(card => {
         const cardID = "card-" + card.key;
         return (
-        <article key={card.key} id={cardID} className="card">
+        <article key={card.key} id={cardID} className="card border-radius-3">
             {
                 !card.nRuling && <div className="dateless-bkgd number-bkgd"><span>{card.nExpression}</span><span>{card.nSoul}</span></div>
             }

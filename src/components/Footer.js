@@ -10,7 +10,7 @@ const Footer = () => {
                 </ExternalLink>
             </div>
             <ExternalLink url="https://www.weatherheadonline.com">
-                <p>&copy; Weatherhead Online 2024</p>
+                &copy; Weatherhead Online 2024
             </ExternalLink>
             <div className="logo-110"></div>
         </footer>

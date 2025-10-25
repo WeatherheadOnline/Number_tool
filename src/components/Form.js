@@ -38,8 +38,10 @@ const Form = ({addRecord}) => {
 
     useEffect(() => {     // Toggle visibility of the nickname field and the enabled-disabled state of the name field
         const nicknameField = document.getElementById("nickname-label");
-        const nameField = document.getElementById("firstName");
-        nameField.disabled = !nameChecked;
+        const firstNameField = document.getElementById("firstName");
+        const lastNameField = document.getElementById("lastName");
+        firstNameField.disabled = !nameChecked;
+        lastNameField.disabled = !nameChecked;
         if (nameChecked) {
             nicknameField.style.opacity = 0;
         } else {
@@ -153,7 +155,7 @@ const Form = ({addRecord}) => {
                             <label htmlFor="some-Ws-Ys" className="block-element">
                                 <input type="radio" id="some-Ws-Ys" name="name-options" value="some-Ws-Ys" checked={nameOptions==="some-Ws-Ys"} onChange={nameOptionsHandler} />
                                  Include some Ws and Ys
-                                <Tooltip wrapperTag="p" visible="?" hidden='Following the guidelines by Matthew Oliver Goodwin in "Numerology the Complete Guide, Volume I: The Personality Reading". W is a vowel when it is preceded by a natural vowel and pronounced together as one sound. Y is a vowel when there is no other vowel in a syllable, or when it is preceded by a natural vowel and pronounced together as one sound. (ISBN-13: 978-1564148599)' />
+                                <Tooltip wrapperTag="p" visible="?" hidden='Following the guidelines by Matthew Oliver Goodwin in "Numerology the Complete Guide, Volume I: The Personality Reading". W is a vowel when it is preceded by a natural vowel and pronounced together as one sound. Y is a vowel when there is no other vowel in a syllable, or when it is preceded by a natural vowel and pronounced together as one sound. ' a="https://www.goodreads.com/book/show/934801.Numerology_the_Complete_Guide_Volume_I" aText="(ISBN-13: 978-1564148599)" />
                             </label>
                             
                             <label htmlFor="custom-Ws-Ys" className="block-element">

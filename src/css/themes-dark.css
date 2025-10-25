@@ -15,30 +15,47 @@
     --bkgd: var(--darkest-purple);
     --bkgd-transparent: var(--darkest-purple-sheer);
     --border-header-footer: var(--light-magenta);
-    color: var(--white-text);
+    --color: var(--white-text);
     --text-h2: var(--cyan);
     --card-bkgd: var(--darkest-purple);
     --card-border: var(--lavender);
     --card-border-shadow: var(--dark-purple);
     --card-hover-shadow: var(--darkest-purple);
+    --underline: var(--cyan);
     --trashcan: var(--lavender);
 
-    --button-text: var(--darkest-purple);
     --button: var(--cyan-light);
+    --button-text: var(--darkest-purple);
     --button-border: var(--lavender);
+
     --button-hover: var(--cyan);
+    --button-hover-text: var(--darkest-purple);
     --button-border-hover: var(--dark-purple);
 
     --button-active: var(--lightest-magenta);
+    --button-active-text: var(--darkest-purple);
     --button-border-active: var(--lavender);
 
     --input: var(--cyan-lightest);
     --input-focused: var(--white-text);
     --input-disabled: #686b8b;
+    --tooltip: var(--light-lavender);
 
-    .color-bkgd {
-        background-color: var(--bkgd);
-    }
+    --link: var(--light-magenta);
+    --link-bkgd:;
+
+    --link-visited: var(--lightest-magenta);
+    --link-visited-bkgd:;
+
+    --link-hover: var(--cyan-light);
+    --link-hover-bkgd: var(--dark-purple);
+
+    --link-active:;
+    --link-active-bkgd:;
+
+
+    color: var(--color);
+
     h1 {
         color: transparent;
         background: linear-gradient(
@@ -53,9 +70,6 @@
 
     .bkgd.blurred-stars {
         filter: blur(2px);
-        @media screen and (hover) {
-            filter: blur(2px);
-        }
     }
 
     .bkgd.blurred-stars-1 {

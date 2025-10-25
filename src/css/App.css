@@ -25,9 +25,25 @@ h1, h2 {
 
 }
 
-a {color: var(--cyan);}
-a:hover {color: var(--light-magenta);}
-a:active {color: var(--lightest-magenta); background-color: var(--green-dark);}
+a {
+    color: var(--link);
+    background-color: var(--link-bkgd);
+    width: max-content;
+}
+a:visited {
+    color: var(--link-visited);
+    background-color: var(--link-visited-bkgd);
+}
+a:hover {
+    color: var(--link-hover);
+    background-color: var(--link-hover-bkgd);
+}
+a:active {
+    color: var(--link-active);
+    background-color: var(--link-active-bkgd);
+}
+
+
 button, .collapse-btn {
     margin: 1rem auto;    /* Might not need this line after setting up Header css */
     padding: 0.5rem 2rem;
@@ -37,19 +53,41 @@ button, .collapse-btn {
     border: none;
     color: var(--button-text);
     box-shadow: 0.3rem 0.3rem 0 var(--button-border);
-    border-radius: 3rem;
 }
 
 @media screen and (hover) {
     button:hover, .collapse-btn:hover {
         background-color: var(--button-hover);
         box-shadow: 0.3rem 0.3rem 0 var(--button-border-hover);
+        color: var(--button-hover-text);
     }
     button:active, .collapse-btn:active {
         background-color: var(--button-active);
         box-shadow: 0.3rem 0.3rem 0 var(--button-border-active);
+        color: var(--button-active-text);
     }
 }
+
+    .color-bkgd {
+        background-color: var(--bkgd);
+    }
+
+    .light, .dark {
+        .border-radius-1 {border-radius: 1rem;}
+        .border-radius-2 {border-radius: 2rem;}
+        .border-radius-3, button, .collapse-btn {
+            border-radius: 10vmin;
+            @media screen and (hover) {
+                border-radius: 3rem;
+            }
+        }
+        .border-radius-4 {border-radius: 4rem;}
+    }
+    .nightsky {
+        .border-radius-1, .border-radius-2, .border-radius-3, .border-radius-4 {border-radius: 0;}
+    }
+
+
 
 /* ~~~~~~~~~~  From other stylesheets  ~~~~~~~~~~~~~~~~~~~ */
 
@@ -58,9 +96,9 @@ button, .collapse-btn {
 header {
     background-color: var(--bkgd);
     border-bottom: 3px solid var(--border-header-footer);
-    padding: var(--card-gap-mobile) 0;
+    /* padding: var(--card-gap-mobile) 0; */
     @media screen and (hover) {
-        padding: 0 0 var(--card-gap-desktop) 0;
+        /* padding: 0 0 var(--card-gap-desktop) 0; */
     }
 }
 
@@ -76,11 +114,24 @@ h1 {
         span:last-child {
             line-height: 20vmin;
         }    
+        padding: var(--card-gap-mobile) 0;
     }
     @media screen and (hover) {
         font-size: 4rem;
         line-height: 4rem;
         padding: var(--card-gap-desktop);
+    }
+}
+
+.header-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--card-gap-mobile);
+    padding-bottom: var(--card-gap-mobile);
+    @media screen and (hover) {
+        gap: var(--card-gap-desktop);
+        padding-bottom: var(--card-gap-desktop);
     }
 }
 
@@ -91,16 +142,24 @@ h1 {
 
 .sort-wrapper {
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 5vmin;
     justify-content: center;
     align-items: center;
-    margin: var(--card-gap-mobile) auto 0 auto;
     padding: 0.5rem 1.5rem;
     border: 1px solid var(--text-h2);
     border-radius: 2rem;
     width: max-content;
     @media screen and (hover) {
-        margin-top: var(--card-gap-desktop);
+        flex-direction: row;
+        gap: min(2rem, 2vw);
+    }
+}
+.dropdowns-wrapper {
+    display: flex;
+    gap: 5vmin;
+    @media screen and (hover) {
+        gap: min(2rem, 2vw);
     }
 }
 
@@ -117,18 +176,19 @@ footer {
     text-align: center;
     background-color: var(--bkgd);
     border-top: 2px solid var(--border-header-footer);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--card-padding-mobile);
     @media screen and (hover) {
         margin: 6rem auto 0 auto;
         padding: 2rem 0;
+        gap: var(--card-padding-desktop);
     }
 }
 
 footer a {
     text-decoration: none;
-}
-
-footer p {
-    padding: 1rem 0;
 }
 
 .logo-110 {
@@ -177,7 +237,7 @@ article.card {
     @media screen and (hover) {
         width: 24rem;
         padding: var(--card-padding-desktop);   
-        border-radius: 3.5rem;     
+        border-radius: 3rem;     
     }
 }
 
@@ -268,7 +328,7 @@ h2.nickname {
 
 
 .card-date p:first-of-type {
-    text-decoration: underline 2px solid var(--cyan);
+    text-decoration: underline 2px solid var(--underline);
     text-underline-offset: 0.2rem;
 }
 
@@ -439,8 +499,8 @@ form {
     line-height: 9vmin;
     cursor: pointer;
     position: absolute;
-    color: var(--light-lavender);
-    border: 1px solid var(--light-lavender);
+    color: var(--tooltip);
+    border: 1px solid var(--tooltip);
     top: 1rem;
     right: -10vmin;
     display: flex;
@@ -486,8 +546,11 @@ fieldset > label {
     padding-top: 0.5rem;
 }
 
-label, .collapse-btn, .hidden-options {
+label, .hidden-options {
     width: 100%;
+}
+.collapse-btn {
+    width: calc(100% - 4rem);
 }
 
 input[type="number"] {
@@ -575,10 +638,12 @@ input:disabled {background-color: var(--input-disabled);}
     cursor: pointer;
     padding: 0 0.3em;
     margin-left: 1rem;
-    color: var(--light-lavender);
-    outline: 1px solid var(--light-lavender);
+    outline: 1px solid var(--tooltip);
     border-radius: 1rem;
+}
 
+.tooltip p:first-child {
+    color: var(--tooltip);    
 }
 
 .tooltip-hidden {
@@ -588,13 +653,13 @@ input:disabled {background-color: var(--input-disabled);}
     left: -50vw;
     width: 70vw;
     padding: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     line-height: 1.2rem;
 
-    color: var(--lightest-magenta);
+    /* color: var(--color); */
     background-color: var(--bkgd);
-    border: 3px solid var(--light-magenta);
-    box-shadow: 0 0 1rem 0.5rem var(--darkest-purple-sheer);
+    border: 3px solid var(--card-border);
+    box-shadow: 0 0 0 3rem var(--bkgd-transparent);
     
     z-index: 1;
     @media screen and (hover) {
@@ -612,8 +677,6 @@ input:disabled {background-color: var(--input-disabled);}
 .tooltip-icon {
     margin: 0 1rem;
     padding: 0 0.4em;
-    color: var(--light-lavender);
-    outline: 1px solid var(--light-lavender);
     border-radius: 1rem;
 } 
 
