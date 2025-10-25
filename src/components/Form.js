@@ -3,6 +3,7 @@ import '../css/Form.css';
 import {getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
 import MoreOptionsName from './MoreOptionsName';
 import MoreOptionsDate from './MoreOptionsDate';
+import NameDateCheckbox from './NameDateCheckbox';
 
 const Form = ({addRecord}) => {    
 
@@ -150,10 +151,13 @@ const Form = ({addRecord}) => {
                 </div>
 
                 <fieldset>
-                    <div className="checkbox-wrapper">
-                        <input id="whether-name" type="checkbox" checked={stateObject.nameChecked} onChange={toggleName} />
-                        <label>Enter a name to calculate: <ul><li>expression number</li><li>soul number</li></ul></label>
-                    </div>
+                    <NameDateCheckbox 
+                        isChecked={stateObject.nameChecked} 
+                        toggleFunction={toggleName} 
+                        text1="Enter a name to calculate:"
+                        listItems={["expression number", "soul number"]}
+                        text2=""
+                    />
 
                     <label htmlFor="firstName">Given name(s)</label>
                     <input id="firstName" className="block-element" type="text" value={stateObject.firstName} onChange={(e) => {setStateObject({...setStateObject, firstName: e.target.value});}} required={stateObject.nameChecked} />
@@ -167,10 +171,13 @@ const Form = ({addRecord}) => {
                 <hr />
 
                 <fieldset>
-                    <div className="checkbox-wrapper">
-                        <input id="whether-date" type="checkbox" checked={stateObject.dateChecked} onChange={toggleDate} />
-                        <label>Enter a date to calculate: <ul><li>ruling number</li><li>day number</li></ul> (day / month / year)</label>
-                    </div>
+                    <NameDateCheckbox 
+                        isChecked={stateObject.nameChecked}
+                        toggleFunction={toggleDate}
+                        text1="Enter a date to calculate:"
+                        listItems={["ruling number", "day number"]}
+                        text2="(day / month / year)"
+                    />
                     
                     <label htmlFor="dobDay" className="screen-reader-only">Day from date of birth:</label>
                         <input id="dobDay" type="number" value={stateObject.dobDay} onChange={(e) => {setStateObject({...stateObject, dobDay: e.target.value})}} placeholder="DD" max={31} className="input-2ch" required={stateObject.dateChecked} />
