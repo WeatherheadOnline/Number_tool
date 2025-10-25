@@ -32,7 +32,7 @@
     --button-hover-text: var(--darkest-purple);
     --button-border-hover: var(--dark-purple);
 
-    --button-active: var(--lightest-magenta);
+    --button-active: var(--cyan);
     --button-active-text: var(--darkest-purple);
     --button-border-active: var(--lavender);
 
@@ -41,7 +41,7 @@
     --input-disabled: #686b8b;
     --tooltip: var(--light-lavender);
 
-    --link: var(--light-magenta);
+    --link: var(--cyan);
     --link-bkgd:;
 
     --link-visited: var(--lightest-magenta);

@@ -148,7 +148,7 @@ h1 {
     align-items: center;
     padding: 0.5rem 1.5rem;
     border: 1px solid var(--text-h2);
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
     width: max-content;
     @media screen and (hover) {
         flex-direction: row;
@@ -208,17 +208,18 @@ footer a {
 
 .cards-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--card-gap-mobile);
-    padding-top: var(--card-gap-mobile);
+    @media screen and (hover: none) {
+        align-items: center;
+        flex-direction: column;
+        gap: var(--card-gap-mobile);
+        padding-top: var(--card-gap-mobile);
+    }
     @media screen and (hover) {
-        flex-direction: row;
         align-items: flex-start;
-        gap: var(--card-gap-desktop);
         padding-top: var(--card-gap-desktop);
+        gap: var(--card-gap-desktop);
     }
 }
 
@@ -227,7 +228,7 @@ article.card {
     position: relative;
     width: 80vmin;
     background-color: var(--card-bkgd);
-    border-radius: 10vmin;
+    /* border-radius: 10vmin; */
     border: 0.5rem solid var(--card-border);
     padding: var(--card-padding-mobile);
     display: flex;
@@ -237,7 +238,7 @@ article.card {
     @media screen and (hover) {
         width: 24rem;
         padding: var(--card-padding-desktop);   
-        border-radius: 3rem;     
+        /* border-radius: 3rem;      */
     }
 }
 
@@ -461,7 +462,7 @@ span.outcome-number {
     top: -1rem;
     left: -10vw;
     background-color: var(--bkgd);
-    border-radius: 4rem;
+    /* border-radius: 4rem; */
     transform: translateZ(-1px);
 }
 
@@ -653,7 +654,7 @@ input:disabled {background-color: var(--input-disabled);}
     left: -50vw;
     width: 70vw;
     padding: 0.5rem;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     line-height: 1.2rem;
 
     /* color: var(--color); */
@@ -675,8 +676,8 @@ input:disabled {background-color: var(--input-disabled);}
 
 
 .tooltip-icon {
-    margin: 0 1rem;
-    padding: 0 0.4em;
+    /* margin: 0 1rem; */
+    /* padding: 0 0.4em; */
     border-radius: 1rem;
 } 
 

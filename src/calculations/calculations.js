@@ -8,7 +8,7 @@ alphaSetup.unshift("0");  // so that index of "a" = 1, etc.
     // Where the magic happens: adding the individual digits of a number
 
 export const addThese = (inputNumber) =>  {
-    if(inputNumber % 11 == 0 && inputNumber <= 33 || inputNumber.toString().length <= 1) {
+    if((inputNumber % 11 === 0 && inputNumber <= 33) || inputNumber.toString().length <= 1) {
         return inputNumber;
     } else {
         const digitArray = Array.from(inputNumber.toString(), Number);
