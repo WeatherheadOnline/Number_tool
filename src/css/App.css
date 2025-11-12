@@ -88,7 +88,9 @@ button, .collapse-btn {
         .border-radius-1, .border-radius-2, .border-radius-3, .border-radius-4 {border-radius: 0;}
     } */
 
-
+.cursor-pointer {
+    cursor: pointer;
+}
 
 /* ~~~~~~~~~~  From other stylesheets  ~~~~~~~~~~~~~~~~~~~ */
 
@@ -360,7 +362,7 @@ h2.nickname {
     /* stroke: var(--trashcan); */
     position: relative;
     bottom: -3vmin;
-    cursor: pointer;
+    /* cursor: pointer; */
     @media screen and (hover) {
         height: 1.8rem;
         bottom: -0.5rem;
@@ -498,7 +500,7 @@ form {
 .close-btn {
     font-size: 10vmin;
     line-height: 9vmin;
-    cursor: pointer;
+    /* cursor: pointer; */
     position: absolute;
     /* color: var(--tooltip); */
     /* border: 1px solid var(--tooltip); */
@@ -560,6 +562,7 @@ input[type="number"] {
 }
 
 button[type="submit"] {
+    width: 100%;
     font-weight: bold;
 }
 
@@ -640,7 +643,7 @@ input[type="checkbox"] {
 .tooltip {
     position: relative;
     display: inline-block;
-    cursor: pointer;
+    /* cursor: pointer; */
     padding: 0 0.3em;
     margin-left: 1rem;
     /* outline: 1px solid var(--tooltip); */
@@ -684,6 +687,35 @@ input[type="checkbox"] {
     /* padding: 0 0.4em; */
     border-radius: 1rem;
 } 
+
+
+/* About  */
+
+#about {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100% + 6rem);  /* footer has margin-top:4rem */
+    /* background-color: red; */
+    
+}
+
+.text-contents {
+    position: relative;
+    width: 70vw;
+    padding-top: 3rem;
+    margin: 0 auto;
+    @media screen and (hover) {
+        max-width: 24rem;
+    }
+}
+
+.text-contents h2, .text-contents p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5em;
+}
 
 
 

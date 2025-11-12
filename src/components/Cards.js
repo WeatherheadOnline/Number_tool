@@ -44,7 +44,7 @@ const BottomRowOfCard = (props) => {
     return (
         <div className="bottom-row-of-card">
             {props.notes ? <p className="card-notes">Notes: {props.notes}</p> : <p></p>}
-            <span onClick={props.deleteThisRecord}>
+            <span className="cursor-pointer" onClick={props.deleteThisRecord}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" fill="none" viewBox="0 0 24 24"><path d="M4 6h16l-1.58 14.22A2 2 0 0 1 16.43 22H7.57a2 2 0 0 1-1.99-1.78L4 6ZM7.34 3.15A2 2 0 0 1 9.15 2h5.7a2 2 0 0 1 1.8 1.15L18 6H6l1.34-2.85ZM2 6h20M10 11v5M14 11v5"/></svg>
             </span>
         </div>

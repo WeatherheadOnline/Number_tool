@@ -4,6 +4,7 @@ import {getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from 
 import MoreOptionsName from './MoreOptionsName';
 import MoreOptionsDate from './MoreOptionsDate';
 import NameDateCheckbox from './NameDateCheckbox';
+import NameInput from './NameInput';
 
 const Form = ({addRecord}) => {    
 
@@ -37,6 +38,14 @@ const Form = ({addRecord}) => {
     const nicknameSetter = e => setStateObject({...stateObject, nickname: e.target.value});
     const notesFieldHandler = e => setStateObject({...stateObject, notesField: e.target.value});
     const nicknameReqSetter = () => setStateObject({...stateObject, nicknameRequired: !stateObject.nameChecked});
+
+    const setName = (property, value) => {
+        if(property === "firstName") {
+            setStateObject({...stateObject, firstName: value});
+        } else if(property === "lastName") {
+            setStateObject({...stateObject, lastName: value});
+        }
+    };
 
         // Side effects 
 
@@ -81,6 +90,8 @@ const Form = ({addRecord}) => {
         e.preventDefault();
         if(!stateObject.nameChecked && !stateObject.dateChecked) {  // If neither name or a date checkboxes are selected, close the form without clearing it (keeping any data they may have entered before de-selecting the checkboxes)
             document.getElementById("enter-record-form").style.display="none"; 
+            console.log(stateObject.nameChecked);
+            console.log(stateObject.dateChecked);
             return;
         }
         document.getElementById("enter-record-form").style.display="none";
@@ -95,16 +106,16 @@ const Form = ({addRecord}) => {
         const nRuling = stateObject.dobYear !=="" ? getRulingNumber(stateObject.dobDay, stateObject.dobMonth, stateObject.dobYear, stateObject.dateOptions).toString() : undefined;
         const notes = stateObject.notesField !== "" ? stateObject.notesField : undefined ;
         addRecord(returnFirstName, returnLastName, returnDay, returnMonth, returnYear, nDay, nRuling, nExpression, nSoul, notes);
-        clearForm(e);
+        cancelTheForm();
     }
 
 
-    // Form buttons
-    
-    const clearForm = (e) => {
-        e.preventDefault();
+// Form buttons
+
+    const resetState = () => {
         setStateObject({...stateObject,
             firstName: "",
+            lastName: "",
             dobDay: "",
             dobMonth: "",
             dobYear: "",
@@ -112,13 +123,68 @@ const Form = ({addRecord}) => {
             customYs: "0",
             nickname: "",
             notesField: ""
-        })
-    }
+        });
+    };
 
-    const closeForm = (e) => {
-        clearForm(e);
+// the "cancel" button:
+    const cancelTheForm = () => {
+        resetState();
         document.getElementById("enter-record-form").style.display="none";
     }
+
+// the "clear" button:    
+    const clearTheForm = e => {
+        e.preventDefault();
+        resetState();
+    }
+    
+// the "close" ("X") button:
+    const closeButton = e => {
+        e.preventDefault();
+        resetState();
+        document.getElementById("enter-record-form").style.display="none";
+    }
+
+
+
+    // const clearForm = (e) => {
+    //     e.preventDefault();
+    //     setStateObject({...stateObject,
+    //         firstName: "",
+    //         dobDay: "",
+    //         dobMonth: "",
+    //         dobYear: "",
+    //         customWs: "0",
+    //         customYs: "0",
+    //         nickname: "",
+    //         notesField: ""
+    //     })
+    // }
+
+    // const closeForm = (e) => {
+    //     clearForm(e);
+    //     cancelForm();
+    // }
+
+    // const cancelForm = () => {
+    //     setStateObject({...stateObject,
+    //         firstName: "",
+    //         lastName: "",
+    //         dobDay: "",
+    //         dobMonth: "",
+    //         dobYear: "",
+    //         customWs: "0",
+    //         customYs: "0",
+    //         nickname: "",
+    //         notesField: ""
+    //     })
+        // document.getElementById("enter-record-form").style.display="none";
+    // }
+
+
+
+
+
 
     const toggleCollapsed = e => {
         const moreOptions = e.target.nextSibling;
@@ -145,9 +211,8 @@ const Form = ({addRecord}) => {
     return (    
         <div id="enter-record-form">
             <form onSubmit={submitHandler}>
-                <div className="close-btn" onClick={closeForm}>
+                <div className="close-btn cursor-pointer" onClick={closeButton}>
                     <span>&times;</span>
-
                 </div>
 
                 <fieldset>
@@ -159,20 +224,16 @@ const Form = ({addRecord}) => {
                         text2=""
                     />
 
-                    <label htmlFor="firstName">Given name(s)</label>
-                    <input id="firstName" className="block-element" type="text" value={stateObject.firstName} onChange={(e) => {setStateObject({...setStateObject, firstName: e.target.value});}} required={stateObject.nameChecked} />
-                    <label htmlFor="lastName">Family name</label>
-                    <input id="lastName" className="block-element" type="text" value={stateObject.lastName} onChange={(e) => {setStateObject({...stateObject, lastName: e.target.value});}} required={stateObject.nameChecked} />
+                    <NameInput stateObject={stateObject} setName={setName} />
 
                     <MoreOptionsName state={stateObject} nameOptionsHandler={nameOptionsHandler} customWHandler={customWHandler} customYHandler={customYHandler} toggleCollapsed={toggleCollapsed}  />
-
                 </fieldset>
 
                 <hr />
 
                 <fieldset>
                     <NameDateCheckbox 
-                        isChecked={stateObject.nameChecked}
+                        isChecked={stateObject.dateChecked}
                         toggleFunction={toggleDate}
                         text1="Enter a date to calculate:"
                         listItems={["ruling number", "day number"]}
@@ -197,8 +258,9 @@ const Form = ({addRecord}) => {
                     </label>
 
                 </fieldset>
-                <button className='form-btn' onClick={clearForm}>Clear</button>
-                <button className='form-btn' type="submit">Submit</button>
+                <button type="submit">Submit</button>
+                <button className='form-btn' onClick={clearTheForm}>Clear</button>
+                <button className='form-btn' onClick={cancelTheForm}>Cancel</button>
             </form>
         </div>
     )

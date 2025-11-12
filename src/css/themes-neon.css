@@ -44,18 +44,18 @@
 
 
 
-    a {
+    a, .faux-link {
         color: var(--cyan);
     }
     a:visited {
         color: var(--lightest-magenta);
         background-color: var(--link-visited-bkgd);
     }
-    a:hover {
+    a:hover, .faux-link:hover {
         color: var(--cyan-light);
         background-color: var(--dark-purple);
     }
-    a:active {
+    a:active, .faux-link:active {
         color: var(--white-text);
     }
 
@@ -186,6 +186,10 @@
     }
     button[type="submit"] {
         border: 2px solid var(--contrast-lightest);
+    }
+
+    #about {
+        background-color: var(--darkest-purple);
     }
 
 

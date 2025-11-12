@@ -9,22 +9,33 @@
     
     color: var(--white);
 
-    h1 {
+    /* h1 {
         color: var(--white);
         text-shadow: 4px 4px 0 var(--contrast-dark);
+    } */
+
+    h1 {
+        color: transparent;
+        background: linear-gradient(
+            -5deg,
+            var(--contrast-lightest),
+            var(--white)
+        );
+        background-clip: text;
+        filter: drop-shadow(3px 3px 0 var(--contrast-dark));
     }
 
-    a {
+    a, .faux-link {
         color: var(--contrast-light);
     }
     a:visited {
         color: var(--contrast-mid);
     }
-    a:hover {
+    a:hover, .faux-link:hover {
         color: var(--white);
         background-color: var(--contrast-dark);
     }
-    a:active {
+    a:active, .faux-link:active {
         background-color: var(--contrast-mid);
     }
 
@@ -163,9 +174,8 @@
         border: 3px solid var(--white);
         box-shadow: 0 0 0 3rem rgb(from var(--black) r g b / 0.9);
     }
-    button[type="submit"] {
-        border: 2px solid var(--contrast-lightest);
+
+    #about {
+        background-color: var(--contrast-darkest);
     }
-
-
 }

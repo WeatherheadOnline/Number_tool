@@ -31,7 +31,7 @@
 
 
 
-    a {
+    a, .faux-link {
         color: var(--gold-dark);
         /* background-color: var(--link-bkgd); */
     }
@@ -39,11 +39,11 @@
         color: var(--gold-light);
         /* background-color: var(--link-visited-bkgd); */
     }
-    a:hover {
+    a:hover, .faux-link:hover {
         color: var(--gold-lightest);
         background-color: var(--navy-light);
     }
-    a:active {
+    a:active, .faux-link:active {
         /* color: var(--gold-lightest); */
         background-color: var(--gold-dark);
     }
@@ -178,6 +178,9 @@
         text-shadow: 0px 0px 3px var(--gold-dark);
     }
 
+    #about {
+        background-color: var(--navy-dark);
+    }
 
 
 

@@ -4,6 +4,8 @@ import './css/App.css';
 import './css/themes-dark.css';
 import './css/themes-light.css';
 import './css/themes-nightsky.css';
+import './css/themes-neon.css';
+import './css/themes-earthy.css';
 import Header from './components/Header';
 import AddARecordBtn from './components/AddARecordBtn';
 import Cards from './components/Cards';
@@ -11,6 +13,7 @@ import Form from './components/Form';
 import Footer from './components/Footer';
 import ModeButtons from './components/ModeButtons';
 import Background from './components/Background';
+import About from './components/About';
 
 
 const App = () => {
@@ -130,6 +133,8 @@ const App = () => {
     {themeName: "dark", key: 0},
     {themeName: "light", key: 1},
     {themeName: "nightsky", key: 2},
+    {themeName: "neon", key: 3},
+    {themeName: "earthy", key: 4}
   ];
 
   const [theme, setTheme] = useState("dark");
@@ -201,6 +206,14 @@ const App = () => {
     setRecords(newRecords);
   }
 
+  // About section
+	// const appearify = () => {
+  //   console.log("hi");
+	// 	document.getElementById("about").display = "block";
+	// }
+
+
+
   // The return method
 
 
@@ -216,8 +229,10 @@ const App = () => {
         <Cards records={records} deleteRecord={deleteRecord} />
         <AddARecordBtn mobileOrDesktop="mobile" />
         <Form addRecord={addRecord} />
+        <About />
       </main>
       
+      {/* <Footer appearify={appearify} /> */}
       <Footer />
 
       <ModeButtons getTheme={getTheme} themeOptions={themeOptions} initialState={theme} />

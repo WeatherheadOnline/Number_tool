@@ -10,7 +10,7 @@
     color: var(--black);
 
 
-    a {
+    a, .faux-link {
         color: var(--contrast-dark);
         background-color: var(--link-bkgd);
     }
@@ -18,11 +18,11 @@
         color: var(--contrast-mid);
         background-color: var(--link-visited-bkgd);
     }
-    a:hover {
-        color: var(--white);
+    a:hover, .faux-link:hover {
+        color: var(--black);
         background-color: var(--contrast-light);
     }
-    a:active {
+    a:active, .faux-link:active {
         color: var(--link-active);
         background-color: var(--contrast-mid);
     }
@@ -156,10 +156,6 @@
         box-shadow: 0 0 0 3rem rgb(from var(--black) r g b / 0.9);
     }
 
-    button[type="submit"] {
-        border: 2px solid var(--contrast-darkest);
-    }
-
     h1 {
         color: var(--contrast-mid);
         text-shadow: 4px 4px 0 var(--black);
@@ -174,6 +170,8 @@
         filter: drop-shadow(3px 3px 0 var(--green-light)); */
 
     }
-
+    #about {
+        background-color: var(--contrast-lightest);
+    }
 
 }

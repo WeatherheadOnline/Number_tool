@@ -46,17 +46,17 @@
     color: var(--taupe-dark);
 
 
-    a {
+    a, .faux-link {
         color: var(--green-dark);
     }
     a:visited {
         color: var(--green-light);
     }
-    a:hover {
+    a:hover, .faux-link:hover {
         color: var(--cream-main);
         background-color: var(--orange-main);
     }
-    a:active {
+    a:active, .faux-link:active {
         color: var(--cream-main);
         background-color: var(--green-light);
     }
@@ -190,6 +190,10 @@
 
     button[type="submit"] {
         border: 2px solid var(--contrast-lightest);
+    }
+
+    #about {
+        background-color: var(--cream-main);
     }
 
 
