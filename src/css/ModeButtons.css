@@ -28,22 +28,11 @@
 /* Buttons for each theme */
 
 .modes-wrapper #dark {
-    background: linear-gradient(
-        70deg,
-        #0d082a 60%,
-        #C450E0 60%,
-        #C450E0 70%,
-        #6DCBF9 70%
-    );
+    background-color: #000000;
 }
 
 .modes-wrapper #light {
-    background: linear-gradient(
-        70deg,
-        #EBD292 50%,
-        #8C4D18,
-        #3F332B 85%
-    );
+    background-color: #FFFFFF;
 }
 
 .modes-wrapper #nightsky {
@@ -61,5 +50,24 @@
         #D2973B 65%,
         #D2973B 75%,
         #0D1F2D 75%
+    );
+}
+
+.modes-wrapper #neon {
+    background: linear-gradient(
+        70deg,
+        #0d082a 60%,
+        #C450E0 60%,
+        #C450E0 70%,
+        #6DCBF9 70%
+    );
+}
+
+.modes-wrapper #earthy {
+    background: linear-gradient(
+        70deg,
+        #EBD292 50%,
+        #8C4D18,
+        #3F332B 85%
     );
 }

@@ -1,0 +1,245 @@
+.neon {
+    --cyan: #6DCBF9;
+    --cyan-light: #94D6F6;
+    --cyan-lightest: #cfefff;
+    --lavender: #5C66E7;
+    --light-lavender: #8088F0;
+    --mid-purple: #3624ae;
+    --dark-purple: #2e1d99;
+    --darkest-purple: #0d082a;
+    --light-magenta: #C450E0;
+    --lightest-magenta: hsl(270, 60%, 84%);
+    --white-text: #fcedff;
+    --grey: #686b8b;
+
+        .border-radius-1 {border-radius: 1rem;}
+        .border-radius-2 {border-radius: 2rem;}
+        .border-radius-3 {
+            border-radius: 10vmin;
+            @media screen and (hover) {
+                border-radius: 3rem;
+            }
+        }
+        .border-radius-4 {border-radius: 4rem;}
+    
+
+    color: var(--white-text);
+
+    h1 {
+        color: transparent;
+        background: linear-gradient(
+            -5deg,
+            var(--lavender),
+            var(--lightest-magenta) 50%,
+            var(--light-magenta) 80%
+        );
+        background-clip: text;
+        filter: drop-shadow(3px 3px 0 var(--mid-purple));
+    }
+
+
+
+
+
+
+
+
+    a {
+        color: var(--cyan);
+    }
+    a:visited {
+        color: var(--lightest-magenta);
+        background-color: var(--link-visited-bkgd);
+    }
+    a:hover {
+        color: var(--cyan-light);
+        background-color: var(--dark-purple);
+    }
+    a:active {
+        color: var(--white-text);
+    }
+
+    button, .collapse-btn {
+        background-color: var(--cyan-light);
+        color: var(--darkest-purple);
+        box-shadow: 0.3rem 0.3rem 0 var(--lavender);
+    }
+
+    @media screen and (hover) {
+        button:hover, .collapse-btn:hover {
+            background-color: var(--cyan);
+            box-shadow: 0.3rem 0.3rem 0 var(--dark-purple);
+            color: var(--darkest-purple);
+        }
+        button:active, .collapse-btn:active {
+            background-color: var(--cyan);
+            box-shadow: 0.3rem 0.3rem 0 var(--lavender);
+            color: var(--darkest-purple);
+        }
+    }
+
+    .color-bkgd {
+        background-color: var(--darkest-purple);
+    }
+
+
+
+    header {
+        background-color: var(--darkest-purple);
+        border-bottom: 3px solid var(--light-magenta);
+    }
+    .sort-wrapper {
+        border: 1px solid var(--cyan);
+    }
+    select {
+        background-color: var(--cyan-lightest);
+    }
+    footer {
+        background-color: var(--darkest-purple);
+        border-top: 2px solid var(--light-magenta);
+    }
+
+
+
+
+    article.card {
+        background-color: var(--darkest-purple);
+        border: 0.5rem solid var(--lavender);
+        box-shadow: 0.5rem 0.5rem 0 var(--dark-purple);
+    }
+
+    article.card:hover {
+        box-shadow: 0.5rem 0.5rem 0 var(--darkest-purple);
+    }
+
+    .card h2 {
+        color: var(--cyan);
+    }
+    .card-date p:first-of-type {
+        text-decoration: underline 2px solid var(--cyan);
+    }
+
+    span.outcome-number {
+        text-decoration: underline 2px solid var(--black);
+    }
+
+    .bottom-row-of-card svg {
+        stroke: var(--lavender);
+    }
+    .number-bkgd {
+        opacity: 0.05;
+        @media screen and (hover) {
+            opacity: 0.03;        
+        }
+    }
+
+    .mobile-add-record {
+        box-shadow: 0.4rem 0.4rem 0 var(--lavender);
+    }
+
+    .mobile-add-record:after {
+        background-color: var(--darkest-purple);
+    }
+
+    .mobile-add-record:hover, .mobile-add-record:active {
+        background-color: var(--cyan);
+        box-shadow: 0.4rem 0.4rem 0 var(--lavender);
+    }
+
+
+
+    #enter-record-form {
+        background-color: rgb(from var(--darkest-purple) r g b / 0.95);
+    }
+    .close-btn {
+        color: var(--light-lavender);
+        border: 1px solid var(--light-lavender);
+    }
+
+    .close-btn:hover {
+        color: var(--lavender);
+        border: 1px solid var(--lavender);
+    }
+    input, textarea {
+        background-color: var(--cyan-lightest);
+        border: 1px solid var(--input-border);
+    }
+
+    input:focus, textarea:focus {
+        background-color: var(--white-text);
+    }
+
+    input:disabled {background-color: var(--grey);}
+
+    .tooltip {
+        outline: 1px solid var(--light-lavender);
+    }
+
+    .tooltip p:first-child {
+        color: var(--light-lavender);    
+    }
+
+    .tooltip-hidden {
+        background-color: var(--darkest-purple);
+        border: 3px solid var(--lavender);
+        box-shadow: 0 0 0 3rem rgb(from var(--darkest-purple) r g b / 0.9);
+    }
+    button[type="submit"] {
+        border: 2px solid var(--contrast-lightest);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .bkgd.blurred-stars {
+        filter: blur(2px);
+    }
+
+    .bkgd.blurred-stars-1 {
+        background-image: url(../assets/stars-bkgd-magenta.svg);
+        background-position: -3.5rem -3.5rem;
+        background-size: 34vmin;
+        opacity: 0.3;
+        @media screen and (hover) {
+            background-size: 17rem;
+            opacity: 0.15;
+        }
+    }
+    .bkgd.blurred-stars-2 {
+        background-image: url(../assets/stars-bkgd-lavender.svg);
+        background-size: 20vmin;
+        opacity: 0.2;    
+        @media screen and (hover) {
+            background-size: 10rem;
+            opacity: 0.1;
+        }
+    }
+    .bkgd.blurred-stars-3 {
+        background-image: url(../assets/stars-bkgd-cyan.svg);
+        background-size: 14vmin;
+        opacity: 0.1;    
+        @media screen and (hover) {
+            background-size: 7rem;
+            opacity: 0.05;
+        }
+    }
+
+}

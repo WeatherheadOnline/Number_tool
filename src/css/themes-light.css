@@ -1,60 +1,169 @@
 .light {
-    --taupe-dark: #3F332B;
-    --taupe-light: #B5A79C;
-    --cream-main: #F3EBD8;
-    --cream-sheer: #F3EBD8EE;
-    --cream-light: #FAF7EE;
-    --orange-main: #D8853F;
-    --orange-dark: #8C4D18;
-    --orange-light: #E7B68D;
-    --yellow-light: #EBD292;
-    --yellow-main: #E0B44B;
-    --yellow-dark: #9C7A29;
-    --green-light: #A9B48A;
-    --green-main: #71823E;
-    --green-dark: #39451D;
-
-    --bkgd: var(--cream-light);
-    --bkgd-transparent: var(--cream-sheer);
-    --border-header-footer: var(--green-main);
-    --color: var(--taupe-dark);
-    --text-h2: var(--orange-dark);
-    --card-bkgd: var(--cream-light);
-    --card-border: var(--orange-main);
-    --card-border-shadow: var(--orange-light);
-    --card-hover-shadow: var(--orange-dark);
-    --underline: var(--green-main);
-    --trashcan: var(--green-main);
-
-    --button-text: var(--taupe-dark);
-    --button: var(--yellow-main);
-    --button-border: var(--yellow-dark);
-    --button-hover: var(--yellow-light);
-    --button-border-hover: var(--yellow-dark);
-    --button-active: var(--green-light);
-    --button-border-active: var(--green-main);
-    --input-disabled: var(--taupe-light);
-    --input-border: var(--taupe-dark);
-    --input: var(--yellow-light);
-    --input-focused: var(--cream-light);
-    --tooltip: var(--orange-dark);
-
-    --link: var(--green-dark);
-    /* --link-bkgd:; */
-
-    --link-visited: var(--green-light);
-    /* --link-visited-bkgd:; */
-
-    --link-hover: var(--cream-main);
-    --link-hover-bkgd: var(--orange-main);
-
-    --link-active: var(--cream-main);
-    --link-active-bkgd: var(--green-light);
+    --white: #FFFFFF;
+    --black: #000000;
+    --contrast-darkest: #031215;
+    --contrast-dark: #00596b;
+    --contrast-mid: #189ab4;
+    --contrast-light: #68c9dd;
+    --contrast-lightest: #cff7fe;
+    
+    color: var(--black);
 
 
-    color: var(--color);
+    a {
+        color: var(--contrast-dark);
+        background-color: var(--link-bkgd);
+    }
+    a:visited {
+        color: var(--contrast-mid);
+        background-color: var(--link-visited-bkgd);
+    }
+    a:hover {
+        color: var(--white);
+        background-color: var(--contrast-light);
+    }
+    a:active {
+        color: var(--link-active);
+        background-color: var(--contrast-mid);
+    }
+
+    button, .collapse-btn {
+        background-color: var(--contrast-dark);
+        color: var(--white);
+        box-shadow: 0.3rem 0.3rem 0 var(--contrast-light);
+    }
+
+    @media screen and (hover) {
+        button:hover, .collapse-btn:hover {
+            background-color: var(--contrast-darkest);
+            box-shadow: 0.3rem 0.3rem 0 var(--contrast-dark);
+            color: var(--white);
+        }
+        button:active, .collapse-btn:active {
+            background-color: var(--contrast-light);
+            box-shadow: 0.3rem 0.3rem 0 var(--contrast-mid);
+            color: var(--white);
+        }
+    }
+
+    .color-bkgd {
+        background-color: var(--contrast-lightest);
+    }
+
+
+
+    header {
+        background-color: var(--white);
+        border-bottom: 3px solid var(--contrast-light);
+    }
+    .sort-wrapper {
+        border: 1px solid var(--contrast-light);
+    }
+    select {
+        background-color: var(--contrast-lightest);
+    }
+    footer {
+        background-color: var(--black);
+        border-top: 2px solid var(--contrast-light);
+    }
+
+
+
+
+    article.card {
+        background-color: var(--white);
+        border: 0.5rem solid var(--contrast-dark);
+        box-shadow: 0.5rem 0.5rem 0 var(--contrast-light);
+    }
+
+    article.card:hover {
+        box-shadow: 0.5rem 0.5rem 0 var(--contrast-mid);
+    }
+
+    .card h2 {
+        color: rgb(from var(--black) r g b / 0.6);
+    }
+    .card-date p:first-of-type {
+        text-decoration: underline 2px solid var(--contrast-light);
+    }
+
+    span.outcome-number {
+        /* text-decoration: underline 2px solid var(--black); */
+    }
+
+    .bottom-row-of-card svg {
+        stroke: rgb(from var(--black) r g b / 0.4);
+    }
+
+    .number-bkgd {
+        opacity: 0.05;
+        @media screen and (hover) {
+            opacity: 0.05;        
+        }
+    }
+
+
+    .mobile-add-record {
+        box-shadow: 0.4rem 0.4rem 0 var(--contrast-light);
+    }
+
+    .mobile-add-record:after {
+        background-color: var(--black);
+    }
+
+    .mobile-add-record:hover, .mobile-add-record:active {
+        background-color: var(--contrast-light);
+        box-shadow: 0.4rem 0.4rem 0 var(--contrast-mid);
+    }
+
+
+
+    #enter-record-form {
+        background-color: rgb(from var(--white) r g b / 0.95);
+    }
+    .close-btn {
+        color: var(--contrast-darkest);
+        border: 1px solid var(--contrast-darkest);
+    }
+
+    .close-btn:hover {
+        color: var(--contrast-mid);
+        border: 1px solid var(--contrast-mid);
+    }
+    input, textarea {
+        background-color: var(--contrast-lightest);
+        border: 1px solid var(--contrast-mid);
+    }
+
+    input:focus, textarea:focus {
+        background-color: var(--white);
+        border: 1px solid var(--contrast-dark);
+    }
+
+    input:disabled {background-color: hsl(from var(--contrast-light) h 10% l);}
+
+    .tooltip {
+        outline: 1px solid var(--contrast-dark);
+    }
+
+    .tooltip p:first-child {
+        color: var(--contrast-dark);    
+    }
+
+    .tooltip-hidden {
+        background-color: var(--black);
+        border: 3px solid var(--white);
+        box-shadow: 0 0 0 3rem rgb(from var(--black) r g b / 0.9);
+    }
+
+    button[type="submit"] {
+        border: 2px solid var(--contrast-darkest);
+    }
+
     h1 {
-        color: transparent;
+        color: var(--contrast-mid);
+        text-shadow: 4px 4px 0 var(--black);
+        /* color: transparent;
         background: linear-gradient(
             -5deg,
             var(--green-dark),
@@ -62,37 +171,9 @@
             var(--green-light) 80%
         );
         background-clip: text;
-        filter: drop-shadow(3px 3px 0 var(--green-light));
+        filter: drop-shadow(3px 3px 0 var(--green-light)); */
 
     }
 
-    .bkgd.blurred-stars-1 {
-        background-image: url(../assets/stars-bkgd-yellow.svg);
-        background-position: -3.5rem -3.5rem;
-        background-size: 34vmin;
-        opacity: 0.5;
-        @media screen and (hover) {
-            background-size: 17rem;
-            opacity: 0.25;
-        }
-    }
-    .bkgd.blurred-stars-2 {
-        background-image: url(../assets/stars-bkgd-yellow.svg);
-        background-size: 20vmin;
-        opacity: 0.4;    
-        @media screen and (hover) {
-            background-size: 10rem;
-            opacity: 0.2;
-        }
-    }
-    .bkgd.blurred-stars-3 {
-        background-image: url(../assets/stars-bkgd-orange.svg);
-        background-size: 14vmin;
-        opacity: 0.3;    
-        @media screen and (hover) {
-            background-size: 7rem;
-            opacity: 0.15;
-        }
-    }
 
 }

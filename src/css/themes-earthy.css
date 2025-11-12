@@ -1,0 +1,196 @@
+.earthy {
+    --taupe-dark: #3F332B;
+    --taupe-light: #B5A79C;
+    --cream-main: #F3EBD8;
+    --cream-light: #FAF7EE;
+    --orange-main: #D8853F;
+    --orange-dark: #8C4D18;
+    --orange-light: #E7B68D;
+    --yellow-light: #EBD292;
+    --yellow-main: #E0B44B;
+    --yellow-dark: #9C7A29;
+    --green-light: #A9B48A;
+    --green-main: #71823E;
+    --green-dark: #39451D;
+    --white: #FFFFFF;
+
+
+        .border-radius-1 {border-radius: 0.5rem;}
+        .border-radius-2 {border-radius: 1rem;}
+        .border-radius-3 {
+            border-radius: 5vmin;
+            @media screen and (hover) {
+                border-radius: 1.5rem;
+            }
+        }
+        .border-radius-4 {border-radius: 4rem;}
+    
+
+    h1 {
+        color: transparent;
+        background: linear-gradient(
+            -5deg,
+            var(--green-dark),
+            var(--green-main) 70%,
+            var(--green-light) 80%
+        );
+        background-clip: text;
+        filter: drop-shadow(3px 3px 0 var(--green-light));
+
+    }
+
+
+
+
+
+    color: var(--taupe-dark);
+
+
+    a {
+        color: var(--green-dark);
+    }
+    a:visited {
+        color: var(--green-light);
+    }
+    a:hover {
+        color: var(--cream-main);
+        background-color: var(--orange-main);
+    }
+    a:active {
+        color: var(--cream-main);
+        background-color: var(--green-light);
+    }
+
+    button, .collapse-btn {
+        background-color: var(--yellow-main);
+        color: var(--taupe-dark);
+        box-shadow: 0.3rem 0.3rem 0 var(--yellow-dark);
+    }
+
+    @media screen and (hover) {
+        button:hover, .collapse-btn:hover {
+            background-color: var(--yellow-light);
+            box-shadow: 0.3rem 0.3rem 0 var(--yellow-dark);
+            color: var(--black);
+        }
+        button:active, .collapse-btn:active {
+            background-color: var(--orange-dark);
+            box-shadow: 0.3rem 0.3rem 0 var(--yellow-light);
+            color: var(--yellow-light);
+        }
+    }
+
+    .color-bkgd {
+        background-color: var(--cream-main);
+    }
+
+
+
+    header {
+        background-color: var(--cream-light);
+        border-bottom: 3px solid var(--green-main);
+    }
+    .sort-wrapper {
+        border: 1px solid var(--orange-dark);
+    }
+    select {
+        background-color: var(--cream-main);
+    }
+    footer {
+        background-color: var(--cream-light);
+        border-top: 2px solid var(--green-main);
+    }
+
+
+
+
+    article.card {
+        background-color: var(--cream-light);
+        border: 0.5rem solid var(--orange-main);
+        box-shadow: 0.5rem 0.5rem 0 var(--orange-light);
+    }
+
+    article.card:hover {
+        box-shadow: 0.5rem 0.5rem 0 var(--orange-dark);
+    }
+
+    .card h2 {
+        color: var(--orange-dark);
+    }
+    .card-date p:first-of-type {
+        text-decoration: underline 2px solid var(--green-main);
+    }
+
+    .card-date p:first-of-type span.outcome-number {
+        text-decoration: underline 2px solid var(--cream-light);
+    }
+
+    .bottom-row-of-card svg {
+        stroke: var(--green-main);
+    }
+    .number-bkgd {
+        opacity: 0.05;
+        @media screen and (hover) {
+            opacity: 0.05;        
+        }
+    }
+
+    .mobile-add-record {
+        box-shadow: 0.4rem 0.4rem 0 var(--yellow-dark);
+    }
+
+    .mobile-add-record:after {
+        background-color: var(--cream-light);
+    }
+
+    .mobile-add-record:hover, .mobile-add-record:active {
+        background-color: var(--green-light);
+        box-shadow: 0.4rem 0.4rem 0 var(--green-main);
+    }
+
+
+
+    #enter-record-form {
+        background-color: rgb(from var(--cream-light) r g b / 0.95);
+    }
+    .close-btn {
+        color: var(--orange-dark);
+        border: 1px solid var(--orange-dark);
+    }
+
+    .close-btn:hover {
+        color: var(--yellow-main);
+        border: 1px solid var(--yellow-main);
+    }
+    input, textarea {
+        background-color: var(--cream-main);
+        border: 1px solid var(--taupe-dark);
+    }
+
+    input:focus, textarea:focus {
+        background-color: var(--white);
+        border: 1px solid var(--green-main);
+        outline: unset;
+    }
+
+    input:disabled {background-color: var(--taupe-light);}
+    input::placeholder {color: var(--taupe-light);}
+    .tooltip {
+        outline: 1px solid var(--green-main);
+    }
+    .tooltip p:first-child  {
+        color: var(--green-main);
+    }
+
+    .tooltip-hidden {
+        background-color: var(--cream-light);
+        border: 3px solid var(--green-main);
+        box-shadow: 0 0 0 1rem var(--cream-light);
+    }
+
+    button[type="submit"] {
+        border: 2px solid var(--contrast-lightest);
+    }
+
+
+}

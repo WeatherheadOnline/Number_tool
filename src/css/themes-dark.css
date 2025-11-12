@@ -1,104 +1,171 @@
 .dark {
-    --cyan: #6DCBF9;
-    --cyan-light: #94D6F6;
-    --cyan-lightest: #cfefff;
-    --lavender: #5C66E7;
-    --light-lavender: #8088F0;
-    --mid-purple: #3624ae;
-    --dark-purple: #2e1d99;
-    --darkest-purple: #0d082a;
-    --darkest-purple-sheer: #0d082aF5;
-    --light-magenta: #C450E0;
-    --lightest-magenta: hsl(270, 60%, 84%);
-    --white-text: #fcedff;
+    --black: #000000;
+    --white: #FFFFFF;
+    --contrast-darkest: #031215;
+    --contrast-dark: #00596b;
+    --contrast-mid: #189ab4;
+    --contrast-light: #68c9dd;
+    --contrast-lightest: #cff7fe;
     
-    --bkgd: var(--darkest-purple);
-    --bkgd-transparent: var(--darkest-purple-sheer);
-    --border-header-footer: var(--light-magenta);
-    --color: var(--white-text);
-    --text-h2: var(--cyan);
-    --card-bkgd: var(--darkest-purple);
-    --card-border: var(--lavender);
-    --card-border-shadow: var(--dark-purple);
-    --card-hover-shadow: var(--darkest-purple);
-    --underline: var(--cyan);
-    --trashcan: var(--lavender);
-
-    --button: var(--cyan-light);
-    --button-text: var(--darkest-purple);
-    --button-border: var(--lavender);
-
-    --button-hover: var(--cyan);
-    --button-hover-text: var(--darkest-purple);
-    --button-border-hover: var(--dark-purple);
-
-    --button-active: var(--cyan);
-    --button-active-text: var(--darkest-purple);
-    --button-border-active: var(--lavender);
-
-    --input: var(--cyan-lightest);
-    --input-focused: var(--white-text);
-    --input-disabled: #686b8b;
-    --tooltip: var(--light-lavender);
-
-    --link: var(--cyan);
-    --link-bkgd:;
-
-    --link-visited: var(--lightest-magenta);
-    --link-visited-bkgd:;
-
-    --link-hover: var(--cyan-light);
-    --link-hover-bkgd: var(--dark-purple);
-
-    --link-active:;
-    --link-active-bkgd:;
-
-
-    color: var(--color);
+    color: var(--white);
 
     h1 {
-        color: transparent;
+        color: var(--white);
+        text-shadow: 4px 4px 0 var(--contrast-dark);
+    }
+
+    a {
+        color: var(--contrast-light);
+    }
+    a:visited {
+        color: var(--contrast-mid);
+    }
+    a:hover {
+        color: var(--white);
+        background-color: var(--contrast-dark);
+    }
+    a:active {
+        background-color: var(--contrast-mid);
+    }
+
+    button, .collapse-btn {
+        background-color: var(--contrast-light);
+        color: var(--black);
+        box-shadow: 0.3rem 0.3rem 0 var(--contrast-dark);
+    }
+
+    @media screen and (hover) {
+        button:hover, .collapse-btn:hover {
+            background-color: var(--contrast-lightest);
+            box-shadow: 0.3rem 0.3rem 0 var(--contrast-mid);
+            color: var(--black);
+        }
+        button:active, .collapse-btn:active {
+            background-color: var(--contrast-dark);
+            box-shadow: 0.3rem 0.3rem 0 var(--contrast-mid);
+            color: var(--white);
+        }
+    }
+
+    .color-bkgd {
         background: linear-gradient(
-            -5deg,
-            var(--lavender),
-            var(--lightest-magenta) 50%,
-            var(--light-magenta) 80%
+            -15deg,
+            var(--black),
+            var(--contrast-darkest) 35rem,
+            var(--contrast-darkest) calc(100% - 35rem),
+            var(--contrast-dark)
         );
-        background-clip: text;
-        filter: drop-shadow(3px 3px 0 var(--mid-purple));
     }
 
-    .bkgd.blurred-stars {
-        filter: blur(2px);
+
+
+    header {
+        background-color: var(--black);
+        border-bottom: 3px solid var(--contrast-dark);
+    }
+    .sort-wrapper {
+        border: 1px solid rgb(from var(--white) r g b / 0.6);
+    }
+    select {
+        background-color: var(--contrast-lightest);
+    }
+    footer {
+        background-color: var(--black);
+        border-top: 2px solid var(--contrast-dark);
     }
 
-    .bkgd.blurred-stars-1 {
-        background-image: url(../assets/stars-bkgd-magenta.svg);
-        background-position: -3.5rem -3.5rem;
-        background-size: 34vmin;
-        opacity: 0.3;
-        @media screen and (hover) {
-            background-size: 17rem;
-            opacity: 0.15;
-        }
+
+
+
+    article.card {
+        background-color: var(--black);
+        border: 0.5rem solid var(--white);
+        box-shadow: 0.5rem 0.5rem 0 var(--contrast-dark);
     }
-    .bkgd.blurred-stars-2 {
-        background-image: url(../assets/stars-bkgd-lavender.svg);
-        background-size: 20vmin;
-        opacity: 0.2;    
-        @media screen and (hover) {
-            background-size: 10rem;
-            opacity: 0.1;
-        }
+
+    article.card:hover {
+        box-shadow: 0.5rem 0.5rem 0 var(--contrast-mid);
     }
-    .bkgd.blurred-stars-3 {
-        background-image: url(../assets/stars-bkgd-cyan.svg);
-        background-size: 14vmin;
-        opacity: 0.1;    
-        @media screen and (hover) {
-            background-size: 7rem;
-            opacity: 0.05;
-        }
+
+    .card h2 {
+        color: rgb(from var(--white) r g b / 0.6);
     }
+    .card-date p:first-of-type {
+        text-decoration: underline 2px solid var(--contrast-dark);
+    }
+
+    span.outcome-number {
+        text-decoration: underline 2px solid var(--black);
+    }
+
+    .bottom-row-of-card svg {
+        stroke: rgb(from var(--white) r g b / 0.3);
+    }
+
+
+.number-bkgd {
+    opacity: 0.05;
+    @media screen and (hover) {
+        opacity: 0.04;        
+    }
+}
+
+
+    .mobile-add-record {
+        box-shadow: 0.4rem 0.4rem 0 var(--contrast-dark);
+    }
+
+    .mobile-add-record:after {
+        background-color: var(--black);
+    }
+
+    .mobile-add-record:hover, .mobile-add-record:active {
+        background-color: var(--contrast-dark);
+        box-shadow: 0.4rem 0.4rem 0 var(--contrast-mid);
+    }
+
+
+
+    #enter-record-form {
+        background-color: rgb(from var(--black) r g b / 0.95);
+    }
+    .close-btn {
+        color: var(--contrast-light);
+        border: 1px solid var(--contrast-light);
+    }
+
+    .close-btn:hover {
+        color: var(--contrast-lightest);
+        border: 1px solid var(--contrast-lightest);
+    }
+    input, textarea {
+        background-color: var(--contrast-lightest);
+        border: 1px solid var(--input-border);
+    }
+
+    input:focus, textarea:focus {
+        background-color: var(--white);
+        outline: 2px solid var(--contrast-mid);
+    }
+
+    input:disabled {background-color: grey;}
+
+    .tooltip {
+        outline: 1px solid var(--contrast-light);
+    }
+
+    .tooltip p:first-child {
+        color: var(--contrast-light);    
+    }
+
+    .tooltip-hidden {
+        background-color: var(--black);
+        border: 3px solid var(--white);
+        box-shadow: 0 0 0 3rem rgb(from var(--black) r g b / 0.9);
+    }
+    button[type="submit"] {
+        border: 2px solid var(--contrast-lightest);
+    }
+
 
 }
