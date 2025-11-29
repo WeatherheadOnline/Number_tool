@@ -28,6 +28,9 @@
     a, .faux-link {
         color: var(--contrast-light);
     }
+    .faux-link {
+        text-decoration: underline 1px solid var(--contrast-light);
+    }
     a:visited {
         color: var(--contrast-mid);
     }
@@ -115,9 +118,9 @@
 
 
 .number-bkgd {
-    opacity: 0.05;
+    opacity: 0.1;
     @media screen and (hover) {
-        opacity: 0.04;        
+        opacity: 0.05;        
     }
 }
 
@@ -176,6 +179,13 @@
     }
 
     #about {
-        background-color: var(--contrast-darkest);
+        background: linear-gradient(
+            -10deg,
+            var(--black),
+            var(--contrast-darkest) 30%,
+            var(--contrast-darkest) 70%,
+            var(--contrast-dark) 105%
+        );
+
     }
 }

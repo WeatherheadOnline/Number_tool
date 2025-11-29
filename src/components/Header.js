@@ -12,7 +12,8 @@ const Header = ({sorter}) => {
     }
     return (
         <header className="App-header">
-            <h1><span>Numerology </span><span>Village</span></h1>
+
+            <h1><span>Numerology </span><span>Cards</span></h1>
 
             <div className="header-contents">
                 <div className="sort-wrapper border-radius-2">
@@ -32,9 +33,13 @@ const Header = ({sorter}) => {
                             <option value="descending">Descending</option>
                         </select>
                     </div>
+
                     <button onClick={localSorter}>Sort</button>
+
                 </div>
+
                 <AddARecordBtn mobileOrDesktop="desktop" />
+            
             </div>
 
         </header>

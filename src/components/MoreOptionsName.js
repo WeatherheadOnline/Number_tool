@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Tooltip from './Tooltip';
+import ExternalLink from './ExternalLink';
 
 const MoreOptionsName = ({state, nameOptionsHandler, customWHandler, customYHandler, nameChecked, toggleCollapsed}) => {
 
@@ -32,8 +33,15 @@ const MoreOptionsName = ({state, nameOptionsHandler, customWHandler, customYHand
 
                 <label htmlFor="some-Ws-Ys" className="block-element">
                     <input type="radio" id="some-Ws-Ys" name="name-options" value="some-Ws-Ys" checked={state.nameOptions==="some-Ws-Ys"} onChange={nameOptionsHandler} />
-                        Include some Ws and Ys
-                    <Tooltip wrapperTag="p" visible="?" hidden='Following the guidelines by Matthew Oliver Goodwin in "Numerology the Complete Guide, Volume I: The Personality Reading". W is a vowel when it is preceded by a natural vowel and pronounced together as one sound. Y is a vowel when there is no other vowel in a syllable, or when it is preceded by a natural vowel and pronounced together as one sound. ' a="https://www.goodreads.com/book/show/934801.Numerology_the_Complete_Guide_Volume_I" aText="(ISBN-13: 978-1564148599)" />
+                    Include some Ws and Ys
+                    <Tooltip wrapperTag="p" visibleText="?" >
+                        <p>
+                            Following the guidelines by Matthew Oliver Goodwin in "Numerology the Complete Guide, Volume I: The Personality Reading". W is a vowel when it is preceded by a natural vowel and pronounced together as one sound. Y is a vowel when there is no other vowel in a syllable, or when it is preceded by a natural vowel and pronounced together as one sound.&nbsp;
+                            <ExternalLink url="https://www.goodreads.com/book/show/934801.Numerology_the_Complete_Guide_Volume_I">
+                                ISBN-13: 978-1564148599
+                            </ExternalLink>
+                        </p>
+                    </Tooltip>
                 </label>
                 
                 <label htmlFor="custom-Ws-Ys" className="block-element">

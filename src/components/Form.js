@@ -46,6 +46,21 @@ const Form = ({addRecord}) => {
             setStateObject({...stateObject, lastName: value});
         }
     };
+    // const setName = (property, value) => {
+    //     if(property === "firstName") {
+    //         if(value === "") {
+    //             setStateObject({...stateObject, firstName: value, firstNameEntered: false});
+    //         } else {
+    //             setStateObject({...stateObject, firstName: value, firstNameEntered: true});
+    //         }
+    //     } else if(property === "lastName") {
+    //         if(value === "") {
+    //             setStateObject({...stateObject, lastName: value, lastNameEntered: false});
+    //         } else {
+    //             setStateObject({...stateObject, lastName: value, lastNameEntered: true});
+    //         }
+    //     }
+    // };
 
         // Side effects 
 
@@ -90,15 +105,13 @@ const Form = ({addRecord}) => {
         e.preventDefault();
         if(!stateObject.nameChecked && !stateObject.dateChecked) {  // If neither name or a date checkboxes are selected, close the form without clearing it (keeping any data they may have entered before de-selecting the checkboxes)
             document.getElementById("enter-record-form").style.display="none"; 
-            console.log(stateObject.nameChecked);
-            console.log(stateObject.dateChecked);
             return;
         }
         document.getElementById("enter-record-form").style.display="none";
         const returnFirstName = stateObject.nameChecked ? stateObject.firstName : stateObject.nickname;
         const returnLastName = stateObject.nameChecked ? stateObject.lastName : undefined;
-        const nExpression = stateObject.nameChecked ? getExpressionNumber(stateObject.firstName).toString() : undefined;
-        const nSoul = stateObject.nameChecked ? getSoulNumber(stateObject.firstName, stateObject.nameOptions, stateObject.customWs, stateObject.customYs).toString() : undefined;
+        const nExpression = stateObject.nameChecked ? getExpressionNumber(stateObject.firstName + stateObject.lastName).toString() : undefined;
+        const nSoul = stateObject.nameChecked ? getSoulNumber(stateObject.firstName + stateObject.lastName, stateObject.nameOptions, stateObject.customWs, stateObject.customYs).toString() : undefined;
         const returnDay = stateObject.dobDay !== "" ? stateObject.dobDay : undefined;
         const returnMonth = stateObject.dobMonth !== "" ? stateObject.dobMonth : undefined;
         const returnYear = stateObject.dobYear !== "" ? stateObject.dobYear : undefined;
@@ -126,10 +139,15 @@ const Form = ({addRecord}) => {
         });
     };
 
+    const closeTheForm = () => {
+        document.getElementById("enter-record-form").style.display="none";
+        document.getElementsByTagName("body")[0].style.overflowY = "auto";
+    }
+
 // the "cancel" button:
     const cancelTheForm = () => {
         resetState();
-        document.getElementById("enter-record-form").style.display="none";
+        closeTheForm();
     }
 
 // the "clear" button:    
@@ -142,49 +160,8 @@ const Form = ({addRecord}) => {
     const closeButton = e => {
         e.preventDefault();
         resetState();
-        document.getElementById("enter-record-form").style.display="none";
+        closeTheForm();
     }
-
-
-
-    // const clearForm = (e) => {
-    //     e.preventDefault();
-    //     setStateObject({...stateObject,
-    //         firstName: "",
-    //         dobDay: "",
-    //         dobMonth: "",
-    //         dobYear: "",
-    //         customWs: "0",
-    //         customYs: "0",
-    //         nickname: "",
-    //         notesField: ""
-    //     })
-    // }
-
-    // const closeForm = (e) => {
-    //     clearForm(e);
-    //     cancelForm();
-    // }
-
-    // const cancelForm = () => {
-    //     setStateObject({...stateObject,
-    //         firstName: "",
-    //         lastName: "",
-    //         dobDay: "",
-    //         dobMonth: "",
-    //         dobYear: "",
-    //         customWs: "0",
-    //         customYs: "0",
-    //         nickname: "",
-    //         notesField: ""
-    //     })
-        // document.getElementById("enter-record-form").style.display="none";
-    // }
-
-
-
-
-
 
     const toggleCollapsed = e => {
         const moreOptions = e.target.nextSibling;

@@ -63,7 +63,7 @@
         background-color: var(--contrast-lightest);
     }
     footer {
-        background-color: var(--black);
+        background-color: var(--white);
         border-top: 2px solid var(--contrast-light);
     }
 
@@ -108,7 +108,7 @@
     }
 
     .mobile-add-record:after {
-        background-color: var(--black);
+        background-color: var(--white);
     }
 
     .mobile-add-record:hover, .mobile-add-record:active {

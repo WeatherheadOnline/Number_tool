@@ -12,12 +12,14 @@ const Cards = (props) => {
         const cardID = "card-" + card.key;
         return (
         <article key={card.key} id={cardID} className="card border-radius-3">
+                {/* Add a background of faint, large-font numbers if only one side of the card contains data */}
             {
                 !card.nRuling && <div className="dateless-bkgd number-bkgd"><span>{card.nExpression}</span><span>{card.nSoul}</span></div>
             }
             {
                 !card.nExpression && <div className="nameless-bkgd number-bkgd"><span>{card.nRuling}</span><span>{card.nDay}</span></div>
             }
+                {/* Then add the actual data */}
             <div className="card-name-date-wrapper">
                 {card.nExpression 
                     ? <NameSideOfCard firstName={card.firstName} lastName={card.lastName} expr={card.nExpression} soul={card.nSoul} />
@@ -34,7 +36,7 @@ const Cards = (props) => {
     });
 
     return (
-        <section className="cards-container">
+        <section className="cards-container" id="cards-container">
             {cardsToDisplay}
         </section>
     );

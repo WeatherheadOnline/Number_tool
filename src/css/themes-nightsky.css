@@ -116,7 +116,7 @@
         stroke: var(--gold-light);
     }
     .number-bkgd {
-        opacity: 0.05;
+        opacity: 0.1;
         @media screen and (hover) {
             opacity: 0.04;        
         }
