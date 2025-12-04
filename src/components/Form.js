@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../css/Form.css';
+import '../css/CloseBtn.css';
 import {getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
 import MoreOptionsName from './MoreOptionsName';
 import MoreOptionsDate from './MoreOptionsDate';
@@ -188,10 +188,9 @@ const Form = ({addRecord}) => {
     return (    
         <div id="enter-record-form">
             <form onSubmit={submitHandler}>
-                <div className="close-btn cursor-pointer" onClick={closeButton}>
+                <div className="close-btn close-btn-form cursor-pointer" onClick={closeButton}>
                     <span>&times;</span>
                 </div>
-
                 <fieldset>
                     <NameDateCheckbox 
                         isChecked={stateObject.nameChecked} 
@@ -218,16 +217,16 @@ const Form = ({addRecord}) => {
                     />
                     
                     <label htmlFor="dobDay" className="screen-reader-only">Day from date of birth:</label>
-                        <input id="dobDay" type="number" value={stateObject.dobDay} onChange={(e) => {setStateObject({...stateObject, dobDay: e.target.value})}} placeholder="DD" max={31} className="input-2ch" required={stateObject.dateChecked} />
+                        <input id="dobDay" name="dobDay" type="number" value={stateObject.dobDay} onChange={(e) => {setStateObject({...stateObject, dobDay: e.target.value})}} placeholder="DD" max={31} className="input-2ch" required={stateObject.dateChecked} />
                     <label htmlFor="dobMonth" className="screen-reader-only">Month from date of birth:</label>
-                        <input id="dobMonth" type="number" value={stateObject.dobMonth} onChange={(e) => {setStateObject({...stateObject, dobMonth: e.target.value})}} placeholder="MM" max={12} className="input-2ch" required={stateObject.dateChecked} />
+                        <input id="dobMonth" name="dobMonth" type="number" value={stateObject.dobMonth} onChange={(e) => {setStateObject({...stateObject, dobMonth: e.target.value})}} placeholder="MM" max={12} className="input-2ch" required={stateObject.dateChecked} />
                     <label htmlFor="dobYear" className="screen-reader-only">Year from date of birth:</label>
-                        <input id="dobYear" type="number" value={stateObject.dobYear} onChange={(e) => {setStateObject({...stateObject, dobYear: e.target.value})}} placeholder="YY" max={3000} className="input-4ch" required={stateObject.dateChecked} />
+                        <input id="dobYear" name="dobYear" type="number" value={stateObject.dobYear} onChange={(e) => {setStateObject({...stateObject, dobYear: e.target.value})}} placeholder="YY" max={3000} className="input-4ch" required={stateObject.dateChecked} />
                     
                     <MoreOptionsDate state={stateObject} dateOptionsHandler={dateOptionsHandler} nameChecked={stateObject.nameChecked} toggleCollapsed={toggleCollapsed} />
 
                     <label className="block-element" id="nickname-label" >Enter a nickname to go with this date:
-                        <input type="text" id="nickname" className="block-element" value={stateObject.nickname} onChange={nicknameSetter} required={stateObject.nicknameRequired} />
+                        <input type="text" id="nickname" name="nickname" className="block-element" value={stateObject.nickname} onChange={nicknameSetter} required={stateObject.nicknameRequired} />
                     </label>
 
                     <label>Notes (optional)

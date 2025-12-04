@@ -487,12 +487,11 @@ h2.nickname {
 
 #enter-record-form {
     position: fixed;
+    display: none;
     max-height: 100vh;
     width: 100vw;
     top: 0;
     left: 0;
-    /* background-color: var(--bkgd-transparent); */
-    display: none;
     overflow-y: scroll;
 }
 
@@ -506,34 +505,6 @@ form {
     @media screen and (hover) {
         max-width: 24rem;
     }
-}
-
-.close-btn {
-    font-size: 10vmin;
-    line-height: 9vmin;
-    /* cursor: pointer; */
-    position: absolute;
-    /* color: var(--tooltip); */
-    /* border: 1px solid var(--tooltip); */
-    top: 1rem;
-    right: -10vmin;
-    display: flex;
-    align-items: top;
-    justify-content: center;
-    height: 10vmin;
-    width: 10vmin;
-    @media screen and (hover) {
-        height: 2rem;
-        width: 2rem;
-        right: 0;
-        font-size: 2rem;
-        line-height: 1.8rem;
-    }
-}
-
-.close-btn:hover {
-    /* color: var(--input);
-    border: 1px solid var(--input); */
 }
 
 .screen-reader-only {
@@ -698,43 +669,6 @@ input[type="checkbox"] {
     /* padding: 0 0.4em; */
     border-radius: 1rem;
 } 
-
-
-/* About  */
-
-#about {
-    padding-top: var(--card-gap-mobile);
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;    
-    @media screen and (hover) {
-        padding-top: var(--card-gap-desktop);
-    }
-}
-
-.text-contents {
-    /* padding-top: var(--card-gap-mobile); */
-    position: relative;
-    width: 70vw;
-    margin: 0 auto;
-    @media screen and (hover) {
-        max-width: 24rem;
-        /* padding-top: var(--card-gap-desktop); */
-    }
-}
-
-.text-contents h2 {
-    padding-top: var(--card-gap-desktop);
-
-}
-
-.text-contents h2, .text-contents p {
-    margin-bottom: 1.5rem;
-    line-height: 1.5em;
-}
 
 
 

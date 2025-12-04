@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 import './css/App.css';
 import './css/themes-dark.css';
 import './css/themes-light.css';
 import './css/themes-nightsky.css';
 import './css/themes-neon.css';
 import './css/themes-earthy.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import AddARecordBtn from './components/AddARecordBtn';
-import Cards from './components/Cards';
+import Home from './components/Home';
 import Form from './components/Form';
-import ModeButtons from './components/ModeButtons';
-import Background from './components/Background';
 import About from './components/About';
+import Footer from './components/Footer';
+import ModeButtons from './components/ModeButtons';
 
 
 const App = () => {
@@ -208,26 +210,15 @@ const App = () => {
   // The return method
 
   return (
-      <div className={appClassName}>
-        <Background type="color-bkgd" />
-        <Background type="blurred-stars-1 blurred-stars" />
-        <Background type="blurred-stars-2 blurred-stars" />
-        <Background type="blurred-stars-3 blurred-stars" />
-
-        <Header sorter={sorter} /> {/* contains the desktop version of the "add a record" button*/}
-
-        <main>
-          <Cards records={records} deleteRecord={deleteRecord} />
-          <AddARecordBtn mobileOrDesktop="mobile" />
-          <Form addRecord={addRecord} />
-          <About />
-        </main>
-        
-        <Footer />
-
-        <ModeButtons getTheme={getTheme} themeOptions={themeOptions} initialState={theme} />
-
-      </div>
+    <div className={appClassName}>
+      <Router>
+        <Routes>
+          <Route path="/about" element={<><About /> <Footer footerLink="/" footerLinkText="Home" /></>} />
+          <Route path="/" element={<><Home records={records} deleteRecord={deleteRecord} /> <Form addRecord={addRecord} /><Footer footerLink="/about" footerLinkText="About" /></>} />
+        </Routes>
+      </Router>
+      <ModeButtons getTheme={getTheme} themeOptions={themeOptions} initialState={theme} />
+    </div>
   );
 }
 

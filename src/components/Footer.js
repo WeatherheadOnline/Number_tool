@@ -1,7 +1,13 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 import ExternalLink from './ExternalLink';
 import '../css/Footer.css';
 
-const Footer = () => {
+const Footer = ({footerLink, footerLinkText}) => {
 
     // Make the "About" section appear when the user clicks on the "About" link in the footer 
 	const appearify = () => {
@@ -16,8 +22,9 @@ const Footer = () => {
                 <img src='https://greengeeks.com/includes/images/green-tags/Green_3.png' border='0' alt='GreenGeeks eco-friendly web hosting' />
                 </ExternalLink>
             </div>
-
-            <p className="cursor-pointer faux-link" onClick={appearify}>About</p>
+            <Link to={footerLink}>
+                <p className="cursor-pointer faux-link">{footerLinkText}</p>
+            </Link>
 
             <ExternalLink url="https://www.weatherheadonline.com">
                 &copy; Weatherhead Online 2024

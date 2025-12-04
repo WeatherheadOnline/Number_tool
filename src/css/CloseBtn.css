@@ -1,0 +1,34 @@
+.close-btn {
+    font-size: 10vmin;
+    line-height: 9vmin;
+    /* cursor: pointer; */
+    position: absolute;
+    /* color: var(--tooltip); */
+    /* border: 1px solid var(--tooltip); */
+    top: 1rem;
+    /* right: -10vmin; */
+    right: 0;
+        /* For right-positioning, see individual CSS files: "about", "form" */
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    height: 10vmin;
+    width: 10vmin;
+    @media screen and (hover) {
+        height: 2rem;
+        width: 2rem;
+        right: 0;
+        font-size: 2rem;
+        line-height: 1.8rem;
+    }
+}
+
+.close-btn:hover {
+    /* color: var(--input);
+    border: 1px solid var(--input); */
+}
+
+
+.close-btn.close-btn-form {
+    right: -10vmin;
+}

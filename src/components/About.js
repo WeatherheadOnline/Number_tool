@@ -1,5 +1,8 @@
 import React from 'react'
+import CloseBtn from './CloseBtn';
 import ExternalLink from './ExternalLink';
+import '../css/About.css';
+import { Link } from 'react-router-dom';
 
 const About = () => {
 
@@ -11,9 +14,9 @@ const About = () => {
 	return (
 		<div id="about">
 			<div className="text-contents">
-                <div className="close-btn cursor-pointer" onClick={closeButton}>
-                    <span>&times;</span>
-                </div>
+				<Link to="/">
+					<CloseBtn  />
+				</Link>
 
 				<h2>About this page</h2>
 				<p>Your information is safe: this site never puts any of your information online. Any info you enter gets stored on your device, and never leaves.</p>
@@ -32,8 +35,6 @@ const About = () => {
 					" (ISBN-13: 978-1564148599).
 				</p>
 				
-
-
 				<h2>Contact</h2>
 				<p>Please get in touch if you have any questions, comments or concerns, or if you'd like to say hi.</p>
 				<p><a href="mailto:numerology@weatherheadonline.com">numerology@weatherheadonline.com</a></p>

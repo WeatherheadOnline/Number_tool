@@ -1,15 +1,16 @@
 import '../css/Header.css';
 import AddARecordBtn from "./AddARecordBtn";
 
-const Header = ({sorter}) => {
+// const Header = ({sorter}) => {    
+    // const localSorter = () => {
+        //     const e = document.getElementById("sortOptions");
+        //     const f = document.getElementById("sortDirection");
+        //     const option = e.value;
+        //     const direction = f.value;
+        //     sorter(option, direction);
+        // }
 
-    const localSorter = () => {
-        const e = document.getElementById("sortOptions");
-        const f = document.getElementById("sortDirection");
-        const option = e.value;
-        const direction = f.value;
-        sorter(option, direction);
-    }
+const Header = ({sorter}) => {
     return (
         <header className="App-header">
 
@@ -34,7 +35,7 @@ const Header = ({sorter}) => {
                         </select>
                     </div>
 
-                    <button onClick={localSorter}>Sort</button>
+                    {/* <button onClick={localSorter}>Sort</button> */}
 
                 </div>
 
