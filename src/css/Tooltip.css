@@ -1,0 +1,30 @@
+.tooltip {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.3em;
+    margin-left: 1rem;
+    border-radius: 1rem;
+}
+
+.tooltip-hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: 70vw;
+    padding: 0.5rem;
+    line-height: 1.2rem;
+    z-index: 1;
+    @media screen and (hover) {
+        max-width: 24rem;
+        left: -12rem;
+    }
+}
+
+.tooltip:hover .tooltip-hidden {
+    visibility: visible;
+}
+
+.tooltip-icon {
+    border-radius: 1rem;
+} 

@@ -1,0 +1,184 @@
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    @media screen and (hover: none) {
+        align-items: center;
+        flex-direction: column;
+        gap: var(--card-gap-mobile);
+    }
+    @media screen and (hover) {
+        align-items: flex-start;
+        gap: var(--card-gap-desktop);
+    }
+}
+
+article.card {
+    overflow: hidden;
+    position: relative;
+    width: 80vmin;
+    padding: var(--card-padding-mobile);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media screen and (hover) {
+        width: 24rem;
+        padding: var(--card-padding-desktop);   
+    }
+}
+
+.card-name-date-wrapper {
+    height: min-content;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 5vmin;
+    @media screen and (hover) {
+        font-size: 1rem;
+    }
+}
+
+.card-name {
+    min-width: 45vmin;
+    flex-basis: 1;
+    @media screen and (hover) {
+        min-width: calc(60% - var(--card-padding-desktop));
+    }
+}
+
+.card-name p {
+    width: 38vmin;
+    @media screen and (hover) {
+        max-width: 12em;
+    }
+}
+
+.card-date {
+    min-width: 31vmin;
+    @media screen and (hover){
+        min-width: 10rem;
+    }
+}
+
+.card-date p {
+    max-width: 26vmin;
+    @media screen and (hover) {
+        max-width: 10rem;
+    }
+}
+
+.card h2 {
+    font-size: 5vmin;
+    padding-bottom: 2vmin;
+    @media screen and (hover) {
+        font-size: 1.3rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+.card-name-or-date > * {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hide-on-phones {
+    display: none;
+    @media screen and (hover) {
+        display: unset;
+    }
+}
+
+h2.nickname {
+    padding-bottom: var(--card-padding-mobile);
+    @media screen and (hover) {
+        padding-bottom: var(--card-padding-desktop);
+    }
+}
+
+.card-date p:first-of-type {
+    text-underline-offset: 0.2rem;
+}
+
+.outcome-number {
+    font-weight: bold;
+    font-size: 4.5vmin;
+    @media screen and (hover) {
+        font-size: 1.2em;
+    }
+}
+
+.bottom-row-of-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.bottom-row-of-card svg {
+    height: 7vmin;
+    width: auto;
+    position: relative;
+    bottom: -3vmin;
+    @media screen and (hover) {
+        height: 1.8rem;
+        bottom: -0.5rem;
+    }
+}
+
+.card-notes {
+    padding: 1rem 0 0 0;
+    font-style: italic;
+}
+
+.number-bkgd {
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    position: absolute;
+    font-size: 46vmin;
+    letter-spacing: -6vmin;
+    @media screen and (hover) {
+        font-size: 12rem;
+        letter-spacing: -1.5rem;
+    }
+}
+
+.number-bkgd span:last-child {
+    position: relative;
+}
+
+.nameless-bkgd {
+    bottom: -12vmin;
+    right: 42vmin;
+    @media screen and (hover) {
+        bottom: -3rem;
+        right: 13rem;
+    }
+}
+
+.nameless-bkgd span:last-child {
+    bottom: 10vmin;
+    right: -4vmin;
+    @media screen and (hover) {
+        bottom: 2.5rem;
+        right: -1rem;
+    }
+}
+
+.dateless-bkgd {
+    top: -14vmin;
+    right: 14vmin;
+    @media screen and (hover) {
+        top: -3.5rem;
+        right: 5rem;
+    }
+}
+
+.dateless-bkgd span:last-child {
+    top: 10vmin;
+    right: -4vmin;
+    @media screen and (hover) {
+        top: 2.5rem;
+        right: -1rem;
+    }
+}

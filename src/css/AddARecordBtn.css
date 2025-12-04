@@ -1,0 +1,31 @@
+.desktop-add-record {
+    display: none;
+    @media screen and (hover) {
+        display: block;
+        width: 26rem;
+        left: unset;
+        margin: 0 auto;
+    }
+}
+
+.mobile-add-record {
+    position: fixed;
+    width: 90vw;
+    left: 5vw;
+    bottom: 2.5rem;
+    transform: translateZ(1px);
+    transform-style: preserve-3d;
+    @media screen and (hover) {
+        display: none;
+    }
+}
+
+.mobile-add-record:after {
+    content: "";
+    position: absolute;
+    width: 110vw;
+    height: calc(10vw + 4.5rem);
+    top: -1rem;
+    left: -10vw;
+    transform: translateZ(-1px);
+}

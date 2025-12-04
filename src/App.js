@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import './css/App.css';
 import './css/themes-dark.css';
@@ -207,6 +206,7 @@ const App = () => {
     setRecords(newRecords);
   }
 
+  
   // The return method
 
   return (

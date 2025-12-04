@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import '../css/CloseBtn.css';
 import {getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
+import '../css/CloseBtn.css';
+import '../css/Form.css';
 import MoreOptionsName from './MoreOptionsName';
 import MoreOptionsDate from './MoreOptionsDate';
 import NameDateCheckbox from './NameDateCheckbox';

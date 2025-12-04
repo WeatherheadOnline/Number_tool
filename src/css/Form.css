@@ -1,0 +1,137 @@
+#enter-record-form {
+    position: fixed;
+    display: none;
+    max-height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+}
+
+form {
+    position: relative;
+    margin: 0 auto;
+    width: 70vw;
+    min-height: 100vh;
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    @media screen and (hover) {
+        max-width: 24rem;
+    }
+}
+
+.screen-reader-only {
+    display: none;
+}
+.block-element {
+    display: block;
+}    
+
+fieldset {
+    border: none;
+    width: 100%;
+}      
+
+fieldset, hr {
+    margin-top: 2rem;
+}
+
+label {
+    font-size: 0.9rem;
+}
+
+fieldset > label {
+    padding-top: 0.5rem;
+}
+
+label, .hidden-options {
+    width: 100%;
+}
+.collapse-btn {
+    width: calc(100% - 4rem);
+}
+
+input[type="number"] {
+    margin-left: 0.5rem;
+    padding: 0.2rem;
+}
+
+button[type="submit"] {
+    width: 100%;
+    font-weight: bold;
+}
+
+input::placeholder {
+    color: var(--input-disabled);
+}
+
+input, textarea {
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
+    @media screen and (hover) {
+        font-size: 1em;
+    }    
+}
+
+input[type="text"], textarea {
+    padding: 0.2rem 0.5rem;
+    width: calc(100% - 1rem);
+}    
+
+input[type="text"] {
+    outline: none;
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+form li {
+    margin-left: 1.5rem;
+}
+
+.checkbox-wrapper {
+    position: relative;
+    margin-bottom: var(--card-gap-mobile);
+    @media screen and (hover) {
+        margin-bottom: var(--card-gap-desktop);
+    }
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    left: -10vmin;
+    top: 0;
+    height: 8vmin;
+    width: 8vmin;
+    @media screen and (hover) {
+        height: 1.5rem;
+        width: 1.5rem;
+        left: -2.5rem;
+    }
+}
+
+.input-2ch {
+    width: calc(2ch + 1.5rem);
+}
+
+.input-4ch {
+    width: calc(4ch + 1rem);
+}
+
+#nickname-label {
+    opacity: 0;
+}
+
+#customWYinput {
+    opacity: 0;
+}
+
+.hidden-options {
+    padding: 0 1rem;
+    display: none;
+}
+
+.form-btn {
+    width: 50%;
+}

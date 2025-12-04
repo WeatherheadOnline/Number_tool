@@ -1,0 +1,63 @@
+h1 {
+    text-align: center;
+    font-size: 15vmin;
+    line-height: 14vmin;
+    @media screen and (hover: none) {
+        span:last-child {
+            line-height: 20vmin;
+        }    
+        padding: var(--card-gap-mobile) 0;
+    }
+    @media screen and (hover) {
+        font-size: 4rem;
+        line-height: 4rem;
+        padding: var(--card-gap-desktop);
+    }
+}
+
+.header-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--card-gap-mobile);
+    padding-bottom: var(--card-gap-mobile);
+    @media screen and (hover) {
+        gap: var(--card-gap-desktop);
+        padding-bottom: var(--card-gap-desktop);
+    }
+}
+
+.sort-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5vmin;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    width: max-content;
+    @media screen and (hover) {
+        flex-direction: row;
+        gap: min(2rem, 2vw);
+    }
+}
+
+#sortOptions option:first-child {
+    color: grey;
+}
+
+.sort-wrapper label, .sort-wrapper button {
+    width: max-content;
+    margin: 0;
+}
+
+.dropdowns-wrapper {
+    display: flex;
+    gap: 5vmin;
+    @media screen and (hover) {
+        gap: min(2rem, 2vw);
+    }
+}
+
+select {
+    padding: 0.5rem;
+}
