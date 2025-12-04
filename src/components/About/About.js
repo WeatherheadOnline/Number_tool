@@ -12,8 +12,8 @@ const About = () => {
 	return (
 		<div id="about">
 			<div className="text-contents">
-				<Link to="/">
-					<CloseBtn  />
+				<Link to="/numerology-cards/">
+					<CloseBtn />
 				</Link>
 
 				<h2>About this page</h2>

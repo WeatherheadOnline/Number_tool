@@ -213,8 +213,8 @@ const App = () => {
     <div className={appClassName}>
       <Router>
         <Routes>
-          <Route path="/about" element={<><About /> <Footer footerLink="/" footerLinkText="Home" /></>} />
-          <Route path="/" element={<><Home records={records} deleteRecord={deleteRecord} sorter={sorter} /> <Form addRecord={addRecord} /><Footer footerLink="/about" footerLinkText="About" /></>} />
+          <Route path="/numerology-cards/about" element={<><About /> <Footer footerLink="/numerology-cards/" footerLinkText="Home" /></>} />
+          <Route path="/numerology-cards/" element={<><Home records={records} deleteRecord={deleteRecord} sorter={sorter} /> <Form addRecord={addRecord} /><Footer footerLink="/numerology-cards/about" footerLinkText="About" /></>} />
         </Routes>
       </Router>
       <ModeButtons getTheme={getTheme} themeOptions={themeOptions} initialState={theme} />
