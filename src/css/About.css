@@ -1,5 +1,3 @@
-
-
 #about {
     padding: var(--card-gap-mobile) 0;
     @media screen and (hover) {
@@ -7,26 +5,17 @@
     }        
 }
     
-/* body {
-} */
-
 .text-contents {
-    /* margin-top: var(--card-gap-mobile); */
-    /* padding-top: var(--card-gap-mobile); */
     position: relative;
     width: 90vw;
     margin: 0 auto;
     @media screen and (hover) {
         width: min(35rem, 80vw);
-        /* max-width: 24rem; */
-        /* margin-top: var(--card-gap-desktop); */
-        /* padding-top: var(--card-gap-desktop); */
     }
 }
 
 .text-contents h2 {
     padding-top: var(--card-gap-desktop);
-
 }
 
 .text-contents h2, .text-contents p {

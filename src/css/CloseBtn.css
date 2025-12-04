@@ -1,14 +1,9 @@
 .close-btn {
     font-size: 10vmin;
     line-height: 9vmin;
-    /* cursor: pointer; */
     position: absolute;
-    /* color: var(--tooltip); */
-    /* border: 1px solid var(--tooltip); */
     top: 1rem;
-    /* right: -10vmin; */
-    right: 0;
-        /* For right-positioning, see individual CSS files: "about", "form" */
+    right: 0;    
     display: flex;
     align-items: top;
     justify-content: center;
@@ -22,12 +17,6 @@
         line-height: 1.8rem;
     }
 }
-
-.close-btn:hover {
-    /* color: var(--input);
-    border: 1px solid var(--input); */
-}
-
 
 .close-btn.close-btn-form {
     right: -10vmin;

@@ -9,11 +9,6 @@
     
     color: var(--white);
 
-    /* h1 {
-        color: var(--white);
-        text-shadow: 4px 4px 0 var(--contrast-dark);
-    } */
-
     h1 {
         color: transparent;
         background: linear-gradient(
@@ -28,16 +23,20 @@
     a, .faux-link {
         color: var(--contrast-light);
     }
+
     .faux-link {
         text-decoration: underline 1px solid var(--contrast-light);
     }
+    
     a:visited {
         color: var(--contrast-mid);
     }
+    
     a:hover, .faux-link:hover {
         color: var(--white);
         background-color: var(--contrast-dark);
     }
+    
     a:active, .faux-link:active {
         background-color: var(--contrast-mid);
     }
@@ -71,25 +70,23 @@
         );
     }
 
-
-
     header {
         background-color: var(--black);
         border-bottom: 3px solid var(--contrast-dark);
     }
+
     .sort-wrapper {
         border: 1px solid rgb(from var(--white) r g b / 0.6);
     }
+    
     select {
         background-color: var(--contrast-lightest);
     }
+    
     footer {
         background-color: var(--black);
         border-top: 2px solid var(--contrast-dark);
     }
-
-
-
 
     article.card {
         background-color: var(--black);
@@ -104,6 +101,7 @@
     .card h2 {
         color: rgb(from var(--white) r g b / 0.6);
     }
+
     .card-date p:first-of-type {
         text-decoration: underline 2px solid var(--contrast-dark);
     }
@@ -116,14 +114,12 @@
         stroke: rgb(from var(--white) r g b / 0.3);
     }
 
-
-.number-bkgd {
-    opacity: 0.1;
-    @media screen and (hover) {
-        opacity: 0.05;        
+    .number-bkgd {
+        opacity: 0.1;
+        @media screen and (hover) {
+            opacity: 0.05;        
+        }
     }
-}
-
 
     .mobile-add-record {
         box-shadow: 0.4rem 0.4rem 0 var(--contrast-dark);
@@ -138,11 +134,10 @@
         box-shadow: 0.4rem 0.4rem 0 var(--contrast-mid);
     }
 
-
-
     #enter-record-form {
         background-color: rgb(from var(--black) r g b / 0.95);
     }
+
     .close-btn {
         color: var(--contrast-light);
         border: 1px solid var(--contrast-light);
@@ -152,6 +147,7 @@
         color: var(--contrast-lightest);
         border: 1px solid var(--contrast-lightest);
     }
+
     input, textarea {
         background-color: var(--contrast-lightest);
         border: 1px solid var(--input-border);
@@ -186,6 +182,5 @@
             var(--contrast-darkest) 70%,
             var(--contrast-dark) 105%
         );
-
     }
 }

@@ -19,7 +19,6 @@
     }
 }
 
-
 .mode-button {
     height: 6vmin;
     width: 6vmin;
@@ -34,12 +33,12 @@
         width: 1.5rem;
     }
 }
+
 .mode-button.active {
     outline: 6px solid #888888;
     box-shadow: 0 0 3px 7px black;
 }
-
-    
+   
 /* Buttons for each theme */
 
 .modes-wrapper #dark {
@@ -51,15 +50,7 @@
 }
 
 .modes-wrapper #nightsky {
-    background: 
-    /* linear-gradient(
-        45deg,
-        #0D1F2D 35%,
-        transparent 35%,
-        transparent 65%,
-        #0D1F2D 65%
-    ), */
-    linear-gradient(
+    background: linear-gradient(
         70deg,
         #0D1F2D 65%,
         #D2973B 65%,

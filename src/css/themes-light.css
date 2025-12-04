@@ -9,19 +9,21 @@
     
     color: var(--black);
 
-
     a, .faux-link {
         color: var(--contrast-dark);
         background-color: var(--link-bkgd);
     }
+
     a:visited {
         color: var(--contrast-mid);
         background-color: var(--link-visited-bkgd);
     }
+    
     a:hover, .faux-link:hover {
         color: var(--black);
         background-color: var(--contrast-light);
     }
+    
     a:active, .faux-link:active {
         color: var(--link-active);
         background-color: var(--contrast-mid);
@@ -50,25 +52,23 @@
         background-color: var(--contrast-lightest);
     }
 
-
-
     header {
         background-color: var(--white);
         border-bottom: 3px solid var(--contrast-light);
     }
+
     .sort-wrapper {
         border: 1px solid var(--contrast-light);
     }
+
     select {
         background-color: var(--contrast-lightest);
     }
+
     footer {
         background-color: var(--white);
         border-top: 2px solid var(--contrast-light);
     }
-
-
-
 
     article.card {
         background-color: var(--white);
@@ -83,12 +83,9 @@
     .card h2 {
         color: rgb(from var(--black) r g b / 0.6);
     }
+
     .card-date p:first-of-type {
         text-decoration: underline 2px solid var(--contrast-light);
-    }
-
-    span.outcome-number {
-        /* text-decoration: underline 2px solid var(--black); */
     }
 
     .bottom-row-of-card svg {
@@ -101,7 +98,6 @@
             opacity: 0.05;        
         }
     }
-
 
     .mobile-add-record {
         box-shadow: 0.4rem 0.4rem 0 var(--contrast-light);
@@ -116,11 +112,10 @@
         box-shadow: 0.4rem 0.4rem 0 var(--contrast-mid);
     }
 
-
-
     #enter-record-form {
         background-color: rgb(from var(--white) r g b / 0.95);
     }
+
     .close-btn {
         color: var(--contrast-darkest);
         border: 1px solid var(--contrast-darkest);
@@ -130,6 +125,7 @@
         color: var(--contrast-mid);
         border: 1px solid var(--contrast-mid);
     }
+
     input, textarea {
         background-color: var(--contrast-lightest);
         border: 1px solid var(--contrast-mid);
@@ -140,7 +136,9 @@
         border: 1px solid var(--contrast-dark);
     }
 
-    input:disabled {background-color: hsl(from var(--contrast-light) h 10% l);}
+    input:disabled {
+        background-color: hsl(from var(--contrast-light) h 10% l);
+    }
 
     .tooltip {
         outline: 1px solid var(--contrast-dark);
@@ -159,19 +157,9 @@
     h1 {
         color: var(--contrast-mid);
         text-shadow: 4px 4px 0 var(--black);
-        /* color: transparent;
-        background: linear-gradient(
-            -5deg,
-            var(--green-dark),
-            var(--green-main) 70%,
-            var(--green-light) 80%
-        );
-        background-clip: text;
-        filter: drop-shadow(3px 3px 0 var(--green-light)); */
-
     }
+
     #about {
         background-color: var(--contrast-lightest);
     }
-
 }

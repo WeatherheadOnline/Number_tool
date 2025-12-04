@@ -14,17 +14,18 @@
     --green-dark: #39451D;
     --white: #FFFFFF;
 
+    color: var(--taupe-dark);
 
-        .border-radius-1 {border-radius: 0.5rem;}
-        .border-radius-2 {border-radius: 1rem;}
-        .border-radius-3 {
-            border-radius: 5vmin;
-            @media screen and (hover) {
-                border-radius: 1.5rem;
-            }
+    .border-radius-1 {border-radius: 0.5rem;}
+    .border-radius-2 {border-radius: 1rem;}
+    .border-radius-3 {
+        border-radius: 5vmin;
+        @media screen and (hover) {
+            border-radius: 1.5rem;
         }
-        .border-radius-4 {border-radius: 4rem;}
-    
+    }
+
+    .border-radius-4 {border-radius: 4rem;}
 
     h1 {
         color: transparent;
@@ -36,26 +37,21 @@
         );
         background-clip: text;
         filter: drop-shadow(3px 3px 0 var(--green-light));
-
     }
-
-
-
-
-
-    color: var(--taupe-dark);
-
 
     a, .faux-link {
         color: var(--green-dark);
     }
+
     a:visited {
         color: var(--green-light);
     }
+    
     a:hover, .faux-link:hover {
         color: var(--cream-main);
         background-color: var(--orange-main);
     }
+    
     a:active, .faux-link:active {
         color: var(--cream-main);
         background-color: var(--green-light);
@@ -84,25 +80,23 @@
         background-color: var(--cream-main);
     }
 
-
-
     header {
         background-color: var(--cream-light);
         border-bottom: 3px solid var(--green-main);
     }
+
     .sort-wrapper {
         border: 1px solid var(--orange-dark);
     }
+    
     select {
         background-color: var(--cream-main);
     }
+    
     footer {
         background-color: var(--cream-light);
         border-top: 2px solid var(--green-main);
     }
-
-
-
 
     article.card {
         background-color: var(--cream-light);
@@ -117,6 +111,7 @@
     .card h2 {
         color: var(--orange-dark);
     }
+
     .card-date p:first-of-type {
         text-decoration: underline 2px solid var(--green-main);
     }
@@ -128,6 +123,7 @@
     .bottom-row-of-card svg {
         stroke: var(--green-main);
     }
+
     .number-bkgd {
         opacity: 0.05;
         @media screen and (hover) {
@@ -148,11 +144,10 @@
         box-shadow: 0.4rem 0.4rem 0 var(--green-main);
     }
 
-
-
     #enter-record-form {
         background-color: rgb(from var(--cream-light) r g b / 0.95);
     }
+
     .close-btn {
         color: var(--orange-dark);
         border: 1px solid var(--orange-dark);
@@ -162,6 +157,7 @@
         color: var(--yellow-main);
         border: 1px solid var(--yellow-main);
     }
+
     input, textarea {
         background-color: var(--cream-main);
         border: 1px solid var(--taupe-dark);
@@ -173,11 +169,18 @@
         outline: unset;
     }
 
-    input:disabled {background-color: var(--taupe-light);}
-    input::placeholder {color: var(--taupe-light);}
+    input:disabled {
+        background-color: var(--taupe-light);
+    }
+
+    input::placeholder {
+        color: var(--taupe-light);
+    }
+    
     .tooltip {
         outline: 1px solid var(--green-main);
     }
+
     .tooltip p:first-child  {
         color: var(--green-main);
     }
@@ -195,6 +198,4 @@
     #about {
         background-color: var(--cream-main);
     }
-
-
 }
