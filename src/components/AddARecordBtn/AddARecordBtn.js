@@ -1,4 +1,4 @@
-import '../css/AddARecordBtn.css';
+import './AddARecordBtn.css';
 
 const AddARecordBtn = (props) => {
     const clickHandler = () => {

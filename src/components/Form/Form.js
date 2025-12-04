@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import {getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../calculations/calculations';
-import '../css/CloseBtn.css';
-import '../css/Form.css';
+import {getDayNumber, getRulingNumber, getExpressionNumber, getSoulNumber} from '../../logic/calculations';
+import './Form.css';
 import MoreOptionsName from './MoreOptionsName';
 import MoreOptionsDate from './MoreOptionsDate';
 import NameDateCheckbox from './NameDateCheckbox';
@@ -28,6 +27,7 @@ const Form = ({addRecord}) => {
         nicknameRequired: false
     })    
 
+    
         // Setting state
 
     const toggleName = () => setStateObject({...stateObject, nameChecked: !stateObject.nameChecked});
@@ -47,22 +47,8 @@ const Form = ({addRecord}) => {
             setStateObject({...stateObject, lastName: value});
         }
     };
-    // const setName = (property, value) => {
-    //     if(property === "firstName") {
-    //         if(value === "") {
-    //             setStateObject({...stateObject, firstName: value, firstNameEntered: false});
-    //         } else {
-    //             setStateObject({...stateObject, firstName: value, firstNameEntered: true});
-    //         }
-    //     } else if(property === "lastName") {
-    //         if(value === "") {
-    //             setStateObject({...stateObject, lastName: value, lastNameEntered: false});
-    //         } else {
-    //             setStateObject({...stateObject, lastName: value, lastNameEntered: true});
-    //         }
-    //     }
-    // };
 
+    
         // Side effects 
 
     useEffect(() => {     // Toggle visibility of the nickname field and the enabled-disabled state of the name field
@@ -100,6 +86,7 @@ const Form = ({addRecord}) => {
         }
     }, [stateObject.dateChecked]);
 
+    
         // Event handlers
 
     const submitHandler = (e) => {

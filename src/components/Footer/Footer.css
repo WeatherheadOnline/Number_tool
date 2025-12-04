@@ -19,7 +19,7 @@ footer a > img, footer a > div {
 .logo-110 {
     height: 1.5rem;
     width: 100vw;
-    background-image: url(../assets/logo_landing.png);
+    background-image: url(../../assets/logo_landing.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

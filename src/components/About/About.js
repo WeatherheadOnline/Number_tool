@@ -1,15 +1,13 @@
-import React from 'react'
-import CloseBtn from './CloseBtn';
-import ExternalLink from './ExternalLink';
-import '../css/About.css';
 import { Link } from 'react-router-dom';
+import './About.css';
+import CloseBtn from '../CloseBtn/CloseBtn';
+import ExternalLink from '../ExternalLink/ExternalLink';
 
 const About = () => {
 
 	const closeButton = e => {
         document.getElementById("about").style.display="none";
     }
-
 
 	return (
 		<div id="about">
@@ -34,7 +32,11 @@ const About = () => {
 					</ExternalLink>
 					" (ISBN-13: 978-1564148599).
 				</p>
-				
+				<p>The ruling number is also known as the life path number. It is derived from all the digits in a person's date of birth.</p>
+				<p>The day number is derived from the digits in the day of the month when the person was born (ie. 1st - 31st).</p>
+				<p>The expression number is calculated based on the person's full name, by adding together the numerical values of each letter.</p>
+				<p>The soul number is also based on the person's name, but is calculated using only the vowels.</p>
+
 				<h2>Contact</h2>
 				<p>Please get in touch if you have any questions, comments or concerns, or if you'd like to say hi.</p>
 				<p><a href="mailto:numerology@weatherheadonline.com">numerology@weatherheadonline.com</a></p>

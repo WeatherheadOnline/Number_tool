@@ -10,11 +10,11 @@ import './css/themes-light.css';
 import './css/themes-nightsky.css';
 import './css/themes-neon.css';
 import './css/themes-earthy.css';
-import Home from './components/Home';
-import Form from './components/Form';
-import About from './components/About';
-import Footer from './components/Footer';
-import ModeButtons from './components/ModeButtons';
+import Home from './components/Home/Home';
+import Form from './components/Form/Form';
+import About from './components/About/About';
+import Footer from './components/Footer/Footer';
+import ModeButtons from './components/ModeButtons/ModeButtons';
 
 
 const App = () => {
@@ -214,7 +214,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/about" element={<><About /> <Footer footerLink="/" footerLinkText="Home" /></>} />
-          <Route path="/" element={<><Home records={records} deleteRecord={deleteRecord} /> <Form addRecord={addRecord} /><Footer footerLink="/about" footerLinkText="About" /></>} />
+          <Route path="/" element={<><Home records={records} deleteRecord={deleteRecord} sorter={sorter} /> <Form addRecord={addRecord} /><Footer footerLink="/about" footerLinkText="About" /></>} />
         </Routes>
       </Router>
       <ModeButtons getTheme={getTheme} themeOptions={themeOptions} initialState={theme} />

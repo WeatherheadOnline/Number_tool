@@ -1,4 +1,4 @@
-import ExternalLink from "./ExternalLink";
+import './Tooltip.css';
 
 const Tooltip = (props) => {
     return (

@@ -1,11 +1,11 @@
 import React from 'react'
-import AddARecordBtn from './AddARecordBtn';
-import Cards from './Cards';
-import Header from './Header';
-import Footer from './Footer';
-import Background from './Background';
+import AddARecordBtn from '../AddARecordBtn/AddARecordBtn';
+import Cards from '../Cards/Cards';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Background from '../Background/Background';
 
-const Home = ({records, deleteRecord}) => {
+const Home = ({records, deleteRecord, sorter}) => {
   return (
     <>
       <Background type="color-bkgd" />
@@ -13,16 +13,13 @@ const Home = ({records, deleteRecord}) => {
       <Background type="blurred-stars-2 blurred-stars" />
       <Background type="blurred-stars-3 blurred-stars" />
 
-      {/* <Header sorter={sorter} />  */}
-      <Header /> 
-          {/* contains the desktop version of the "add a record" button*/}
+      <Header sorter={sorter} />  {/* contains the desktop version of the "add a record" button*/}
 
       <main>
         <Cards records={records} deleteRecord={deleteRecord} />
         <AddARecordBtn mobileOrDesktop="mobile" />
       </main>
 
-      {/* <Footer /> */}
     </>
   )
 }

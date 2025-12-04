@@ -1,25 +1,7 @@
-import { useEffect } from 'react';
-import Tooltip from './Tooltip';
-import ExternalLink from './ExternalLink';
+import Tooltip from '../Tooltip/Tooltip';
+import ExternalLink from '../ExternalLink/ExternalLink';
 
 const MoreOptionsName = ({state, nameOptionsHandler, customWHandler, customYHandler, nameChecked, toggleCollapsed}) => {
-
-    // const toggleCollapsed = e => {
-    //     const moreOptions = e.target.nextSibling;
-    //     if (moreOptions.style.display === "block") {
-    //         moreOptions.style.display = "none";
-    //     } else {
-    //         moreOptions.style.display = "block";
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     const moreOptions = document.getElementById("hidden-options");
-    //     if(!nameChecked) {
-    //         console.log("Unchecked: need to hide!")
-    //         // moreOptions.style.display = "none";
-    //     }
-    // }, [nameChecked]);
 
     return (
         <div>
