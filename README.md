@@ -1,4 +1,4 @@
-## This describes the logic behind the vowel calculations (for soul number) when the "Some Ws and Ys" option is selected.
+## Here is the reasoning behind the vowel calculations (for soul number) when the "Some Ws and Ys" option is selected.
 Note: more names were assessed than shown here; these lists are representative.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -38,6 +38,14 @@ const About = () => {
 				<h2>Contact</h2>
 				<p>Please get in touch if you have any questions, comments or concerns, or if you'd like to say hi.</p>
 				<p><a href="mailto:numerology@weatherheadonline.com">numerology@weatherheadonline.com</a></p>
+
+				<h2>For web developers</h2>
+				<p>This website was made using React. The github repository can be found here:</p>
+				<p>
+					<ExternalLink url="https://github.com/WeatherheadOnline/Number_tool">
+						github.com/WeatherheadOnline/Number_tool
+					</ExternalLink>
+				</p>
 			</div>
 		</div>
 	)
