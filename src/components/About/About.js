@@ -5,10 +5,6 @@ import ExternalLink from '../ExternalLink/ExternalLink';
 
 const About = () => {
 
-	const closeButton = e => {
-        document.getElementById("about").style.display="none";
-    }
-
 	return (
 		<div id="about">
 			<div className="text-contents">
